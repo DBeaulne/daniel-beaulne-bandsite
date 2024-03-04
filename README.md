@@ -1,3 +1,3 @@
 # BandSite
-# site folder structure initialization
+- site folder structure initialization
 
