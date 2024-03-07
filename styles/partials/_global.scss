@@ -1,0 +1,72 @@
+/* Global site styling  */
+
+@use "./typography";
+@use "./variables";
+@use "./mixin";
+
+/* Initialization */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: typography.$siteFontFamily;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Place-holder classes */
+
+%section-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Global styling */
+/* Nav Bar */
+nav {
+    background-color: variables.$BandSite-Black;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+
+    &__logo{
+        padding: 1rem 0;
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+
+        &--active {
+            width: 100%;
+            border-bottom: 2px solid variables.$White;
+            padding-bottom: 1rem;
+
+            a {
+                color: variables.$White;
+                font-weight: 700;
+            }
+        }
+
+        &--inactive {
+            width: 100%;
+            padding-bottom: 1rem;
+
+            a {
+                color: variables.$Mercury;
+            }
+        }
+    }
+}
+
+
+/* Footer */

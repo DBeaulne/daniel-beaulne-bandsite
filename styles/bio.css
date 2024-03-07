@@ -1,0 +1,91 @@
+/* Biography page styling */
+/* Global site styling  */
+/* Fonts */
+@font-face {
+  font-family: "Avenir-Next";
+  src: url("../../assets/Font/AvenirNextLTPro-Regular.otf") format("opentype"), url("../../assets/Font/Alternative/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Avenir-Next";
+  src: url("../../assets/Font/AvenirNextLTPro-Demi.otf") format("opentype"), url("../../assets/Font/Alternative/AvenirNextLTProDemi.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Avenir-Next";
+  src: url("../../assets/Font/AvenirNextLTPro-Bold.otf") format("opentype"), url("../../assets/Font/Alternative/AvenirNextLTProBold.ttf") format("truetype");
+  font-weight: 700;
+}
+/* Colors */
+/* Used for typography, components, branding and are
+solid @ 100% opacity, unless stated otherwise */
+/* Primary Colors*/
+/* Secondary Colors */
+/* Media Breakpoints */
+/* Mixin */
+/* Initialization */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Avenir-Next";
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Place-holder classes */
+/* Global styling */
+/* Nav Bar */
+nav {
+  background-color: #323232;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+.nav-bar__logo {
+  padding: 1rem 0;
+}
+.nav-bar__menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.nav-bar__menu--active {
+  width: 100%;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 1rem;
+}
+.nav-bar__menu--active a {
+  color: #fff;
+  font-weight: 700;
+}
+.nav-bar__menu--inactive {
+  width: 100%;
+  padding-bottom: 1rem;
+}
+.nav-bar__menu--inactive a {
+  color: #e1e1e1;
+}
+
+/* Footer */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url("../assets/Images/hero-bio.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.hero h1 {
+  color: #fff;
+  font-weight: 700;
+}/*# sourceMappingURL=bio.css.map */

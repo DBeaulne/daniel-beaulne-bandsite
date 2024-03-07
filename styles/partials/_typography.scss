@@ -1,0 +1,131 @@
+/* Fonts */
+
+$siteFontFamily: "Avenir-Next";
+@font-face {
+    font-family: $siteFontFamily;
+    src: url("../../assets/Font/AvenirNextLTPro-Regular.otf") format("opentype"),
+        url("../../assets/Font/Alternative/AvenirNextLTPro.ttf") format("truetype");
+        font-weight: 400;
+}
+
+@font-face {
+    font-family: $siteFontFamily;
+    src: url("../../assets/Font/AvenirNextLTPro-Demi.otf") format("opentype"),
+        url("../../assets/Font/Alternative/AvenirNextLTProDemi.ttf") format("truetype");
+        font-weight: 600;
+}
+
+@font-face {
+    font-family: $siteFontFamily;
+    src: url("../../assets/Font/AvenirNextLTPro-Bold.otf") format("opentype"),
+        url("../../assets/Font/Alternative/AvenirNextLTProBold.ttf") format("truetype");
+        font-weight: 700;
+}
+
+%mobile-page-header {
+    font-family: $siteFontFamily;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+
+%mobile-section-header {
+    @extend %mobile-page-header;
+}
+
+%mobile-subheader {
+    font-family: $siteFontFamily;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 600;
+}
+
+%mobile-body-copy {
+    font-family: $siteFontFamily;
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+}
+
+%mobile-footer-copy {
+    @extend %mobile-body-copy;
+}
+
+%mobile-label {
+    font-family: $siteFontFamily;
+    font-size: 0.625rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+}
+
+%mobile-button {
+    @extend %mobile-label
+}
+
+%tablet-page-header {
+    font-family: $siteFontFamily;
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+    font-weight: 700;
+}
+
+%tablet-section-header {
+    @extend %tablet-page-header;
+}
+
+%tablet-subheader {
+    font-family: $siteFontFamily;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+}
+
+%tablet-body-copy {
+    font-family: $siteFontFamily;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+}
+
+%tablet-footer-copy {
+    @extend %tablet-body-copy;
+}
+
+%tablet-label {
+    font-family: $siteFontFamily;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+}
+
+%tablet-button {
+    @extend %tablet-label;
+}
+
+%desktop-page-header {
+    @extend %tablet-page-header;
+}
+
+%desktop-section-header {
+    @extend %tablet-page-header;
+}
+
+%desktop-subheader {
+    @extend %tablet-subheader;
+}
+
+%desktop-body-copy {
+    @extend %tablet-body-copy;
+}
+
+%desktop-footer-copy {
+    @extend %desktop-body-copy;
+}
+
+%desktop-label {
+    @extend %tablet-label;
+}
+
+%desktop-button {
+    @extend %desktop-label;
+}

@@ -1,0 +1,20 @@
+/* Biography page styling */
+
+@use "./partials/global";
+@use "./partials/variables";
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-image: url("../assets/Images/hero-bio.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+
+    h1 {
+        color: variables.$White;
+        font-weight: 700;
+    }
+}
