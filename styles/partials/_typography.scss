@@ -22,110 +22,114 @@ $siteFontFamily: "Avenir-Next";
         font-weight: 700;
 }
 
-%mobile-page-header {
+@mixin mobile-page-header {
     font-family: $siteFontFamily;
     font-size: 1.5rem;
     line-height: 2rem;
-    font-weight: 700;
 }
 
-%mobile-section-header {
-    @extend %mobile-page-header;
+@mixin mobile-section-header {
+    font-family: $siteFontFamily;
+    font-size: 1.5rem;
+    line-height: 2rem;
 }
 
-%mobile-subheader {
+@mixin mobile-subheader {
     font-family: $siteFontFamily;
     font-size: 0.875rem;
     line-height: 1.375rem;
-    font-weight: 600;
 }
 
-%mobile-body-copy {
+@mixin mobile-body-copy {
     font-family: $siteFontFamily;
     font-size: 0.813rem;
     line-height: 1.125rem;
-    font-weight: 400;
 }
 
-%mobile-footer-copy {
-    @extend %mobile-body-copy;
+@mixin mobile-footer-copy {
+    font-family: $siteFontFamily;
+    font-size: 0.813rem;
+    line-height: 1.125rem;
 }
 
-%mobile-label {
+@mixin mobile-label {
     font-family: $siteFontFamily;
     font-size: 0.625rem;
     line-height: 1.25rem;
-    font-weight: 700;
 }
 
-%mobile-button {
-    @extend %mobile-label
+@mixin mobile-button {
+    font-family: $siteFontFamily;
+    font-size: 0.625rem;
+    line-height: 1.25rem;
 }
 
-%tablet-page-header {
+@mixin tablet-page-header {
     font-family: $siteFontFamily;
     font-size: 3.75rem;
     line-height: 4.25rem;
-    font-weight: 700;
 }
 
-%tablet-section-header {
-    @extend %tablet-page-header;
+@mixin tablet-section-header {
+    font-family: $siteFontFamily;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
 }
 
-%tablet-subheader {
+@mixin tablet-subheader {
     font-family: $siteFontFamily;
     font-size: 1.5rem;
     line-height: 2rem;
-    font-weight: 600;
 }
 
-%tablet-body-copy {
+@mixin tablet-body-copy {
     font-family: $siteFontFamily;
     font-size: 0.875rem;
     line-height: 1.375rem;
-    font-weight: 400;
 }
 
-%tablet-footer-copy {
-    @extend %tablet-body-copy;
+@mixin tablet-footer-copy {
+    font-family: $siteFontFamily;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
 }
 
-%tablet-label {
+@mixin tablet-label {
     font-family: $siteFontFamily;
     font-size: 0.75rem;
     line-height: 1.25rem;
-    font-weight: 700;
 }
 
-%tablet-button {
-    @extend %tablet-label;
+@mixin tablet-button {
+    font-family: $siteFontFamily;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
 }
 
-%desktop-page-header {
-    @extend %tablet-page-header;
+@mixin desktop-page-header {
+    @include tablet-page-header;
 }
 
-%desktop-section-header {
-    @extend %tablet-page-header;
+@mixin desktop-section-header {
+    @include tablet-section-header;
 }
 
-%desktop-subheader {
-    @extend %tablet-subheader;
+@mixin desktop-subheader {
+    @include tablet-subheader;
 }
 
-%desktop-body-copy {
-    @extend %tablet-body-copy;
+@mixin desktop-body-copy {
+    @include tablet-body-copy;
 }
 
-%desktop-footer-copy {
-    @extend %desktop-body-copy;
+@mixin desktop-footer-copy {
+    @include tablet-footer-copy;
 }
 
-%desktop-label {
-    @extend %tablet-label;
+@mixin desktop-label {
+    @include tablet-label;
 }
 
-%desktop-button {
-    @extend %desktop-label;
+@mixin desktop-button {
+    @include tablet-label;
 }

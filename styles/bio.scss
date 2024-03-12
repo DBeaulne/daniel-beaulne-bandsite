@@ -2,19 +2,133 @@
 
 @use "./partials/global";
 @use "./partials/variables";
+@use "./partials/typography";
+@use "./partials/mixin";
 
 .hero {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     background-image: url("../assets/Images/hero-bio.jpg");
+    background-size: cover;
     background-position: center;
-    background-size: contain;
     background-repeat: no-repeat;
-    
+    max-height: 15rem;
 
-    h1 {
-        color: variables.$White;
-        font-weight: 700;
+    @include mixin.tablet {
+        max-height: 25rem;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 1rem;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+
+        @include mixin.tablet {
+            padding-left: 2.25rem;
+            padding-top: 10rem;
+            padding-bottom: 10rem;
+        }
+
+        h1 {
+            @include typography.mobile-page-header;
+            color: variables.$White;
+            font-weight: 600;
+
+            @include mixin.tablet {
+                @include typography.tablet-page-header;
+            }
+        }
+    }
+}
+
+.musicians {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    @include mixin.padding-left-right;
+
+    @include mixin.tablet {
+        padding-top: 3rem;
+    }
+
+    h2 {
+        @include typography.mobile-section-header;
+        font-weight: 600;
+        padding-bottom: 1rem;
+
+        @include mixin.tablet {
+            @include typography.tablet-section-header;
+            padding-bottom: 2.25rem;
+        }
+    }
+    
+    &__concert-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        padding-bottom: 0.5rem;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            @include mixin.padding-left-right;
+        }
+    }
+
+    &__biography {
+
+        h3 {
+            @include typography.mobile-body-copy;
+            font-weight: 600;
+            padding-top: 1rem;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            @include typography.mobile-body-copy;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        &--quote {
+            @include typography.mobile-subheader;
+            font-weight: 600;
+            line-height: 1.5rem;
+        }
+    }
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    background-color: variables.$Alabaster;
+    @include mixin.padding-left-right;
+
+    h2 {
+        @include typography.mobile-section-header;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+    }
+
+    &__images {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 100vw;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
     }
 }

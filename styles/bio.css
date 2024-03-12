@@ -28,15 +28,17 @@ solid @ 100% opacity, unless stated otherwise */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Avenir-Next";
-  font-weight: 400;
 }
 
 a {
   text-decoration: none;
 }
 
-/* Place-holder classes */
+address {
+  font-style: normal;
+}
+
+/* Extensions */
 /* Global styling */
 /* Nav Bar */
 nav {
@@ -49,43 +51,328 @@ nav {
   width: 100%;
   text-align: center;
 }
+@media screen and (min-width: 768px) {
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+  }
+}
 .nav-bar__logo {
   padding: 1rem 0;
 }
-.nav-bar__menu {
+@media screen and (min-width: 768px) {
+  .nav-bar__logo {
+    padding-top: 1.625rem;
+    padding-left: 2.25rem;
+    padding-right: 3rem;
+  }
+  .nav-bar__logo img {
+    height: 1.25rem;
+  }
+}
+.nav-bar__menu-bar {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 100%;
 }
-.nav-bar__menu--active {
-  width: 100%;
-  border-bottom: 2px solid #fff;
-  padding-bottom: 1rem;
+.nav-bar__menu-bar div {
+  padding: 0.5rem 0;
 }
-.nav-bar__menu--active a {
+@media screen and (min-width: 768px) {
+  .nav-bar__menu-bar {
+    width: 30%;
+  }
+  .nav-bar__menu-bar div {
+    padding: 1.325rem 0;
+  }
+}
+.nav-bar__menu-bar--active {
+  width: 100%;
+  border-bottom: 3px solid #fff;
+}
+.nav-bar__menu-bar--active a {
+  font-family: "Avenir-Next";
+  font-size: 0.875rem;
+  line-height: 1.375rem;
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
 }
-.nav-bar__menu--inactive {
+@media screen and (min-width: 768px) {
+  .nav-bar__menu-bar--active a {
+    font-family: "Avenir-Next";
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .nav-bar__menu-bar--active {
+    width: auto;
+    padding-bottom: unset;
+  }
+}
+.nav-bar__menu-bar--inactive {
   width: 100%;
-  padding-bottom: 1rem;
 }
-.nav-bar__menu--inactive a {
+.nav-bar__menu-bar--inactive a {
+  font-family: "Avenir-Next";
+  font-size: 0.875rem;
+  line-height: 1.375rem;
   color: #e1e1e1;
+  font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  .nav-bar__menu-bar--inactive a {
+    font-family: "Avenir-Next";
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .nav-bar__menu-bar--inactive {
+    width: auto;
+    padding-bottom: unset;
+    padding: 1.5rem 0;
+  }
 }
 
 /* Footer */
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #323232;
+  color: #fff;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.footer__title {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+.footer__title h2 {
+  font-family: "Avenir-Next";
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+.footer__socials {
+  display: flex;
+  width: 42%;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+}
+.footer__contact--title {
+  font-family: "Avenir-Next";
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+  font-weight: 600;
+  padding-top: 1.25rem;
+  padding-bottom: 0.5rem;
+}
+.footer__contact--info {
+  font-family: "Avenir-Next";
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.footer__contact--email {
+  font-family: "Avenir-Next";
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.footer__logo {
+  padding-top: 3rem;
+}
+.footer__copywrite {
+  font-family: "Avenir-Next";
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .hero {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   background-image: url("../assets/Images/hero-bio.jpg");
+  background-size: cover;
   background-position: center;
-  background-size: contain;
   background-repeat: no-repeat;
+  max-height: 15rem;
 }
-.hero h1 {
+@media screen and (min-width: 768px) {
+  .hero {
+    max-height: 25rem;
+  }
+}
+.hero__title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 1rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+@media screen and (min-width: 768px) {
+  .hero__title {
+    padding-left: 2.25rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+.hero__title h1 {
+  font-family: "Avenir-Next";
+  font-size: 1.5rem;
+  line-height: 2rem;
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .hero__title h1 {
+    font-family: "Avenir-Next";
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+  }
+}
+
+.musicians {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .musicians {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .musicians {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .musicians {
+    padding-top: 3rem;
+  }
+}
+.musicians h2 {
+  font-family: "Avenir-Next";
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .musicians h2 {
+    font-family: "Avenir-Next";
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    padding-bottom: 2.25rem;
+  }
+}
+.musicians__concert-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-bottom: 0.5rem;
+}
+.musicians__concert-image img {
+  width: 100%;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .musicians__concert-image img {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .musicians__concert-image img {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+.musicians__biography h3 {
+  font-family: "Avenir-Next";
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+  font-weight: 600;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+.musicians__biography p {
+  font-family: "Avenir-Next";
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 400;
+}
+.musicians__biography--quote {
+  font-family: "Avenir-Next";
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #fafafa;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .gallery {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .gallery {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+.gallery h2 {
+  font-family: "Avenir-Next";
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
+.gallery__images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gallery__images img {
+  width: 100vw;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }/*# sourceMappingURL=bio.css.map */
