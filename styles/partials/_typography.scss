@@ -43,7 +43,7 @@ $siteFontFamily: "Avenir-Next";
 @mixin mobile-body-copy {
     font-family: $siteFontFamily;
     font-size: 0.813rem;
-    line-height: 1.125rem;
+    line-height: 1.25rem;
 }
 
 @mixin mobile-footer-copy {

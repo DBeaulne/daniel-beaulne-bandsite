@@ -22,6 +22,7 @@ solid @ 100% opacity, unless stated otherwise */
 /* Primary Colors*/
 /* Secondary Colors */
 /* Media Breakpoints */
+/* Padding */
 /* Mixin */
 /* Initialization */
 * {
@@ -142,12 +143,24 @@ nav {
   flex-direction: column;
   background-color: #323232;
   color: #fff;
+  padding-top: 1.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
+@media screen and (min-width: 768px) {
+  .footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
 .footer__title {
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__title {
+    padding-bottom: unset;
+    padding-right: 3rem;
+  }
 }
 .footer__title h2 {
   font-family: "Avenir-Next";
@@ -155,41 +168,66 @@ nav {
   line-height: 2rem;
   font-weight: 600;
 }
+@media screen and (min-width: 768px) {
+  .footer__title h2 {
+    font-family: "Avenir-Next";
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
+}
 .footer__socials {
   display: flex;
-  width: 42%;
+  width: 38vw;
   justify-content: space-between;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__socials {
+    width: 30vw;
+    height: 2.25rem;
+  }
+}
+.footer__address-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .footer__address-wrapper {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
 }
 .footer__contact {
   display: flex;
   flex-direction: column;
   width: 60vw;
 }
+@media screen and (min-width: 768px) {
+  .footer__contact {
+    width: 30vw;
+  }
+}
 .footer__contact--title {
   font-family: "Avenir-Next";
   font-size: 0.813rem;
   line-height: 1.125rem;
   font-weight: 600;
-  padding-top: 1.25rem;
-  padding-bottom: 0.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
 }
 .footer__contact--info {
   font-family: "Avenir-Next";
   font-size: 0.813rem;
   line-height: 1.125rem;
   font-weight: 400;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  color: #e1e1e1;
 }
 .footer__contact--email {
   font-family: "Avenir-Next";
   font-size: 0.813rem;
   line-height: 1.125rem;
   font-weight: 400;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  color: #e1e1e1;
 }
 .footer__logo {
   padding-top: 3rem;
@@ -199,8 +237,7 @@ nav {
   font-size: 0.625rem;
   line-height: 1.25rem;
   font-weight: 400;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 .hero {
@@ -247,32 +284,31 @@ nav {
   }
 }
 
-.musicians {
+.band {
   display: flex;
   flex-direction: column;
   padding-top: 1.5rem;
-  padding-bottom: 0.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .musicians {
+  .band {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .musicians {
+  .band {
     padding-left: 5rem;
     padding-right: 5rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .musicians {
+  .band {
     padding-top: 3rem;
   }
 }
-.musicians h2 {
+.band h2 {
   font-family: "Avenir-Next";
   font-size: 1.5rem;
   line-height: 2rem;
@@ -280,67 +316,164 @@ nav {
   padding-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .musicians h2 {
+  .band h2 {
     font-family: "Avenir-Next";
     font-size: 2.25rem;
     line-height: 2.75rem;
     padding-bottom: 2.25rem;
   }
 }
-.musicians__concert-image {
+.band__img-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
-  padding-bottom: 0.5rem;
-}
-.musicians__concert-image img {
-  width: 100%;
-  height: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .musicians__concert-image img {
+  .band__img-container {
+    padding-bottom: 2.25rem;
+  }
+}
+.band__img-container--image {
+  width: 100%;
+  height: auto;
+}
+@media screen and (min-width: 768px) {
+  .band__img-container--image {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 768px) {
+  .band__img-container--image {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
 }
-@media screen and (min-width: 1280px) {
-  .musicians__concert-image img {
+@media screen and (min-width: 768px) and (min-width: 1280px) {
+  .band__img-container--image {
     padding-left: 5rem;
     padding-right: 5rem;
   }
 }
-.musicians__biography h3 {
+.band__copydeck h3 {
   font-family: "Avenir-Next";
   font-size: 0.813rem;
-  line-height: 1.125rem;
+  line-height: 1.25rem;
   font-weight: 600;
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
-.musicians__biography p {
-  font-family: "Avenir-Next";
-  font-size: 0.813rem;
-  line-height: 1.125rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-weight: 400;
+@media screen and (min-width: 768px) {
+  .band__copydeck h3 {
+    font-family: "Avenir-Next";
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2.25rem;
+  }
 }
-.musicians__biography--quote {
+@media screen and (min-width: 768px) and (min-width: 768px) {
+  .band__copydeck h3 {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 1280px) {
+  .band__copydeck h3 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+.band__quote-wrapper {
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .band__quote-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2.25rem;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 768px) {
+  .band__quote-wrapper {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 1280px) {
+  .band__quote-wrapper {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+.band__quote-wrapper--quote {
   font-family: "Avenir-Next";
   font-size: 0.875rem;
   line-height: 1.375rem;
   font-weight: 600;
-  line-height: 1.5rem;
+  line-height: 1.625rem;
+}
+@media screen and (min-width: 768px) {
+  .band__quote-wrapper--quote {
+    font-family: "Avenir-Next";
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+  }
+}
+.band__quote-wrapper--atribution {
+  font-family: "Avenir-Next";
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+  line-height: 1.625rem;
+}
+@media screen and (min-width: 768px) {
+  .band__copydeck-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 768px) {
+  .band__copydeck-wrapper {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 1280px) {
+  .band__copydeck-wrapper {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+.band__copydeck-wrapper--bio {
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .band__copydeck-wrapper--bio {
+    width: 39vw;
+  }
+}
+.band__copydeck-wrapper--bio p {
+  font-family: "Avenir-Next";
+  font-size: 0.813rem;
+  line-height: 1.25rem;
+}
+@media screen and (min-width: 768px) {
+  .band__copydeck-wrapper--bio p {
+    font-family: "Avenir-Next";
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
 }
 
 .gallery {
   display: flex;
   flex-direction: column;
   padding-top: 1.5rem;
-  padding-bottom: 0.5rem;
   background-color: #fafafa;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -362,17 +495,28 @@ nav {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 600;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
 .gallery__images {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+@media screen and (min-width: 768px) {
+  .gallery__images {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
 .gallery__images img {
-  width: 100vw;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .gallery__images img {
+    width: 27vw;
+    height: auto;
+    padding-bottom: 2.25rem;
+  }
 }/*# sourceMappingURL=bio.css.map */

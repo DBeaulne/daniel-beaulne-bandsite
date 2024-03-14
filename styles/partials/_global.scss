@@ -120,24 +120,52 @@ nav {
     flex-direction: column;
     background-color: variables.$BandSite-Black;
     color: variables.$White;
+    padding-top: variables.$mobile-before-hdlines;
     padding-left: 1rem;
     padding-right: 1rem;
 
+    @include mixin.tablet {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
     &__title {
-        padding-top: 1rem;
-        padding-bottom: 0.5rem;
+        padding-bottom: variables.$mobile-btw-component;
+
+        @include mixin.tablet {
+            padding-bottom: unset;
+            padding-right: 3rem;
+        }
 
         h2 {
             @include typography.mobile-section-header;
             font-weight: 600;
+
+            @include mixin.tablet {
+                @include typography.tablet-section-header;
+            }
         }
     }
 
     &__socials {
         display: flex;
-        width: 42%;
+        width: 38vw;
         justify-content: space-between;
-        @include mixin.div-padding;
+
+        @include mixin.tablet {
+            width: 30vw;
+            height: 2.25rem;
+        }
+    }
+
+    &__address-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        @include mixin.tablet {
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
     }
 
     &__contact {
@@ -145,23 +173,28 @@ nav {
         flex-direction: column;
         width: 60vw;
 
+        @include mixin.tablet {
+            width: 30vw;
+        }
+
         &--title {
             @include typography.mobile-footer-copy;
             font-weight: 600;
-            padding-top: 1.25rem;
-            padding-bottom: 0.5rem;
+            padding-top: variables.$mobile-before-hdlines;
+            padding-bottom: variables.$mobile-btw-component;
         }
 
         &--info {
             @include typography.mobile-footer-copy;
             font-weight: 400;
-            @include mixin.div-padding;
+            padding-bottom: variables.$mobile-btw-component;
+            color: variables.$Mercury;
         }
 
         &--email {
             @include typography.mobile-footer-copy;
             font-weight: 400;
-            @include mixin.div-padding;
+            color: variables.$Mercury;
         }
     }
 
@@ -172,6 +205,6 @@ nav {
     &__copywrite {
         @include typography.mobile-label;
         font-weight: 400;
-        @include mixin.div-padding;
+        padding-bottom: variables.$mobile-btw-component;
     }
 }
