@@ -79,7 +79,6 @@
     padding-top: variables.$mobile-before-hdlines;
     @include mixin.padding-left-right;
 
-
     @include mixin.tablet {
         padding-top: variables.$tablet-before-hdlines;
     }
@@ -250,6 +249,11 @@
     @include mixin.tablet {
         @include mixin.padding-left-right;
         padding-top: variables.$tablet-before-hdlines;
+        padding-bottom: 1.25rem;
+    }
+
+    @include mixin.desktop {
+        padding-bottom: unset;
     }
 
     &__title {
@@ -301,6 +305,11 @@
         &--img {
             width: 100%;
             padding-bottom: variables.$mobile-btw-component;
+            filter: grayscale(100%);
+
+            &:hover {
+                filter: grayscale(0%);
+            }
 
             img {
                 width: 100%;

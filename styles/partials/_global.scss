@@ -215,20 +215,6 @@ nav {
         }
     }
 
-    &__logo-tablet {
-        display: none;
-
-        @include mixin.tablet {
-            display: flex;
-            width: 31%;
-            justify-content: flex-end;
-        }
-
-        @include mixin.desktop {
-            width: 50%;
-        }
-    }
-
     &__address-wrapper {
         display: flex;
         flex-direction: column;
@@ -289,7 +275,11 @@ nav {
         &-email {
             @include typography.mobile-footer-copy;
             font-weight: 400;
-            color: variables.$Silver;
+
+            a {
+                text-decoration: unset;
+                color: variables.$Silver;
+            }
 
             @include mixin.tablet {
                 @include typography.tablet-footer-copy;
@@ -299,10 +289,27 @@ nav {
     }
 
     &__logo {
-        padding-top: 2.25rem;
 
-        @include mixin.tablet {
+        &--mobile{
+            padding-top: 2.25rem;
+
+            @include mixin.tablet {
+                display: none;
+            }
+        }
+
+        &--tablet {
             display: none;
+    
+            @include mixin.tablet {
+                display: flex;
+                width: 31%;
+                justify-content: flex-end;
+            }
+    
+            @include mixin.desktop {
+                width: 50%;
+            }
         }
 
     }
