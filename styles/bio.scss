@@ -1,0 +1,329 @@
+/* Biography page styling */
+
+@use "./partials/global";
+@use "./partials/variables";
+@use "./partials/typography";
+@use "./partials/mixin";
+
+.hero {
+    display: flex;
+    position: relative;
+    width: 100vw;
+    height: 55vw;
+
+
+    @include mixin.tablet {
+        height: 50vw;
+    }
+
+    @include mixin.desktop {
+        height: 50vw;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 55vw;
+        background-image: url("../assets/Images/hero-bio.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        filter: brightness(50%);
+
+        @include mixin.tablet {
+            height: 50vw;
+        }
+    }
+
+    &__title {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 1rem;
+
+        @include mixin.tablet {
+            padding-left: 2.25rem;
+            padding-top: 10rem;
+            padding-bottom: 10rem;
+        }
+
+        @include mixin.desktop {
+            padding-left: 5rem;
+        }
+
+        h1 {
+            @include typography.mobile-page-header;
+            color: variables.$White;
+            font-weight: 600;
+
+            @include mixin.tablet {
+                @include typography.tablet-page-header;
+            }
+
+            @include mixin.desktop {
+                padding-left: 2.25rem;
+            }
+        }
+    }
+}
+
+.band {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: variables.$mobile-before-hdlines;
+    @include mixin.padding-left-right;
+
+    @include mixin.tablet {
+        padding-top: variables.$tablet-before-hdlines;
+    }
+
+    h2 {
+        @include typography.mobile-section-header;
+        font-weight: 600;
+        padding-bottom: variables.$mobile-after-hdlines;
+
+        @include mixin.tablet {
+            @include typography.tablet-section-header;
+            padding-bottom: variables.$tablet-after-hdlines;
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+
+        @include mixin.desktop {
+            padding-left: 2.25rem;
+        }
+    }
+    
+    &__img-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: variables.$mobile-btw-component;
+
+        @include mixin.tablet {
+            padding-left: 3.5rem;
+            padding-right: 3.5rem;
+            padding-bottom: variables.$tablet-btw-component;
+        }
+
+        @include mixin.desktop {
+            padding-left: 6rem;
+            padding-right: 6rem;
+        }
+        
+        &--image {
+            width: 100%;
+            aspect-ratio: 16/9;
+
+            @include mixin.desktop {
+                padding-left: 2.25rem;
+                padding-right: 2.25rem;
+            }
+        }
+    }
+
+    &__copydeck {
+
+        width: 100%;
+
+        @include mixin.tablet {
+            padding-left: 3.5rem;
+            padding-right: 3.5rem;
+        }
+
+        @include mixin.desktop {
+            padding-left: 6rem;
+            padding-right: 6rem;
+        }
+
+        h3 {
+            @include typography.mobile-body-copy;
+            font-weight: 600;
+            padding-bottom: variables.$mobile-btw-component;
+
+            @include mixin.tablet {
+                @include typography.tablet-subheader;
+                padding-bottom: variables.$mobile-btw-component;
+            }
+
+            @include mixin.desktop {
+                padding-left: 2.25rem;
+                padding-right: 2.25rem;
+            }
+        }
+    }
+
+    &__quote-wrapper {
+        padding-bottom: variables.$mobile-btw-component;
+        width: 100%;
+
+        @include mixin.tablet{
+            padding-bottom: variables.$tablet-btw-component;
+        }
+
+        @include mixin.desktop{
+            padding-bottom: variables.$tablet-btw-component;
+            padding-left: 2.25rem;
+            padding-right: 2.25rem;
+        }
+
+        &--quote {
+            @include typography.mobile-subheader;
+            font-weight: 600;
+            line-height: 1.625rem;
+
+            @include mixin.tablet {
+                @include typography.tablet-subheader;
+                font-weight: 600;
+            }
+        }
+
+        &--atribution {
+                @include typography.mobile-subheader;
+                font-weight: 600;
+                line-height: 1.625rem;
+        }
+    }
+
+    &__copydeck-wrapper {
+
+        width: 100%;
+
+        @include mixin.tablet {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @include mixin.desktop {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 2.25rem;
+            padding-right: 2.25rem;
+        }
+
+        &--bio {
+        padding-bottom: variables.$mobile-btw-component;
+        width: 100%;
+
+            @include mixin.tablet {
+                width: 48%;
+            }
+
+            @include mixin.desktop {
+                width: 48%;
+            }
+
+            p {
+                @include typography.mobile-body-copy;
+
+                @include mixin.tablet {
+                    @include typography.tablet-body-copy;
+                }
+
+                @include mixin.desktop {
+                    @include typography.tablet-body-copy;
+                }
+            }
+        }
+    }
+
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    padding-top: variables.$mobile-before-hdlines;
+    background-color: variables.$Alabaster;
+    @include mixin.padding-left-right;
+
+    @include mixin.tablet {
+        @include mixin.padding-left-right;
+        padding-top: variables.$tablet-before-hdlines;
+        padding-bottom: 1.25rem;
+    }
+
+    @include mixin.desktop {
+        padding-bottom: unset;
+    }
+
+    &__title {
+
+        h2 {
+            @include typography.mobile-section-header;
+            font-weight: 600;
+            padding-bottom: variables.$mobile-btw-component;
+    
+            @include mixin.tablet {
+                @include typography.tablet-section-header;
+                font-weight: 600;
+                padding-bottom: variables.$tablet-btw-component;
+            }
+
+            @include mixin.desktop {
+                @include typography.tablet-section-header;
+                font-weight: 600;
+                padding-bottom: variables.$tablet-btw-component;
+            }
+        }
+
+        @include mixin.desktop {
+            padding-left: 2.25rem;
+        }
+    }
+
+
+
+    &__images {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include mixin.tablet {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        @include mixin.desktop {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-left: 2.25rem;
+            padding-right: 2.25rem;
+        }
+
+        &--img {
+            width: 100%;
+            padding-bottom: variables.$mobile-btw-component;
+            filter: grayscale(100%);
+
+            &:hover {
+                filter: grayscale(0%);
+            }
+
+            img {
+                width: 100%;
+            }
+
+            @include mixin.tablet {
+                width: 31%;
+                padding-bottom: variables.$mobile-btw-component;
+            }
+
+            @include mixin.desktop {
+                width: 31%;
+                padding-bottom: variables.$tablet-btw-component;
+            }
+        }
+    }
+}

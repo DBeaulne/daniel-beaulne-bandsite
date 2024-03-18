@@ -1,0 +1,28 @@
+/* Colors */
+/* Used for typography, components, branding and are
+solid @ 100% opacity, unless stated otherwise */
+
+/* Primary Colors*/ 
+$BandSite-Black: #323232; // Primary text color for dark on light background.
+$Silver: #afafaf; // Secondary text color. Inactive CTS text color
+$White: #fff; // Primary text color for light on dark background. Light background color. Active CTA text color
+
+/* Secondary Colors */
+$BandSite-DarkBlack: #000; // CTA hover state
+$Mercury: #e1e1e1; // Divider line. Form field outline
+$Alabaster: #fafafa; // Alternative light background color
+
+/* Media Breakpoints */
+$mobile-breakpoint: 767px;
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+
+
+/* Padding */
+$mobile-btw-component: 1rem;
+$mobile-after-hdlines: 1rem;
+$mobile-before-hdlines: 1.5rem;
+
+$tablet-btw-component: 2.25rem;
+$tablet-after-hdlines: 2.25rem;
+$tablet-before-hdlines: 3rem;
