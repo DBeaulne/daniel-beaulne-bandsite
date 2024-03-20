@@ -10,6 +10,10 @@
     position: relative;
     width: 100vw;
     height: 55vw;
+    background-image: url("../assets/Images/hero-bio.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 
 
     @include mixin.tablet {
@@ -20,18 +24,14 @@
         height: 50vw;
     }
 
-    &::before {
-        content: "";
+    &__overlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100vw;
         height: 55vw;
-        background-image: url("../assets/Images/hero-bio.jpg");
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        filter: brightness(50%);
+        background-color: variables.$BandSite-Black;
+        opacity: 50%;
 
         @include mixin.tablet {
             height: 50vw;

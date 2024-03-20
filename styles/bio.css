@@ -390,6 +390,10 @@ nav {
   position: relative;
   width: 100vw;
   height: 55vw;
+  background-image: url("../assets/Images/hero-bio.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 @media screen and (min-width: 768px) {
   .hero {
@@ -401,21 +405,17 @@ nav {
     height: 50vw;
   }
 }
-.hero::before {
-  content: "";
+.hero__overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 55vw;
-  background-image: url("../assets/Images/hero-bio.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  filter: brightness(50%);
+  background-color: #323232;
+  opacity: 50%;
 }
 @media screen and (min-width: 768px) {
-  .hero::before {
+  .hero__overlay {
     height: 50vw;
   }
 }
