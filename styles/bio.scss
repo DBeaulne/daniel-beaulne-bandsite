@@ -5,6 +5,34 @@
 @use "./partials/typography";
 @use "./partials/mixin";
 
+/* Extensions */
+.section-initial-styling {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: variables.$mobile-before-hdlines;
+    @include mixin.padding-left-right;
+}
+
+.section-title {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.section-h2 {
+    @include typography.mobile-section-header;
+    font-weight: 600;
+    padding-bottom: variables.$mobile-after-hdlines;
+}
+
+.section-tablet-h2 {
+    @include typography.tablet-section-header;
+    padding-bottom: variables.$tablet-after-hdlines;
+}
+
+/* page styling */
 .hero {
     display: flex;
     position: relative;
@@ -72,35 +100,25 @@
 }
 
 .band {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-top: variables.$mobile-before-hdlines;
-    @include mixin.padding-left-right;
+    @extend .section-initial-styling;
 
     @include mixin.tablet {
         padding-top: variables.$tablet-before-hdlines;
     }
 
-    h2 {
-        @include typography.mobile-section-header;
-        font-weight: 600;
-        padding-bottom: variables.$mobile-after-hdlines;
-
-        @include mixin.tablet {
-            @include typography.tablet-section-header;
-            padding-bottom: variables.$tablet-after-hdlines;
-        }
-    }
-
     &__title {
-        display: flex;
-        align-items: flex-start;
-        width: 100%;
+        @extend .section-title;
 
         @include mixin.desktop {
             padding-left: 2.25rem;
+        }
+
+        h2 {
+            @extend .section-h2;
+    
+            @include mixin.tablet {
+                @extend .section-tablet-h2;
+            }
         }
     }
     
@@ -240,14 +258,10 @@
 }
 
 .gallery {
-    display: flex;
-    flex-direction: column;
-    padding-top: variables.$mobile-before-hdlines;
+    @extend .section-initial-styling;
     background-color: variables.$Alabaster;
-    @include mixin.padding-left-right;
 
     @include mixin.tablet {
-        @include mixin.padding-left-right;
         padding-top: variables.$tablet-before-hdlines;
         padding-bottom: 1.25rem;
     }
@@ -257,22 +271,13 @@
     }
 
     &__title {
+        @extend .section-title;
 
         h2 {
-            @include typography.mobile-section-header;
-            font-weight: 600;
-            padding-bottom: variables.$mobile-btw-component;
+            @extend .section-h2;
     
             @include mixin.tablet {
-                @include typography.tablet-section-header;
-                font-weight: 600;
-                padding-bottom: variables.$tablet-btw-component;
-            }
-
-            @include mixin.desktop {
-                @include typography.tablet-section-header;
-                font-weight: 600;
-                padding-bottom: variables.$tablet-btw-component;
+                @extend .section-tablet-h2;
             }
         }
 
@@ -280,8 +285,6 @@
             padding-left: 2.25rem;
         }
     }
-
-
 
     &__images {
         display: flex;
@@ -323,6 +326,22 @@
             @include mixin.desktop {
                 width: 31%;
                 padding-bottom: variables.$tablet-btw-component;
+            }
+        }
+    }
+}
+
+.comments {
+    @extend .section-initial-styling;
+
+    &__title {
+        @extend .section-title;
+
+        h2 {
+            @extend .section-h2;
+
+            @include mixin.tablet {
+                @extend .section-tablet-h2;
             }
         }
     }
