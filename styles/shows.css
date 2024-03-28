@@ -289,7 +289,7 @@ nav {
   font-weight: 600;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
-  color: #afafaf;
+  color: #fff;
 }
 @media screen and (min-width: 768px) {
   .footer__contact-title {
@@ -307,7 +307,7 @@ nav {
   line-height: 1.125rem;
   font-weight: 400;
   padding-bottom: 1rem;
-  color: #afafaf;
+  color: #fff;
 }
 @media screen and (min-width: 768px) {
   .footer__contact-info {
@@ -326,7 +326,7 @@ nav {
 }
 .footer__contact-email a {
   text-decoration: unset;
-  color: #afafaf;
+  color: #fff;
 }
 @media screen and (min-width: 768px) {
   .footer__contact-email {
@@ -366,7 +366,7 @@ nav {
   font-weight: 400;
   padding-top: 1rem;
   width: 100%;
-  color: #afafaf;
+  color: #fff;
 }
 @media screen and (min-width: 768px) {
   .footer__copywrite {
