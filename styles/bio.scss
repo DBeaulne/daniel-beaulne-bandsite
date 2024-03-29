@@ -1,439 +1,507 @@
 /* Biography page styling */
 
-@use "./partials/global";
-@use "./partials/variables";
-@use "./partials/typography";
-@use "./partials/mixin";
+@use './partials/global';
+@use './partials/variables';
+@use './partials/typography';
+@use './partials/mixin';
 
 /* Extensions */
 .section-initial-styling {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-top: variables.$mobile-before-hdlines;
-    @include mixin.padding-left-right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: variables.$mobile-before-hdlines;
+  @include mixin.padding-left-right;
 }
 
 .section-title {
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .section-h2 {
-    @include typography.mobile-section-header;
-    font-weight: 600;
-    padding-bottom: variables.$mobile-after-hdlines;
-    color: variables.$BandSite-Black;
+  @include typography.mobile-section-header;
+  font-weight: 600;
+  padding-bottom: variables.$mobile-after-hdlines;
+  color: variables.$BandSite-Black;
+}
+
+@mixin avatar-ext {
+  display: flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-top: 1.25rem;
+  position: relative;
+}
+
+@mixin avatar-image {
+  background-color: variables.$Mercury;
+  background-image: url('../assets/Images/Mohan-muruge.jpg');
+  background-size: cover;
+  background-position: 25% 50%;
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  position: absolute;
+
+  @include mixin.tablet {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 /* page styling */
 .hero {
-    display: flex;
-    position: relative;
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: 55vw;
+  background-image: url('../assets/Images/hero-bio.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  @include mixin.tablet {
+    height: 50vw;
+  }
+
+  @include mixin.desktop {
+    height: 50vw;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 55vw;
-    background-image: url("../assets/Images/hero-bio.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+    background-color: variables.$BandSite-Black;
+    opacity: 50%;
 
     @include mixin.tablet {
-        height: 50vw;
+      height: 50vw;
+    }
+  }
+
+  &__title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 1rem;
+
+    @include mixin.tablet {
+      padding-left: 2.25rem;
+      padding-top: 10rem;
+      padding-bottom: 10rem;
     }
 
     @include mixin.desktop {
-        height: 50vw;
+      padding-left: 5rem;
     }
 
-    &__overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 55vw;
-        background-color: variables.$BandSite-Black;
-        opacity: 50%;
+    h1 {
+      @include typography.mobile-page-header;
+      color: variables.$White;
+      font-weight: 600;
 
-        @include mixin.tablet {
-            height: 50vw;
-        }
+      @include mixin.tablet {
+        @include typography.tablet-page-header;
+      }
+
+      @include mixin.desktop {
+        padding-left: 2.25rem;
+      }
     }
-
-    &__title {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding-left: 1rem;
-
-        @include mixin.tablet {
-            padding-left: 2.25rem;
-            padding-top: 10rem;
-            padding-bottom: 10rem;
-        }
-
-        @include mixin.desktop {
-            padding-left: 5rem;
-        }
-
-        h1 {
-            @include typography.mobile-page-header;
-            color: variables.$White;
-            font-weight: 600;
-
-            @include mixin.tablet {
-                @include typography.tablet-page-header;
-            }
-
-            @include mixin.desktop {
-                padding-left: 2.25rem;
-            }
-        }
-    }
+  }
 }
 
 .band {
-    @extend .section-initial-styling;
+  @extend .section-initial-styling;
+
+  @include mixin.tablet {
+    padding-top: variables.$tablet-before-hdlines;
+  }
+
+  &__title {
+    @extend .section-title;
+
+    @include mixin.desktop {
+      padding-left: 2.25rem;
+    }
+
+    h2 {
+      @extend .section-h2;
+
+      @include mixin.tablet {
+        @include typography.tablet-section-header;
+        padding-bottom: variables.$tablet-after-hdlines;
+      }
+    }
+  }
+
+  &__img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: variables.$mobile-btw-component;
 
     @include mixin.tablet {
-        padding-top: variables.$tablet-before-hdlines;
-    }
-
-    &__title {
-        @extend .section-title;
-
-        @include mixin.desktop {
-            padding-left: 2.25rem;
-        }
-
-        h2 {
-            @extend .section-h2;
-
-            @include mixin.tablet {
-                @include typography.tablet-section-header;
-                padding-bottom: variables.$tablet-after-hdlines;
-            }
-        }
-    }
-
-    &__img-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: variables.$mobile-btw-component;
-
-        @include mixin.tablet {
-            padding-left: 3.5rem;
-            padding-right: 3.5rem;
-            padding-bottom: variables.$tablet-btw-component;
-        }
-
-        @include mixin.desktop {
-            padding-left: 6rem;
-            padding-right: 6rem;
-        }
-
-        &--image {
-            width: 100%;
-            aspect-ratio: 16/9;
-
-            @include mixin.desktop {
-                padding-left: 2.25rem;
-                padding-right: 2.25rem;
-            }
-        }
-    }
-
-    &__copydeck {
-        width: 100%;
-
-        @include mixin.tablet {
-            padding-left: 3.5rem;
-            padding-right: 3.5rem;
-        }
-
-        @include mixin.desktop {
-            padding-left: 6rem;
-            padding-right: 6rem;
-        }
-
-        h3 {
-            @include typography.mobile-body-copy;
-            font-weight: 600;
-            padding-bottom: variables.$mobile-btw-component;
-
-            @include mixin.tablet {
-                @include typography.tablet-subheader;
-                padding-bottom: variables.$mobile-btw-component;
-            }
-
-            @include mixin.desktop {
-                padding-left: 2.25rem;
-                padding-right: 2.25rem;
-            }
-        }
-    }
-
-    &__quote-wrapper {
-        padding-bottom: variables.$mobile-btw-component;
-        width: 100%;
-
-        @include mixin.tablet {
-            padding-bottom: variables.$tablet-btw-component;
-        }
-
-        @include mixin.desktop {
-            padding-bottom: variables.$tablet-btw-component;
-            padding-left: 2.25rem;
-            padding-right: 2.25rem;
-        }
-
-        &--quote {
-            @include typography.mobile-subheader;
-            font-weight: 600;
-            line-height: 1.625rem;
-            color: variables.$BandSite-Black;
-
-            @include mixin.tablet {
-                @include typography.tablet-subheader;
-                font-weight: 600;
-            }
-        }
-
-        &--atribution {
-            @include typography.mobile-subheader;
-            font-weight: 600;
-            line-height: 1.625rem;
-        }
-    }
-
-    &__copydeck-wrapper {
-        width: 100%;
-
-        @include mixin.tablet {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        @include mixin.desktop {
-            display: flex;
-            justify-content: space-between;
-            padding-left: 2.25rem;
-            padding-right: 2.25rem;
-        }
-
-        &--bio {
-            padding-bottom: variables.$mobile-btw-component;
-            width: 100%;
-
-            @include mixin.tablet {
-                width: 48%;
-            }
-
-            @include mixin.desktop {
-                width: 48%;
-            }
-
-            p {
-                @include typography.mobile-body-copy;
-                color: variables.$BandSite-Black;
-
-                @include mixin.tablet {
-                    @include typography.tablet-body-copy;
-                }
-
-                @include mixin.desktop {
-                    @include typography.tablet-body-copy;
-                }
-            }
-        }
-    }
-}
-
-.gallery {
-    @extend .section-initial-styling;
-    background-color: variables.$Alabaster;
-
-    @include mixin.tablet {
-        padding-top: variables.$tablet-before-hdlines;
-        padding-bottom: 1.25rem;
+      padding-left: 3.5rem;
+      padding-right: 3.5rem;
+      padding-bottom: variables.$tablet-btw-component;
     }
 
     @include mixin.desktop {
-        padding-bottom: unset;
+      padding-left: 6rem;
+      padding-right: 6rem;
     }
 
-    &__title {
-        @extend .section-title;
+    &--image {
+      width: 100%;
+      aspect-ratio: 16/9;
 
-        h2 {
-            @extend .section-h2;
+      @include mixin.desktop {
+        padding-left: 2.25rem;
+        padding-right: 2.25rem;
+      }
+    }
+  }
 
-            @include mixin.tablet {
-                @include typography.tablet-section-header;
-                padding-bottom: variables.$tablet-after-hdlines;
-            }
-        }
+  &__copydeck {
+    width: 100%;
 
-        @include mixin.desktop {
-            padding-left: 2.25rem;
-        }
+    @include mixin.tablet {
+      padding-left: 3.5rem;
+      padding-right: 3.5rem;
     }
 
-    &__images {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    @include mixin.desktop {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+
+    h3 {
+      @include typography.mobile-body-copy;
+      font-weight: 600;
+      padding-bottom: variables.$mobile-btw-component;
+
+      @include mixin.tablet {
+        @include typography.tablet-subheader;
+        padding-bottom: variables.$mobile-btw-component;
+      }
+
+      @include mixin.desktop {
+        padding-left: 2.25rem;
+        padding-right: 2.25rem;
+      }
+    }
+  }
+
+  &__quote-wrapper {
+    padding-bottom: variables.$mobile-btw-component;
+    width: 100%;
+
+    @include mixin.tablet {
+      padding-bottom: variables.$tablet-btw-component;
+    }
+
+    @include mixin.desktop {
+      padding-bottom: variables.$tablet-btw-component;
+      padding-left: 2.25rem;
+      padding-right: 2.25rem;
+    }
+
+    &--quote {
+      @include typography.mobile-subheader;
+      font-weight: 600;
+      line-height: 1.625rem;
+      color: variables.$BandSite-Black;
+
+      @include mixin.tablet {
+        @include typography.tablet-subheader;
+        font-weight: 600;
+      }
+    }
+
+    &--atribution {
+      @include typography.mobile-subheader;
+      font-weight: 600;
+      line-height: 1.625rem;
+    }
+  }
+
+  &__copydeck-wrapper {
+    width: 100%;
+
+    @include mixin.tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include mixin.desktop {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 2.25rem;
+      padding-right: 2.25rem;
+    }
+
+    &--bio {
+      padding-bottom: variables.$mobile-btw-component;
+      width: 100%;
+
+      @include mixin.tablet {
+        width: 48%;
+      }
+
+      @include mixin.desktop {
+        width: 48%;
+      }
+
+      p {
+        @include typography.mobile-body-copy;
+        color: variables.$BandSite-Black;
 
         @include mixin.tablet {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
+          @include typography.tablet-body-copy;
         }
 
         @include mixin.desktop {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding-left: 2.25rem;
-            padding-right: 2.25rem;
+          @include typography.tablet-body-copy;
         }
-
-        &--img {
-            width: 100%;
-            padding-bottom: variables.$mobile-btw-component;
-            filter: grayscale(100%);
-
-            &:hover {
-                filter: grayscale(0%);
-            }
-
-            img {
-                width: 100%;
-            }
-
-            @include mixin.tablet {
-                width: 31%;
-                padding-bottom: variables.$mobile-btw-component;
-            }
-
-            @include mixin.desktop {
-                width: 31%;
-                padding-bottom: variables.$tablet-btw-component;
-            }
-        }
+      }
     }
+  }
+}
+
+.gallery {
+  @extend .section-initial-styling;
+  background-color: variables.$Alabaster;
+
+  @include mixin.tablet {
+    padding-top: variables.$tablet-before-hdlines;
+    padding-bottom: 1.25rem;
+  }
+
+  @include mixin.desktop {
+    padding-bottom: unset;
+  }
+
+  &__title {
+    @extend .section-title;
+
+    h2 {
+      @extend .section-h2;
+
+      @include mixin.tablet {
+        @include typography.tablet-section-header;
+        padding-bottom: variables.$tablet-after-hdlines;
+      }
+    }
+
+    @include mixin.desktop {
+      padding-left: 2.25rem;
+    }
+  }
+
+  &__images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include mixin.tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    @include mixin.desktop {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-left: 2.25rem;
+      padding-right: 2.25rem;
+    }
+
+    &--img {
+      width: 100%;
+      padding-bottom: variables.$mobile-btw-component;
+      filter: grayscale(100%);
+
+      &:hover {
+        filter: grayscale(0%);
+      }
+
+      img {
+        width: 100%;
+      }
+
+      @include mixin.tablet {
+        width: 31%;
+        padding-bottom: variables.$mobile-btw-component;
+      }
+
+      @include mixin.desktop {
+        width: 31%;
+        padding-bottom: variables.$tablet-btw-component;
+      }
+    }
+  }
 }
 
 .comments {
-    @extend .section-initial-styling;
+  @extend .section-initial-styling;
 
-    &__title {
-        @extend .section-title;
+  &__title {
+    @extend .section-title;
 
-        h2 {
-            @extend .section-h2;
+    h2 {
+      @extend .section-h2;
 
-            @include mixin.tablet {
-                @include typography.tablet-section-header;
-                padding-bottom: variables.$tablet-after-hdlines;
-            }
-        }
+      @include mixin.tablet {
+        @include typography.tablet-section-header;
+        padding-bottom: variables.$tablet-after-hdlines;
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+  }
+
+  &__avatar {
+    @include avatar-ext;
+
+    &--avatar-img {
+      @include avatar-image;
+    }
+  }
+
+  &__form-label {
+    @include typography.mobile-label;
+    line-height: 1rem;
+    text-transform: uppercase;
+    color: variables.$Silver;
+  }
+
+  &__form-input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    padding-left: 0.75rem;
+
+    &--fullname,
+    &--comment {
+      min-height: 2.25rem;
+      border: 1px solid variables.$Mercury;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+      padding: 0.75rem;
+      @include typography.mobile-body-copy;
+      font-weight: 400;
+      color: variables.$BandSite-Black;
+
+      &:active {
+        border: 1px solid variables.$BandSite-Black;
+      }
     }
 
-    &__form {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-        padding-top: 0.75rem;
+    &--comment {
+      min-height: 2.25rem;
+      max-height: 8rem;
     }
 
-    &__avatar {
-        display: flex;
-        width: 2.25em;
-        height: 2.25em;
-
-        &--avatar-img {
-            background-color: variables.$Mercury;
-            border-radius: 50%;
-            width: 2.25em;
-            height: 2.25em;
-            object-fit: cover;
-            object-position: 25% 50%;
-            margin-top: 0.75rem;
-
-            @include mixin.tablet {
-                width: 3rem;
-                height: 3rem;
-            }
-        }
+    .submit {
+      margin-top: 0.75rem;
     }
+  }
 
-    &__form-label {
-        @include typography.mobile-label;
-        text-transform: uppercase;
-        color: variables.$Silver;
+  &__btn {
+    height: 2.5rem;
+    width: 100%;
+    background-color: variables.$BandSite-Black;
+    color: variables.$White;
+    border-radius: 4px;
+    border-width: 0;
+    text-transform: uppercase;
+    border-style: none;
+
+    @include mixin.tablet {
+      width: 9.375rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
+  }
+}
 
-    &__form-input {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        width: 100%;
-        margin-left: 0.75rem;
+.past-comments {
+  @extend .section-initial-styling;
+  padding-top: 0;
 
-        &--fullname,
-        &--comment {
-            min-height: 2.25rem;
-            border: 1px solid variables.$Mercury;
-            border-radius: 4px;
-            margin-bottom: 0.75rem;
-            padding: 0.75rem;
-            @include typography.mobile-body-copy;
-            font-weight: 400;
-            color: variables.$BandSite-Black;
+  &__container {
+    display: flex;
+    flex-direction: row;
+  }
 
-            &:active {
-                border: 1px solid variables.$BandSite-Black;
-            }
-        }
+  &__avatar {
+    @include avatar-ext;
+    margin: unset;
 
-        &--comment {
-            min-height: 2.25rem;
-            max-height: 8rem;
-        }
-
-        .submit {
-            margin-top: 0.75rem;
-        }
+    &--avatar-img {
+      @include avatar-image;
+      background-image: url('');
     }
+  }
 
-    &__btn {
-        height: 2.5rem;
-        width: 100%;
-        background-color: variables.$BandSite-Black;
-        color: variables.$White;
-        border-radius: 4px;
-        border-width: 0;
-        text-transform: uppercase;
-        border-style: none;
+  &__user {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 1rem;
 
-        @include mixin.tablet {
-            width: 9.375rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
+    h3,
+    p {
+      @include typography.mobile-body-copy;
+      font-weight: 400;
     }
+  }
 
-    &__divider {
-        width: 100%;
-        border-bottom: 1px solid variables.$Mercury;
-        padding: 1rem 0;
-        margin: 1rem 0;
-        overflow: visible;
+  &__user-info {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    color: variables.$BandSite-Black;
+  }
+
+  &__user-name {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  &__timestamp {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    color: variables.$Silver;
+  }
+
+  &__user-comment {
+    padding-top: 0.5rem;
+
+    p {
+      line-height: 1rem;
+      font-weight: 400s;
     }
+  }
 }

@@ -124,6 +124,12 @@ nav {
     }
 }
 
+.divider {
+    width: 100%;
+    border-bottom: 1px solid variables.$Mercury;
+    margin: 1rem 0;
+}
+
 /* Footer */
 .footer {
     position: relative;
