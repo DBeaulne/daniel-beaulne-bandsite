@@ -45,9 +45,6 @@ const createComment = comment => {
 
   const commentAvatarImg = document.createElement('span');
   commentAvatarImg.classList.add('past-comments__avatar--avatar-img');
-  if ((comment.avatar_present = false)) {
-    commentAvatarImg.style.backgroundImage = url('');
-  }
 
   const commentUser = document.createElement('div');
   commentUser.classList.add('past-comments__user');
@@ -86,4 +83,7 @@ const createComment = comment => {
   return commentContainer;
 };
 
-const commentSection = document.querySelector('#new-comments');
+for (const c of comments) {
+  const commentSection = document.querySelector('#previous-comments');
+  commentSection.append(createComment(c));
+}
