@@ -1,9 +1,15 @@
 /* Index Page Javascript */
 // Object declaration
-let comment = {
+/* let comment = {
   username: 'username', // User's Full Name
   timestamp: 'mm/dd/year', // date of comment
   comment: 'comment-text', // comment text
+}; */
+
+const Comment = function (username, timestamp, comment) {
+  this.username = username;
+  this.timestamp = timestamp;
+  this.comment = comment;
 };
 
 let comments = [
@@ -31,10 +37,9 @@ let comments = [
 const commentForm = document.getElementById('commentForm');
 commentForm.addEventListener('submit', e => {
   e.preventDefault();
-  const fullnameInputVal = e.target.username.value;
-  const commentInputVal = e.target.comment.value;
-  console.log(fullnameInputVal);
-  console.log(commentInputVal);
+  const newComment = new Comment(e.target.username.value, '03/31/2024', e.target.comment.value);
+  comments.splice(0, 0, newComment);
+  populateComments();
 });
 
 // Function to create any element and attach a class to it
@@ -76,8 +81,12 @@ const createComment = comment => {
   return commentContainer;
 };
 
-for (const c of comments) {
-  const commentSection = document.querySelector('#previous-comments');
-  commentSection.append(createComment(c));
-  commentSection.append(makeElement('div', 'divider'));
-}
+const populateComments = () => {
+  for (const c of comments) {
+    const commentSection = document.querySelector('#previous-comments');
+    commentSection.append(createComment(c));
+    commentSection.append(makeElement('div', 'divider'));
+  }
+};
+window.onload = populateComments;
+//document.addEventListener('load', populateComments);

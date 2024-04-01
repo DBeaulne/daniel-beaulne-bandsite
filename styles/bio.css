@@ -849,6 +849,7 @@ nav {
 .past-comments__container {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 .past-comments__avatar {
   display: flex;
