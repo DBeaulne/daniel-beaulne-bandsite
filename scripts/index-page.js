@@ -39,6 +39,7 @@ commentForm.addEventListener('submit', e => {
   e.preventDefault();
   const newComment = new Comment(e.target.username.value, '03/31/2024', e.target.comment.value);
   comments.splice(0, 0, newComment);
+  removeComments();
   populateComments();
 });
 
@@ -81,6 +82,15 @@ const createComment = comment => {
   return commentContainer;
 };
 
+const removeComments = () => {
+  const parent = document.querySelectorAll('.past-comments__containter');
+  console.log(parent);
+
+  const nodeToRemove = document.querySelector('.past-comments__containter');
+  console.log(nodeToRemove);
+  //parent.removeChild(nodeToRemove);
+};
+
 const populateComments = () => {
   for (const c of comments) {
     const commentSection = document.querySelector('#previous-comments');
@@ -88,5 +98,6 @@ const populateComments = () => {
     commentSection.append(makeElement('div', 'divider'));
   }
 };
+
 window.onload = populateComments;
 //document.addEventListener('load', populateComments);
