@@ -83,11 +83,12 @@ const createComment = comment => {
 };
 
 const removeComments = () => {
-  const parent = document.querySelectorAll('.past-comments__containter');
+  const parent = document.getElementById('previous-comments');
   console.log(parent);
+  parent.innerHTML = '';
 
-  const nodeToRemove = document.querySelector('.past-comments__containter');
-  console.log(nodeToRemove);
+  //const nodeToRemove = document.querySelector('.past-comments__container');
+  //console.log(nodeToRemove);
   //parent.removeChild(nodeToRemove);
 };
 
