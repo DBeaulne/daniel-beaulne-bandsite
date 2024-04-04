@@ -23,7 +23,7 @@ solid @ 100% opacity, unless stated otherwise */
 /* Secondary Colors */
 /* Media Breakpoints */
 /* Padding */
-/* Mixin */
+/* Mixins */
 /* Initialization */
 * {
   margin: 0;
@@ -157,6 +157,16 @@ nav {
   width: 100%;
   border-bottom: 1px solid #e1e1e1;
   margin: 1rem 0;
+}
+@media screen and (min-width: 768px) {
+  .divider {
+    width: 80vw;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .divider {
+    width: 40vw;
+  }
 }
 
 /* Footer */

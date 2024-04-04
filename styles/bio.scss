@@ -19,6 +19,10 @@
   display: flex;
   align-items: flex-start;
   width: 100%;
+
+  @include mixin.desktop {
+    padding-left: 2.25rem;
+  }
 }
 
 .section-h2 {
@@ -28,12 +32,20 @@
   color: variables.$BandSite-Black;
 }
 
+// bio mixin's
+
 @mixin avatar-ext {
   display: flex;
   width: 2.25rem;
   height: 2.25rem;
   margin-top: 1.25rem;
+  margin-right: 1rem;
   position: relative;
+
+  @include mixin.tablet {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 @mixin avatar-image {
@@ -373,6 +385,14 @@
     width: 100%;
     justify-content: space-between;
     padding-top: 0.75rem;
+
+    @include mixin.tablet {
+      @include mixin.vwWidthTablet;
+    }
+
+    @include mixin.desktop {
+      @include mixin.vwWdithDesktop;
+    }
   }
 
   &__avatar {
@@ -396,7 +416,6 @@
     flex-direction: column;
     justify-content: flex-end;
     width: 100%;
-    padding-left: 0.75rem;
 
     &--fullname,
     &--comment {
@@ -408,6 +427,7 @@
       @include typography.mobile-body-copy;
       font-weight: 400;
       color: variables.$BandSite-Black;
+      background-color: variables.$Alabaster;
 
       &:active {
         border: 1px solid variables.$BandSite-Black;
@@ -450,11 +470,19 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+
+    @include mixin.tablet {
+      @include mixin.vwWidthTablet;
+    }
+
+    @include mixin.desktop {
+      @include mixin.vwWdithDesktop;
+    }
   }
 
   &__avatar {
     @include avatar-ext;
-    margin: unset;
+    margin-top: unset;
 
     &--avatar-img {
       @include avatar-image;
@@ -466,7 +494,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-left: 1rem;
 
     h3,
     p {
