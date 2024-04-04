@@ -33,16 +33,6 @@ let comments = [
   },
 ];
 
-// Function to submit the comment
-const commentForm = document.getElementById('commentForm');
-commentForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const newComment = new Comment(e.target.username.value, '03/31/2024', e.target.comment.value);
-  comments.splice(0, 0, newComment);
-  removeComments();
-  populateComments();
-});
-
 // Function to create any element and attach a class to it
 const makeElement = (elem, className) => {
   const element = document.createElement(elem);
@@ -82,14 +72,13 @@ const createComment = comment => {
   return commentContainer;
 };
 
-const removeComments = () => {
+const removeComments = e => {
   const parent = document.getElementById('previous-comments');
-  console.log(parent);
   parent.innerHTML = '';
-
-  //const nodeToRemove = document.querySelector('.past-comments__container');
-  //console.log(nodeToRemove);
-  //parent.removeChild(nodeToRemove);
+  const inputFullName = document.getElementsByTagName('input');
+  inputFullName.username.value = '';
+  const inputTextArea = document.getElementsByTagName('textarea');
+  inputTextArea.comment.value = '';
 };
 
 const populateComments = () => {
@@ -100,5 +89,15 @@ const populateComments = () => {
   }
 };
 
+// Function to submit the comment
+const commentForm = document.getElementById('commentForm');
+commentForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const newComment = new Comment(e.target.username.value, e.timeStamp, e.target.comment.value);
+  console.log(e.timeStamp);
+  comments.splice(0, 0, newComment);
+  removeComments();
+  populateComments();
+});
+
 window.onload = populateComments;
-//document.addEventListener('load', populateComments);
