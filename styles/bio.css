@@ -153,6 +153,80 @@ nav {
   }
 }
 
+/* Hero Section*/
+.hero {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: 55vw;
+  background-image: url("../assets/Images/hero-bio.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    height: 50vw;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero {
+    height: 50vw;
+  }
+}
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 55vw;
+  background-color: #323232;
+  opacity: 50%;
+}
+@media screen and (min-width: 768px) {
+  .hero__overlay {
+    height: 50vw;
+  }
+}
+.hero__title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .hero__title {
+    padding-left: 2.25rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__title {
+    padding-left: 5rem;
+  }
+}
+.hero__title h1 {
+  font-family: "Avenir-Next";
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #fff;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .hero__title h1 {
+    font-family: "Avenir-Next";
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__title h1 {
+    padding-left: 2.25rem;
+  }
+}
+
 .divider {
   width: 100%;
   border-bottom: 1px solid #e1e1e1;
@@ -445,79 +519,6 @@ nav {
 }
 
 /* page styling */
-.hero {
-  display: flex;
-  position: relative;
-  width: 100vw;
-  height: 55vw;
-  background-image: url("../assets/Images/hero-bio.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-@media screen and (min-width: 768px) {
-  .hero {
-    height: 50vw;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .hero {
-    height: 50vw;
-  }
-}
-.hero__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 55vw;
-  background-color: #323232;
-  opacity: 50%;
-}
-@media screen and (min-width: 768px) {
-  .hero__overlay {
-    height: 50vw;
-  }
-}
-.hero__title {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 1rem;
-}
-@media screen and (min-width: 768px) {
-  .hero__title {
-    padding-left: 2.25rem;
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .hero__title {
-    padding-left: 5rem;
-  }
-}
-.hero__title h1 {
-  font-family: "Avenir-Next";
-  font-size: 1.5rem;
-  line-height: 2rem;
-  color: #fff;
-  font-weight: 600;
-}
-@media screen and (min-width: 768px) {
-  .hero__title h1 {
-    font-family: "Avenir-Next";
-    font-size: 3.75rem;
-    line-height: 4.25rem;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .hero__title h1 {
-    padding-left: 2.25rem;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .band {
     padding-top: 3rem;
@@ -961,5 +962,5 @@ nav {
 }
 .past-comments__user-comment p {
   line-height: 1rem;
-  font-weight: 400s;
+  font-weight: 400;
 }/*# sourceMappingURL=bio.css.map */
