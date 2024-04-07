@@ -859,6 +859,9 @@ nav {
   margin-top: 0.75rem;
 }
 .comments__btn {
+  font-family: "Avenir-Next";
+  font-size: 0.625rem;
+  line-height: 1.25rem;
   height: 2.5rem;
   width: 100%;
   background-color: #323232;
@@ -870,6 +873,9 @@ nav {
 }
 @media screen and (min-width: 768px) {
   .comments__btn {
+    font-family: "Avenir-Next";
+    font-size: 0.75rem;
+    line-height: 1.25rem;
     width: 9.375rem;
     padding-left: 2rem;
     padding-right: 2rem;
