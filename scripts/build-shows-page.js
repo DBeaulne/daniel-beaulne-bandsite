@@ -12,7 +12,7 @@ let showDates = [
 ]
 */
 
-let showDates = [
+const showDates = [
   {
     date: 'Mon Sept 09 2024',
     venue: 'Ronald Lane',
@@ -55,64 +55,73 @@ const makeElement = (elem, className) => {
 const createShowDates = dates => {
   // create the ShowDates table for mobile breakpoint
   // create elements
-  const showContainer = makeElement('div', 'shows__container');
-  const showTitle = makeElement('div', 'shows__title');
-  const showTitleH2 = makeElement('h2');
-  const showDateLabel = makeElement('div', 'shows__label');
-  const showVenueLabel = makeElement('div', 'shows__label');
-  const showLocationLabel = makeElement('div', 'shows__label');
+  const showContainerElm = document.querySelector('.shows__container');
+  const showdateContainerElm = makeElement('div', 'showdates');
 
-  const showLabelPtag = makeElement('p');
+  const showDateLabelElm = makeElement('div', 'showdates__label');
+  const showVenueLabelElm = makeElement('div', 'showdates__label');
+  const showLocationLabelElm = makeElement('div', 'showdates__label');
 
-  const showDateData = makeElement('div', 'shows_data');
-  const showVenueData = makeElement('div', 'shows_data');
-  const showLocationData = makeElement('div', 'shows_data');
+  const showDateLabelPtag = document.createElement('p');
+  const showVenueLabelPtag = document.createElement('p');
+  const showLocationLabelPtag = document.createElement('p');
 
-  const showDate = makeElement('p', 'shows__data--date');
-  const showVenue = makeElement('p', 'shows__data--venue');
-  const showLocation = makeElement('p', 'shows__data--location');
+  const showDateData = makeElement('div', 'showdates__data');
+  const showVenueData = makeElement('div', 'showdates__data');
+  const showLocationData = makeElement('div', 'showdates__data');
+
+  const showDate = makeElement('p', 'showdates__data--date');
+  const showVenue = makeElement('p', 'showdates__data--venue');
+  const showLocation = makeElement('p', 'showdates__data--location');
   const buyTicketsBtn = makeElement('button', 'shows__btn');
 
   // Build component
-  showContainer.appendChild(showTitle);
-  showTitle.appendChild(showTitleH2);
-  showTitleH2.innerText = 'Shows';
+  showContainerElm.appendChild(showdateContainerElm);
+  showdateContainerElm.appendChild(showDateLabelElm);
+  showDateLabelElm.appendChild(showDateLabelPtag);
+  showDateLabelPtag.innerText = 'date';
 
-  showContainer.appendChild(showLabel);
-  showLabel.appendChild(showLabelPtag);
-  showLabelPtag.innerText = 'date';
-
-  showContainer.appendChild(showData);
-  showData.appendChild(showDate);
+  showdateContainerElm.appendChild(showDateData);
+  showDateData.appendChild(showDate);
   showDate.innerText = dates.date;
 
-  /*   showContainer.appendChild(showLabel);
-  showLabel.appendChild(showLabelPtag);
-  showLabelPtag.innerText = 'venue';
+  showdateContainerElm.appendChild(showVenueLabelElm);
+  showVenueLabelElm.appendChild(showVenueLabelPtag);
+  showVenueLabelPtag.innerText = 'venue';
 
-  showContainer.appendChild(showData);
-  showData.appendChild(showVenue);
-  showDate.innerText = dates.venue; */
+  showdateContainerElm.appendChild(showVenueData);
+  showVenueData.appendChild(showVenue);
+  showVenue.innerText = dates.venue;
 
-  /*   showContainer.appendChild(showLabel);
-  showLabel.appendChild(showLabelPtag);
-  showLabelPtag.innerText = 'location';
+  showdateContainerElm.appendChild(showLocationLabelElm);
+  showLocationLabelElm.appendChild(showLocationLabelPtag);
+  showLocationLabelPtag.innerText = 'location';
 
-  showContainer.appendChild(showData);
-  showData.appendChild(showLocation);
-  showDate.innerText = dates.location; */
+  showdateContainerElm.appendChild(showLocationData);
+  showLocationData.appendChild(showLocation);
+  showLocation.innerText = dates.location;
 
-  showContainer.appendChild(buyTicketsBtn);
+  showdateContainerElm.appendChild(buyTicketsBtn);
   buyTicketsBtn.innerText = 'buy tickets';
 
-  return showContainer;
+  showContainerElm.append(makeElement('div', 'divider'));
+
+  return showContainerElm;
 };
 
 const populateDates = () => {
+  const showDatesSection = document.querySelector('#upcoming-shows');
+  const showContainerElm = makeElement('div', 'shows__container');
+  const containerTitleElm = makeElement('div', 'shows__title');
+  const containerTitleElmH2 = document.createElement('h2');
+
+  showDatesSection.appendChild(showContainerElm);
+  showContainerElm.appendChild(containerTitleElm);
+  containerTitleElm.appendChild(containerTitleElmH2);
+  containerTitleElmH2.innerText = 'Shows';
+
   for (const d of showDates) {
-    const showDatesSection = document.querySelector('#upcoming-shows');
     showDatesSection.append(createShowDates(d));
-    showDatesSection.append(makeElement('div', 'divider'));
   }
 };
 
