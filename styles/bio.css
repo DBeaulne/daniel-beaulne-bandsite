@@ -873,6 +873,11 @@ nav {
 }
 @media screen and (min-width: 768px) {
   .comments__btn {
+    width: unset;
+  }
+}
+@media screen and (min-width: 768px) {
+  .comments__btn {
     font-family: "Avenir-Next";
     font-size: 0.75rem;
     line-height: 1.25rem;

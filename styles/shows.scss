@@ -32,55 +32,20 @@
   color: variables.$BandSite-Black;
 }
 
-.shows {
+.mobile {
   @extend .section-initial-styling;
   background-color: variables.$White;
+  display: flex;
+  align-items: flex-start;
 
   @include mixin.tablet {
-    padding-top: variables.$tablet-before-hdlines;
-    padding-bottom: 1.25rem;
-  }
-
-  @include mixin.desktop {
-    padding-bottom: unset;
+    display: none;
   }
 
   &__container {
     width: 100%;
     display: flex;
     flex-direction: column;
-  }
-
-  h2 {
-    @extend .section-h2;
-
-    @include mixin.tablet {
-      @include typography.tablet-section-header;
-      padding-bottom: variables.$tablet-after-hdlines;
-    }
-  }
-
-  &__btn {
-    @include typography.tablet-button;
-    @include mixin.button;
-
-    @include mixin.tablet {
-      @include typography.tablet-button;
-      width: 9.375rem;
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-  }
-}
-
-.showdates {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-
-  &__title {
-    @extend .section-title;
   }
 
   &__label {
@@ -100,5 +65,107 @@
     &--date {
       font-weight: 600;
     }
+  }
+
+  h2 {
+    @extend .section-h2;
+  }
+}
+
+.tablet {
+  // this class is hidden on mobile devices
+  display: flex;
+  @extend .section-initial-styling;
+  background-color: variables.$White;
+  padding-top: variables.$tablet-before-hdlines;
+  padding-bottom: 1.25rem;
+  flex-direction: column;
+  position: relative;
+
+  @include mixin.desktop {
+    padding-bottom: unset;
+    flex-direction: row;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    @include mixin.desktop {
+      justify-content: flex-start;
+    }
+  }
+
+  &__showdates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    @include mixin.desktop {
+    }
+  }
+
+  &__showdates-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__label {
+    color: variables.$Silver;
+    text-transform: uppercase;
+    @include typography.mobile-label;
+    font-weight: 400;
+    width: 25%;
+  }
+
+  &__showdates-labels {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  &__info {
+    @include typography.mobile-subheader;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: variables.$BandSite-Black;
+    width: 25%;
+
+    &--date {
+      font-weight: 600;
+    }
+  }
+
+  &__cta {
+    display: flex;
+    justify-content: flex-end;
+    width: 25%;
+  }
+
+  h2 {
+    @extend .section-h2;
+    @include typography.tablet-section-header;
+    padding-bottom: variables.$tablet-after-hdlines;
+  }
+
+  @include mixin.mobile {
+    display: none;
+  }
+}
+
+.cta-btn {
+  @include typography.tablet-button;
+  @include mixin.button;
+
+  @include mixin.tablet {
+    width: 9.375rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

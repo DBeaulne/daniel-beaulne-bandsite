@@ -52,4 +52,8 @@
   border-width: 0;
   text-transform: uppercase;
   border-style: none;
+
+  @include tablet {
+    width: unset;
+  }
 }
