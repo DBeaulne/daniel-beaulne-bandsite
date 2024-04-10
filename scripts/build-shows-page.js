@@ -52,7 +52,18 @@ const makeElement = (elem, className) => {
   return element;
 };
 
-const createShowDates = dates => {
+const clearShowDates = () => {
+  const parent = document.getElementById('upcoming-shows');
+  parent.innerHTML = '';
+};
+
+const createTabletShowDates = date => {
+  // create the ShowDates table for tablet breakpoint
+  // create elements
+  const showContainerElm = document.querySelector('.shows__container');
+};
+
+const createMobileShowDates = dates => {
   // create the ShowDates table for mobile breakpoint
   // create elements
   const showContainerElm = document.querySelector('.shows__container');
@@ -109,8 +120,8 @@ const createShowDates = dates => {
   return showContainerElm;
 };
 
-const populateDates = () => {
-  const showDatesSection = document.querySelector('#upcoming-shows');
+const showdatesMobile = () => {
+  const showDatesSection = document.querySelector('.shows');
   const showContainerElm = makeElement('div', 'shows__container');
   const containerTitleElm = makeElement('div', 'shows__title');
   const containerTitleElmH2 = document.createElement('h2');
@@ -121,8 +132,8 @@ const populateDates = () => {
   containerTitleElmH2.innerText = 'Shows';
 
   for (const d of showDates) {
-    showDatesSection.append(createShowDates(d));
+    showDatesSection.append(createMobileShowDates(d));
   }
 };
 
-window.onload = populateDates;
+window.onload = showdatesMobile;

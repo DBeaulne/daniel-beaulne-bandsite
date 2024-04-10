@@ -72,7 +72,7 @@ const createComment = comment => {
   return commentContainer;
 };
 
-const removeComments = e => {
+const removeComments = () => {
   const parent = document.getElementById('previous-comments');
   parent.innerHTML = '';
   const inputFullName = document.getElementsByTagName('input');
