@@ -39,6 +39,29 @@ address {
   font-style: normal;
 }
 
+/* Extensions */
+.section-initial-styling, .mobile, .tablet, .hero__shows-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .section-initial-styling, .mobile, .tablet, .hero__shows-content {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .section-initial-styling, .mobile, .tablet, .hero__shows-content {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
 /* Global styling */
 /* Nav Bar */
 nav {
@@ -173,6 +196,12 @@ nav {
     height: 50vw;
   }
 }
+.hero__music-sample {
+  display: flex;
+  width: 100%;
+  height: 40%;
+  max-height: 7rem;
+}
 .hero__index-overlay {
   position: absolute;
   top: 0;
@@ -188,18 +217,14 @@ nav {
   }
 }
 .hero__shows-overlay {
+  display: flex;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 55vw;
+  width: inherit;
+  height: inherit;
   background-color: #323232;
   opacity: 50%;
-}
-@media screen and (min-width: 768px) {
-  .hero__shows-overlay {
-    height: 50vw;
-  }
 }
 .hero__index-title {
   position: relative;
@@ -239,13 +264,24 @@ nav {
     padding-left: 2.25rem;
   }
 }
+.hero__album-title {
+  width: 66%;
+  padding-bottom: 1rem;
+}
+.hero__song-title {
+  width: 75%;
+  max-width: 15rem;
+  padding-bottom: 1rem;
+}
+.hero__shows-content {
+  z-index: 1;
+}
 .hero__shows-title {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: flex-start;
-  padding-left: 1rem;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .hero__shows-title {
@@ -261,20 +297,39 @@ nav {
 }
 .hero__shows-title h1 {
   font-family: "Avenir-Next";
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  color: #fff;
+  font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  .hero__shows-title h1 {
+    font-family: "Avenir-Next";
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__shows-title h1 {
+    padding-left: 2.25rem;
+  }
+}
+.hero__shows-title h2 {
+  font-family: "Avenir-Next";
   font-size: 1.5rem;
   line-height: 2rem;
   color: #fff;
   font-weight: 600;
 }
 @media screen and (min-width: 768px) {
-  .hero__shows-title h1 {
+  .hero__shows-title h2 {
     font-family: "Avenir-Next";
     font-size: 3.75rem;
     line-height: 4.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .hero__shows-title h1 {
+  .hero__shows-title h2 {
     padding-left: 2.25rem;
   }
 }
@@ -515,6 +570,12 @@ nav {
     line-height: 1.375rem;
     padding-top: 3rem;
   }
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 /* Extensions */

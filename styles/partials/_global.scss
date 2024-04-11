@@ -19,6 +19,16 @@ address {
   font-style: normal;
 }
 
+/* Extensions */
+.section-initial-styling {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: variables.$mobile-before-hdlines;
+  @include mixin.padding-left-right;
+}
+
 /* Global styling */
 /* Nav Bar */
 nav {
@@ -142,6 +152,13 @@ nav {
     height: 50vw;
   }
 
+  &__music-sample {
+    display: flex;
+    width: 100%;
+    height: 40%;
+    max-height: 7rem;
+  }
+
   &__index-overlay {
     position: absolute;
     top: 0;
@@ -157,17 +174,14 @@ nav {
   }
 
   &__shows-overlay {
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 55vw;
+    width: inherit;
+    height: inherit;
     background-color: variables.$BandSite-Black;
     opacity: 50%;
-
-    @include mixin.tablet {
-      height: 50vw;
-    }
   }
 
   &__index-title {
@@ -202,13 +216,28 @@ nav {
     }
   }
 
+  &__album-title {
+    width: 66%;
+    padding-bottom: 1rem;
+  }
+
+  &__song-title {
+    width: 75%;
+    max-width: 15rem;
+    padding-bottom: 1rem;
+  }
+
+  &__shows-content {
+    @extend .section-initial-styling;
+    z-index: 1;
+  }
+
   &__shows-title {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
-    padding-left: 1rem;
+    width: 100%;
 
     @include mixin.tablet {
       padding-left: 2.25rem;
@@ -221,6 +250,20 @@ nav {
     }
 
     h1 {
+      @include typography.mobile-subheader;
+      color: variables.$White;
+      font-weight: 400;
+
+      @include mixin.tablet {
+        @include typography.tablet-subheader;
+      }
+
+      @include mixin.desktop {
+        padding-left: 2.25rem;
+      }
+    }
+
+    h2 {
       @include typography.mobile-page-header;
       color: variables.$White;
       font-weight: 600;
@@ -445,4 +488,10 @@ nav {
       padding-top: variables.$tablet-before-hdlines;
     }
   }
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
