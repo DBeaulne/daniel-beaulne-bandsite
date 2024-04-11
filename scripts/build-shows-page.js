@@ -208,5 +208,13 @@ const showdatesMobile = () => {
   }
 };
 
+const heroImage = url => {
+  // a function to display the desired image for the hero section of the page
+  const heroSection = document.querySelector('.hero');
+  const showsHeroSectionImgUrl = url;
+  heroSection.style.backgroundImage = 'url(' + showsHeroSectionImgUrl + ')';
+};
+
+heroImage('../assets/Images/hero-shows.jpg');
 showdatesTablet();
 showdatesMobile();

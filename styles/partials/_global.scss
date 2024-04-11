@@ -62,7 +62,6 @@ nav {
 
   &__menu-bar {
     display: flex;
-    align-items: center;
     justify-content: space-evenly;
     width: 100%;
 
@@ -130,7 +129,7 @@ nav {
   position: relative;
   width: 100vw;
   height: 55vw;
-  background-image: url('../assets/Images/hero-bio.jpg');
+  background-image: '';
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -143,7 +142,7 @@ nav {
     height: 50vw;
   }
 
-  &__overlay {
+  &__index-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -157,10 +156,57 @@ nav {
     }
   }
 
-  &__title {
+  &__shows-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 55vw;
+    background-color: variables.$BandSite-Black;
+    opacity: 50%;
+
+    @include mixin.tablet {
+      height: 50vw;
+    }
+  }
+
+  &__index-title {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    padding-left: 1rem;
+
+    @include mixin.tablet {
+      padding-left: 2.25rem;
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+    }
+
+    @include mixin.desktop {
+      padding-left: 5rem;
+    }
+
+    h1 {
+      @include typography.mobile-page-header;
+      color: variables.$White;
+      font-weight: 600;
+
+      @include mixin.tablet {
+        @include typography.tablet-page-header;
+      }
+
+      @include mixin.desktop {
+        padding-left: 2.25rem;
+      }
+    }
+  }
+
+  &__shows-title {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: flex-start;
     padding-left: 1rem;
 
@@ -194,14 +240,6 @@ nav {
   width: 100%;
   border-bottom: 1px solid variables.$Mercury;
   margin: 1rem 0;
-
-  @include mixin.tablet {
-    @include mixin.vwWidthTablet;
-  }
-
-  @include mixin.desktop {
-    @include mixin.vwWdithDesktop;
-  }
 }
 
 /* Footer */

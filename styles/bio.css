@@ -84,7 +84,6 @@ nav {
 }
 .nav-bar__menu-bar {
   display: flex;
-  align-items: center;
   justify-content: space-evenly;
   width: 100%;
 }
@@ -159,7 +158,7 @@ nav {
   position: relative;
   width: 100vw;
   height: 55vw;
-  background-image: url("../assets/Images/hero-bio.jpg");
+  background-image: "";
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -174,7 +173,7 @@ nav {
     height: 50vw;
   }
 }
-.hero__overlay {
+.hero__index-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -184,11 +183,25 @@ nav {
   opacity: 50%;
 }
 @media screen and (min-width: 768px) {
-  .hero__overlay {
+  .hero__index-overlay {
     height: 50vw;
   }
 }
-.hero__title {
+.hero__shows-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 55vw;
+  background-color: #323232;
+  opacity: 50%;
+}
+@media screen and (min-width: 768px) {
+  .hero__shows-overlay {
+    height: 50vw;
+  }
+}
+.hero__index-title {
   position: relative;
   display: flex;
   align-items: center;
@@ -196,18 +209,18 @@ nav {
   padding-left: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .hero__title {
+  .hero__index-title {
     padding-left: 2.25rem;
     padding-top: 10rem;
     padding-bottom: 10rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .hero__title {
+  .hero__index-title {
     padding-left: 5rem;
   }
 }
-.hero__title h1 {
+.hero__index-title h1 {
   font-family: "Avenir-Next";
   font-size: 1.5rem;
   line-height: 2rem;
@@ -215,14 +228,53 @@ nav {
   font-weight: 600;
 }
 @media screen and (min-width: 768px) {
-  .hero__title h1 {
+  .hero__index-title h1 {
     font-family: "Avenir-Next";
     font-size: 3.75rem;
     line-height: 4.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .hero__title h1 {
+  .hero__index-title h1 {
+    padding-left: 2.25rem;
+  }
+}
+.hero__shows-title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .hero__shows-title {
+    padding-left: 2.25rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__shows-title {
+    padding-left: 5rem;
+  }
+}
+.hero__shows-title h1 {
+  font-family: "Avenir-Next";
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #fff;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .hero__shows-title h1 {
+    font-family: "Avenir-Next";
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__shows-title h1 {
     padding-left: 2.25rem;
   }
 }
@@ -231,16 +283,6 @@ nav {
   width: 100%;
   border-bottom: 1px solid #e1e1e1;
   margin: 1rem 0;
-}
-@media screen and (min-width: 768px) {
-  .divider {
-    width: 80vw;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .divider {
-    width: 40vw;
-  }
 }
 
 /* Footer */
