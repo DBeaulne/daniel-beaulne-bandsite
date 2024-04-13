@@ -217,6 +217,6 @@ const heroImage = url => {
 
 heroImage('../assets/Images/hero-shows.jpg');
 const heroSection = document.querySelector('.hero');
-heroSection.style.height = '75vw';
+// heroSection.style.height = '75vw';
 showdatesTablet();
 showdatesMobile();

@@ -181,6 +181,7 @@ nav {
   position: relative;
   width: 100vw;
   height: 55vw;
+  min-height: 17rem;
   background-image: "";
   background-size: cover;
   background-position: center center;
@@ -196,11 +197,15 @@ nav {
     height: 50vw;
   }
 }
-.hero__music-sample {
+.hero iframe {
   display: flex;
   width: 100%;
-  height: 40%;
+  height: 30vw;
   max-height: 7rem;
+}
+.hero__music-player {
+  display: flex;
+  width: 100%;
 }
 .hero__index-overlay {
   position: absolute;
@@ -223,6 +228,7 @@ nav {
   left: 0;
   width: inherit;
   height: inherit;
+  min-height: inherit;
   background-color: #323232;
   opacity: 50%;
 }
@@ -275,6 +281,13 @@ nav {
 }
 .hero__shows-content {
   z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: inherit;
+  min-height: inherit;
+  justify-content: space-evenly;
+  padding-bottom: 1rem;
 }
 .hero__shows-title {
   position: relative;
@@ -570,12 +583,6 @@ nav {
     line-height: 1.375rem;
     padding-top: 3rem;
   }
-}
-
-iframe {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
 }
 
 /* Extensions */
