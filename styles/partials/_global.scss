@@ -146,11 +146,11 @@ nav {
   background-repeat: no-repeat;
 
   @include mixin.tablet {
-    height: 50vw;
+    height: 70vw;
   }
 
   @include mixin.desktop {
-    height: 50vw;
+    height: 60vw;
   }
 
   iframe {
@@ -158,11 +158,24 @@ nav {
     width: 100%;
     height: 30vw;
     max-height: 7rem;
+
+    @include mixin.tablet {
+      max-height: 8rem;
+    }
   }
 
   &__music-player {
     display: flex;
     width: 100%;
+
+    @include mixin.tablet {
+      width: 60%;
+    }
+
+    @include mixin.desktop {
+      width: 40%;
+      padding-left: 2rem;
+    }
   }
 
   &__index-overlay {
@@ -229,9 +242,18 @@ nav {
   }
 
   &__song-title {
-    width: 75%;
+    width: 75vw;
     max-width: 15rem;
     padding-bottom: 1rem;
+
+    @include mixin.tablet {
+      max-width: unset;
+    }
+
+    @include mixin.desktop {
+      max-width: 90%;
+      padding-bottom: 2rem;
+    }
   }
 
   &__shows-content {
@@ -244,6 +266,21 @@ nav {
     min-height: inherit;
     justify-content: space-evenly;
     padding-bottom: 1rem;
+
+    @include mixin.tablet {
+      align-items: flex-start;
+    }
+
+    @include mixin.desktop {
+      flex-wrap: wrap;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 10rem;
+      padding-left: 7rem;
+      padding-right: 7rem;
+      padding-bottom: 10rem;
+    }
   }
 
   &__shows-title {
@@ -253,14 +290,8 @@ nav {
     justify-content: flex-start;
     width: 100%;
 
-    @include mixin.tablet {
-      padding-left: 2.25rem;
-      padding-top: 10rem;
-      padding-bottom: 10rem;
-    }
-
     @include mixin.desktop {
-      padding-left: 5rem;
+      width: 50%;
     }
 
     h1 {
@@ -271,10 +302,6 @@ nav {
       @include mixin.tablet {
         @include typography.tablet-subheader;
       }
-
-      @include mixin.desktop {
-        padding-left: 2.25rem;
-      }
     }
 
     h2 {
@@ -284,10 +311,6 @@ nav {
 
       @include mixin.tablet {
         @include typography.tablet-page-header;
-      }
-
-      @include mixin.desktop {
-        padding-left: 2.25rem;
       }
     }
   }
