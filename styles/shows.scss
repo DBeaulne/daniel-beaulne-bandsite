@@ -48,6 +48,18 @@
     flex-direction: column;
   }
 
+  h2 {
+    @extend .section-h2;
+  }
+}
+
+.mShowdates {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
   &__label {
     color: variables.$Silver;
     text-transform: uppercase;
@@ -66,10 +78,6 @@
       font-weight: 600;
     }
   }
-
-  h2 {
-    @extend .section-h2;
-  }
 }
 
 .tablet {
@@ -80,11 +88,10 @@
   padding-right: 1rem;
   background-color: variables.$White;
   padding-top: variables.$tablet-before-hdlines;
-  padding-bottom: 1.25rem;
+  padding-bottom: variables.$tablet-before-hdlines;
   flex-direction: column;
 
   @include mixin.desktop {
-    padding-bottom: unset;
     flex-direction: row;
     align-items: flex-start;
   }
@@ -97,7 +104,7 @@
 
     @include mixin.desktop {
       justify-content: flex-start;
-      width: 25%;
+      width: 30%;
       padding-left: 6.25rem;
     }
   }
@@ -119,8 +126,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+
+    &:hover {
+      background-color: variables.$Alabaster;
+    }
   }
 
   &__label {

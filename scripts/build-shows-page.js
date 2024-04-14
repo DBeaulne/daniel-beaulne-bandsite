@@ -12,12 +12,6 @@ let showDates = [
 ]
 */
 
-const ShowDates = function (date, venue, location) {
-  this.date = date;
-  this.venue = venue;
-  this.location = location;
-};
-
 let showDates = [
   {
     date: 'Mon Sept 09 2024',
@@ -139,23 +133,23 @@ const createMobileShowDates = dates => {
   // create elements
 
   const showContainerElm = document.querySelector('.mobile__container');
-  const showdateContainerElm = makeElement('div', 'mobile');
+  const showdateContainerElm = makeElement('div', 'mShowdates');
 
-  const showDateLabelElm = makeElement('div', 'mobile__label');
-  const showVenueLabelElm = makeElement('div', 'mobile__label');
-  const showLocationLabelElm = makeElement('div', 'mobile__label');
+  const showDateLabelElm = makeElement('div', 'mShowdates__label');
+  const showVenueLabelElm = makeElement('div', 'mShowdates__label');
+  const showLocationLabelElm = makeElement('div', 'mShowdates__label');
 
   const showDateLabelPtag = document.createElement('p');
   const showVenueLabelPtag = document.createElement('p');
   const showLocationLabelPtag = document.createElement('p');
 
-  const showDateInfo = makeElement('div', 'mobile__data');
-  const showVenueData = makeElement('div', 'mobile__data');
-  const showLocationData = makeElement('div', 'mobile__data');
+  const showDateInfo = makeElement('div', 'mShowdates__data');
+  const showVenueData = makeElement('div', 'mShowdates__data');
+  const showLocationData = makeElement('div', 'mShowdates__data');
 
-  const showDate = makeElement('p', 'mobile__data--date');
-  const showVenue = makeElement('p', 'mobile__data--venue');
-  const showLocation = makeElement('p', 'mobile__data--location');
+  const showDate = makeElement('p', 'mShowdates__data--date');
+  const showVenue = makeElement('p', 'mShowdates__data--venue');
+  const showLocation = makeElement('p', 'mShowdates__data--location');
   const buyTicketsBtn = makeElement('button', 'cta-btn');
 
   // Build component
@@ -220,3 +214,12 @@ const heroSection = document.querySelector('.hero');
 // heroSection.style.height = '75vw';
 showdatesTablet();
 showdatesMobile();
+
+const showdateBox = document.querySelectorAll('.tablet__showdates-info');
+const boxes = Array.prototype.slice.call(showdateBox);
+console.log(boxes);
+
+console.log(showdateBox);
+showdateBox[0].addEventListener('click', function () {
+  showdateBox[0].style.backgroundColor = 'variables.$Mercury';
+});

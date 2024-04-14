@@ -188,7 +188,7 @@ nav {
     opacity: 50%;
 
     @include mixin.tablet {
-      height: 50vw;
+      height: inherit;
     }
   }
 
@@ -265,7 +265,7 @@ nav {
     height: inherit;
     min-height: inherit;
     justify-content: space-evenly;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
 
     @include mixin.tablet {
       align-items: flex-start;
@@ -319,7 +319,6 @@ nav {
 .divider {
   width: 100%;
   border-bottom: 1px solid variables.$Mercury;
-  margin: 1rem 0;
 }
 
 /* Footer */

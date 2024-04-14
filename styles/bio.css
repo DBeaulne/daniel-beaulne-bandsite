@@ -234,7 +234,7 @@ nav {
 }
 @media screen and (min-width: 768px) {
   .hero__index-overlay {
-    height: 50vw;
+    height: inherit;
   }
 }
 .hero__shows-overlay {
@@ -314,7 +314,7 @@ nav {
   height: inherit;
   min-height: inherit;
   justify-content: space-evenly;
-  padding-bottom: 1rem;
+  padding-bottom: 1.5rem;
 }
 @media screen and (min-width: 768px) {
   .hero__shows-content {
@@ -377,7 +377,6 @@ nav {
 .divider {
   width: 100%;
   border-bottom: 1px solid #e1e1e1;
-  margin: 1rem 0;
 }
 
 /* Footer */
