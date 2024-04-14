@@ -750,6 +750,9 @@ nav {
 .tablet__showdates-info:hover {
   background-color: #fafafa;
 }
+.tablet__showdates-info#activeShowdate {
+  background-color: #e1e1e1;
+}
 .tablet__label {
   color: #afafaf;
   text-transform: uppercase;

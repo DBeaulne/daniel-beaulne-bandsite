@@ -136,6 +136,10 @@
     }
   }
 
+  &__showdates-info#activeShowdate {
+    background-color: variables.$Mercury;
+  }
+
   &__label {
     color: variables.$Silver;
     text-transform: uppercase;

@@ -8,7 +8,7 @@
 
 const Comment = function (username, timestamp, comment) {
   this.username = username;
-  this.timestamp = timestamp;
+  this.timestamp = new Date().toLocaleDateString();
   this.comment = comment;
 };
 

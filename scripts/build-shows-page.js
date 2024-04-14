@@ -216,10 +216,30 @@ showdatesTablet();
 showdatesMobile();
 
 const showdateBox = document.querySelectorAll('.tablet__showdates-info');
-const boxes = Array.prototype.slice.call(showdateBox);
-console.log(boxes);
 
-console.log(showdateBox);
-showdateBox[0].addEventListener('click', function () {
-  showdateBox[0].style.backgroundColor = 'variables.$Mercury';
+function clearAttribute() {
+  const showdateRemoveID = document.getElementById('activeShowdate');
+  if (showdateRemoveID !== null) {
+    showdateRemoveID.removeAttribute('id');
+    // showdateRemoveID.style.backgroundColor = '#fff';
+  }
+  return;
+}
+
+showdateBox.forEach((value, index) => {
+  // console.log(value);
+  showdateBox[index].addEventListener('click', function (event) {
+    if (this.id !== 'activeShowdate') {
+      clearAttribute();
+      showdateBox[index].setAttribute('id', 'activeShowdate');
+    }
+  });
+  showdateBox[index].addEventListener('mouseenter', function (event) {
+    if (this.id !== 'activeShowdate') {
+    }
+  });
+  showdateBox[index].addEventListener('mouseleave', function (event) {
+    if (this.id !== 'activeShowdate') {
+    }
+  });
 });
