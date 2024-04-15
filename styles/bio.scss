@@ -315,12 +315,27 @@
     }
   }
 
+  &__form-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    @include mixin.tablet {
+      width: 80vw;
+    }
+
+    @include mixin.desktop {
+      width: 40vw;
+    }
+  }
+
   &__form {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
     padding-top: 0.75rem;
+    padding-bottom: 1rem;
 
     @include mixin.tablet {
       @include mixin.vwWidthTablet;
@@ -356,17 +371,22 @@
     &--fullname,
     &--comment {
       min-height: 2.25rem;
-      border: 1px solid variables.$Mercury;
       border-radius: 4px;
       margin-bottom: 0.75rem;
       padding: 0.75rem;
       @include typography.mobile-body-copy;
+      border: 1px solid variables.$Mercury;
+
       font-weight: 400;
       color: variables.$BandSite-Black;
       background-color: variables.$Alabaster;
 
       &:active {
         border: 1px solid variables.$BandSite-Black;
+      }
+
+      &:autofill {
+        background-color: variables.$Alabaster;
       }
     }
 
@@ -378,6 +398,11 @@
     .submit {
       margin-top: 0.75rem;
     }
+  }
+
+  &__btn-container {
+    display: flex;
+    justify-content: flex-end;
   }
 
   &__btn {
@@ -393,14 +418,35 @@
   }
 }
 
+input.form-error {
+  border: 1px solid variables.$FormError;
+}
+
+textarea.form-error {
+  border: 1px solid variables.$FormError;
+}
+
 .past-comments {
   @extend .section-initial-styling;
   padding-top: 0;
+  padding-bottom: 1rem;
+  width: 100%;
+  margin: auto;
+
+  @include mixin.tablet {
+    width: 90vw;
+  }
+
+  @include mixin.desktop {
+    width: 40vw;
+  }
 
   &__container {
     display: flex;
     flex-direction: row;
     width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
     @include mixin.tablet {
       @include mixin.vwWidthTablet;

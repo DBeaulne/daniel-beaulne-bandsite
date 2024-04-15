@@ -37,6 +37,7 @@
   background-color: variables.$White;
   display: flex;
   align-items: flex-start;
+  padding-bottom: 1rem;
 
   @include mixin.tablet {
     display: none;
@@ -51,23 +52,23 @@
   h2 {
     @extend .section-h2;
   }
-}
 
-.mShowdates {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  &__showdates {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 
-  &__label {
+  &__showdates-label {
     color: variables.$Silver;
     text-transform: uppercase;
     @include typography.mobile-label;
     font-weight: 400;
   }
 
-  &__data {
+  &__showdates-info {
     @include typography.mobile-subheader;
     font-weight: 400;
     padding-bottom: 1rem;
@@ -77,6 +78,10 @@
     &--date {
       font-weight: 600;
     }
+  }
+
+  &__showdates#activeShowdateMobile {
+    background-color: variables.$Mercury;
   }
 }
 
@@ -136,7 +141,7 @@
     }
   }
 
-  &__showdates-info#activeShowdate {
+  &__showdates-info#activeShowdateTablet {
     background-color: variables.$Mercury;
   }
 

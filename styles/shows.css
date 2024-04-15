@@ -21,6 +21,7 @@
 solid @ 100% opacity, unless stated otherwise */
 /* Primary Colors*/
 /* Secondary Colors */
+/* Error Code colors */
 /* Media Breakpoints */
 /* Padding */
 /* Mixins */
@@ -180,7 +181,7 @@ nav {
   display: flex;
   position: relative;
   width: 100vw;
-  height: 55vw;
+  height: 100%;
   min-height: 17rem;
   background-image: "";
   background-size: cover;
@@ -228,7 +229,7 @@ nav {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 55vw;
+  height: inherit;
   background-color: #323232;
   opacity: 50%;
 }
@@ -658,6 +659,7 @@ nav {
   background-color: #fff;
   display: flex;
   align-items: flex-start;
+  padding-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .mobile {
@@ -669,14 +671,14 @@ nav {
   display: flex;
   flex-direction: column;
 }
-.mShowdates {
+.mobile__showdates {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.mShowdates__label {
+.mobile__showdates-label {
   color: #afafaf;
   text-transform: uppercase;
   font-family: "Avenir-Next";
@@ -684,7 +686,7 @@ nav {
   line-height: 1.25rem;
   font-weight: 400;
 }
-.mShowdates__data {
+.mobile__showdates-info {
   font-family: "Avenir-Next";
   font-size: 0.875rem;
   line-height: 1.375rem;
@@ -693,8 +695,11 @@ nav {
   text-transform: capitalize;
   color: #323232;
 }
-.mShowdates__data--date {
+.mobile__showdates-info--date {
   font-weight: 600;
+}
+.mobile__showdates#activeShowdateMobile {
+  background-color: #e1e1e1;
 }
 
 .tablet {
@@ -750,7 +755,7 @@ nav {
 .tablet__showdates-info:hover {
   background-color: #fafafa;
 }
-.tablet__showdates-info#activeShowdate {
+.tablet__showdates-info#activeShowdateTablet {
   background-color: #e1e1e1;
 }
 .tablet__label {

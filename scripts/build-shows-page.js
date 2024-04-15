@@ -133,23 +133,23 @@ const createMobileShowDates = dates => {
   // create elements
 
   const showContainerElm = document.querySelector('.mobile__container');
-  const showdateContainerElm = makeElement('div', 'mShowdates');
+  const showdateContainerElm = makeElement('div', 'mobile__showdates');
 
-  const showDateLabelElm = makeElement('div', 'mShowdates__label');
-  const showVenueLabelElm = makeElement('div', 'mShowdates__label');
-  const showLocationLabelElm = makeElement('div', 'mShowdates__label');
+  const showDateLabelElm = makeElement('div', 'mobile__showdates-label');
+  const showVenueLabelElm = makeElement('div', 'mobile__showdates-label');
+  const showLocationLabelElm = makeElement('div', 'mobile__showdates-label');
 
   const showDateLabelPtag = document.createElement('p');
   const showVenueLabelPtag = document.createElement('p');
   const showLocationLabelPtag = document.createElement('p');
 
-  const showDateInfo = makeElement('div', 'mShowdates__data');
-  const showVenueData = makeElement('div', 'mShowdates__data');
-  const showLocationData = makeElement('div', 'mShowdates__data');
+  const showDateInfo = makeElement('div', 'mobile__showdates-info');
+  const showVenueData = makeElement('div', 'mobile__showdates-info');
+  const showLocationData = makeElement('div', 'mobile__showdates-info');
 
-  const showDate = makeElement('p', 'mShowdates__data--date');
-  const showVenue = makeElement('p', 'mShowdates__data--venue');
-  const showLocation = makeElement('p', 'mShowdates__data--location');
+  const showDate = makeElement('p', 'mobile__showdates-info--date');
+  const showVenue = makeElement('p', 'mobile__showdates-info--venue');
+  const showLocation = makeElement('p', 'mobile__showdates-info--location');
   const buyTicketsBtn = makeElement('button', 'cta-btn');
 
   // Build component
@@ -187,7 +187,7 @@ const createMobileShowDates = dates => {
 };
 
 const showdatesMobile = () => {
-  const showDatesSection = document.querySelector('.mobile');
+  const showDatesSection = document.querySelector('#mobile');
   const showContainerElm = makeElement('div', 'mobile__container');
   const containerTitleElm = makeElement('div', 'mobile__title');
   const containerTitleElmH2 = document.createElement('h2');
@@ -215,31 +215,41 @@ const heroSection = document.querySelector('.hero');
 showdatesTablet();
 showdatesMobile();
 
-const showdateBox = document.querySelectorAll('.tablet__showdates-info');
+// Code to handle the requirement that clicking on a show date changes the styling
+// as outlined in requirements
+
+const showdateBoxTablet = document.querySelectorAll('.tablet__showdates-info');
+const showdateBoxMobile = document.querySelectorAll('.mobile__showdates');
 
 function clearAttribute() {
-  const showdateRemoveID = document.getElementById('activeShowdate');
-  if (showdateRemoveID !== null) {
-    showdateRemoveID.removeAttribute('id');
-    // showdateRemoveID.style.backgroundColor = '#fff';
+  const showdateRemoveTabID = document.getElementById('activeShowdateTablet');
+  const showdateRemoveMobID = document.getElementById('activeShowdateMobile');
+
+  if (showdateRemoveTabID !== null) {
+    showdateRemoveTabID.removeAttribute('id');
+  }
+  if (showdateRemoveMobID !== null) {
+    showdateRemoveMobID.removeAttribute('id');
   }
   return;
 }
 
-showdateBox.forEach((value, index) => {
-  // console.log(value);
-  showdateBox[index].addEventListener('click', function (event) {
-    if (this.id !== 'activeShowdate') {
+showdateBoxTablet.forEach((value, index) => {
+  showdateBoxTablet[index].addEventListener('click', function (event) {
+    if (this.id !== 'activeShowdateTablet') {
       clearAttribute();
-      showdateBox[index].setAttribute('id', 'activeShowdate');
+      showdateBoxTablet[index].setAttribute('id', 'activeShowdateTablet');
+      showdateBoxMobile[index].setAttribute('id', 'activeShowdateMobile');
     }
   });
-  showdateBox[index].addEventListener('mouseenter', function (event) {
-    if (this.id !== 'activeShowdate') {
-    }
-  });
-  showdateBox[index].addEventListener('mouseleave', function (event) {
-    if (this.id !== 'activeShowdate') {
+});
+
+showdateBoxMobile.forEach((value, index) => {
+  showdateBoxMobile[index].addEventListener('click', function (event) {
+    if (this.id !== 'activeShowdateMobile') {
+      clearAttribute();
+      showdateBoxMobile[index].setAttribute('id', 'activeShowdateMobile');
+      showdateBoxTablet[index].setAttribute('id', 'activeShowdateTablet');
     }
   });
 });

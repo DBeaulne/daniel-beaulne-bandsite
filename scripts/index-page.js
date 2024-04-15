@@ -13,6 +13,7 @@ const Comment = function (username, timestamp, comment) {
 };
 
 let comments = [
+  // hard-coded array of objects containing the comments
   {
     username: 'Victor Pinto',
     timestamp: '11/02/2023',
@@ -72,6 +73,8 @@ const createComment = comment => {
 };
 
 const removeComments = () => {
+  /** A function to clear all the comments from the page before we re-render
+the comments to include the new comment */
   const parent = document.getElementById('previous-comments');
   parent.innerHTML = '';
   const inputFullName = document.getElementsByTagName('input');
@@ -81,22 +84,49 @@ const removeComments = () => {
 };
 
 const populateComments = () => {
+  /** Functional loop to popluate the comments section */
   for (const c of comments) {
-    const commentSection = document.querySelector('#previous-comments');
+    const commentSection = document.querySelector('#previous-comments'); // get the section ID
+    /** call createCommen() passing in the index of the loop, and
+     * append the created comment element to the section */
     commentSection.append(createComment(c));
+    /**create a divider and append that to the comment  */
     commentSection.append(makeElement('div', 'divider'));
   }
 };
 
 // Function to submit the comment
 const commentForm = document.getElementById('commentForm');
+const nameField = document.getElementById('full-name');
+const commentField = document.getElementById('comment-area');
+
 commentForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const newComment = new Comment(e.target.username.value, e.timeStamp, e.target.comment.value);
-  console.log(e.timeStamp);
-  comments.splice(0, 0, newComment);
-  removeComments();
-  populateComments();
+  e.preventDefault(); // prevent page reload
+
+  if (nameField.classList.contains('form-error')) {
+    // check name input to see if it has 'form-error' class
+    nameField.classList.remove('form-error'); // attached. if present, remove it.
+  }
+  if (commentField.classList.contains('form-error')) {
+    // check textares to see if it has 'form-error' class
+    commentField.classList.remove('form-error'); // attached. if present, remove it.
+  }
+
+  /*** Form validation
+   * if the name input field or comment textarea is empty, attach 'form-error' class to the field or textarea
+   * otherwiser, if the validation passes, post the new comment
+   */
+
+  if (e.target.username.value === '') {
+    nameField.classList.add('form-error');
+  } else if (e.target.comment.value === '') {
+    commentField.classList.add('form-error');
+  } else {
+    const newComment = new Comment(e.target.username.value, e.timeStamp, e.target.comment.value); // comment Object
+    comments.splice(0, 0, newComment);
+    removeComments();
+    populateComments();
+  }
 });
 
 const heroImage = url => {
@@ -106,5 +136,8 @@ const heroImage = url => {
   heroSection.style.backgroundImage = 'url(' + showsHeroSectionImgUrl + ')';
 };
 
+// call hero image function and display the image at the path passed into the function
 heroImage('./assets/Images/hero-bio.jpg');
+
+// populate comments on page load
 populateComments();

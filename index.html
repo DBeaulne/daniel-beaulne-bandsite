@@ -115,33 +115,36 @@
         <div class="comments__title">
           <h2>Join the Conversation</h2>
         </div>
-        <form action="" class="comments__form" id="commentForm">
-          <div class="comments__avatar">
-            <span class="comments__avatar--avatar-img"></span>
-          </div>
-          <div class="comments__form-input">
-            <label class="comments__form-label" for="full-name">name</label>
-            <input
-              class="comments__form-input--fullname"
-              type="text"
-              name="username"
-              id="full-name"
-              placeholder="Enter your name"
-              required
-            />
-            <label class="comments__form-label" for="comment-area">comment</label>
-            <textarea
-              class="comments__form-input--comment"
-              name="comment"
-              rows="5"
-              id="comment-area"
-              placeholder="Add a new comment"
-              required
-            ></textarea>
-            <button class="comments__btn submit">Comment</button>
-          </div>
-        </form>
-        <div class="divider"></div>
+        <div class="comments__form-container">
+          <form action="" class="comments__form" id="commentForm" novalidate>
+            <div class="comments__avatar">
+              <span class="comments__avatar--avatar-img"></span>
+            </div>
+            <div class="comments__form-input">
+              <label class="comments__form-label" for="full-name">name</label>
+              <input
+                class="comments__form-input--fullname"
+                type="text"
+                name="username"
+                id="full-name"
+                placeholder="Enter your name"
+              />
+              <label class="comments__form-label" for="comment-area">comment</label>
+              <textarea
+                class="comments__form-input--comment"
+                name="comment"
+                rows="5"
+                id="comment-area"
+                placeholder="Add a new comment"
+              ></textarea>
+              <div class="comments__btn-container">
+                <button class="comments__btn submit">Comment</button>
+              </div>
+            </div>
+          </form>
+          <div class="divider"></div>
+        </div>
+      </div>
       </section>
       <section class="past-comments" id="previous-comments"></section>
     </main>
