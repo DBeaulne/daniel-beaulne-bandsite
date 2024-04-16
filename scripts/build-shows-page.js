@@ -55,16 +55,16 @@ const makeElement = (elem, className) => {
 const createTabletShowDates = show => {
   // create the ShowDates table for tablet breakpoint
   // create elements
-  const showdatesContainerElm = document.querySelector('.tablet__showdates');
-  const showdateInfoEle = makeElement('div', 'tablet__showdates-info');
-  const showDateInfo = makeElement('div', 'tablet__info');
-  const showVenueData = makeElement('div', 'tablet__info');
-  const showLocationData = makeElement('div', 'tablet__info');
+  const showdatesContainerElm = document.querySelector('.shows__container');
+  const showdateInfoEle = makeElement('div', 'shows__showdates');
+  const showDateInfo = makeElement('div', 'shows__showdate-info');
+  const showVenueData = makeElement('div', 'shows__showdate-info');
+  const showLocationData = makeElement('div', 'shows__showdate-info');
 
-  const showDate = makeElement('p', 'tablet__info--date');
-  const showVenue = makeElement('p', 'tablet__info--venue');
-  const showLocation = makeElement('p', 'tablet__info--location');
-  const buttonContainer = makeElement('div', 'tablet__cta');
+  const showDate = makeElement('p', 'shows__showdate-info--date');
+  const showVenue = makeElement('p', 'shows__showdate-info--venue');
+  const showLocation = makeElement('p', 'shows__showdate-info--location');
+  const buttonContainer = makeElement('div', 'shows__cta-container');
   const buyTicketsBtn = makeElement('button', 'cta-btn');
 
   // Build component
@@ -92,14 +92,14 @@ const createTabletShowDates = show => {
 
 const showdatesTablet = () => {
   const parent = document.querySelector('#tablet');
-  const containerTitleElm = makeElement('div', 'tablet__title');
+  const containerTitleElm = makeElement('div', 'shows__title');
   const containerTitleElmH2 = document.createElement('h2');
 
-  const containerShowdatesELm = makeElement('div', 'tablet__showdates');
-  const showsLabelsElm = makeElement('div', 'tablet__showdates-labels');
-  const showDateLabelElm = makeElement('div', 'tablet__label');
-  const showVenueLabelElm = makeElement('div', 'tablet__label');
-  const showLocationLabelElm = makeElement('div', 'tablet__label');
+  const containerShowdatesELm = makeElement('div', 'shows__container');
+  const showsLabelsElm = makeElement('div', 'shows__label-container');
+  const showDateLabelElm = makeElement('div', 'shows__showdate-label');
+  const showVenueLabelElm = makeElement('div', 'shows__showdate-label');
+  const showLocationLabelElm = makeElement('div', 'shows__showdate-label');
   const showDateLabelPtag = document.createElement('p');
   const showVenueLabelPtag = document.createElement('p');
   const showLocationLabelPtag = document.createElement('p');
@@ -132,28 +132,29 @@ const createMobileShowDates = dates => {
   // create the ShowDates table for mobile breakpoint
   // create elements
 
-  const showContainerElm = document.querySelector('.mobile__container');
-  const showdateContainerElm = makeElement('div', 'mobile__showdates');
+  const showsContainerElm = document.querySelector('.shows__container');
+  const showdateContainerElm = makeElement('div', 'shows__showdates');
 
-  const showDateLabelElm = makeElement('div', 'mobile__showdates-label');
-  const showVenueLabelElm = makeElement('div', 'mobile__showdates-label');
-  const showLocationLabelElm = makeElement('div', 'mobile__showdates-label');
+  const showDateLabelElm = makeElement('div', 'shows__showdate-label');
+  const showVenueLabelElm = makeElement('div', 'shows__showdate-label');
+  const showLocationLabelElm = makeElement('div', 'shows__showdate-label');
 
   const showDateLabelPtag = document.createElement('p');
   const showVenueLabelPtag = document.createElement('p');
   const showLocationLabelPtag = document.createElement('p');
 
-  const showDateInfo = makeElement('div', 'mobile__showdates-info');
-  const showVenueData = makeElement('div', 'mobile__showdates-info');
-  const showLocationData = makeElement('div', 'mobile__showdates-info');
+  const showDateInfo = makeElement('div', 'shows__showdate-info');
+  const showVenueData = makeElement('div', 'shows__showdate-info');
+  const showLocationData = makeElement('div', 'shows__showdate-info');
 
-  const showDate = makeElement('p', 'mobile__showdates-info--date');
-  const showVenue = makeElement('p', 'mobile__showdates-info--venue');
-  const showLocation = makeElement('p', 'mobile__showdates-info--location');
+  const showDate = makeElement('p', 'shows__showdate-info--date');
+  const showVenue = makeElement('p', 'shows__showdate-info--venue');
+  const showLocation = makeElement('p', 'shows__showdate-info--location');
+  const buttonContainer = makeElement('div', 'shows__cta-container');
   const buyTicketsBtn = makeElement('button', 'cta-btn');
 
   // Build component
-  showContainerElm.appendChild(showdateContainerElm);
+  showsContainerElm.appendChild(showdateContainerElm);
   showdateContainerElm.appendChild(showDateLabelElm);
   showDateLabelElm.appendChild(showDateLabelPtag);
   showDateLabelPtag.innerText = 'date';
@@ -181,15 +182,15 @@ const createMobileShowDates = dates => {
   showdateContainerElm.appendChild(buyTicketsBtn);
   buyTicketsBtn.innerText = 'buy tickets';
 
-  showContainerElm.append(makeElement('div', 'divider'));
+  showsContainerElm.append(makeElement('div', 'divider'));
 
-  return showContainerElm;
+  return showsContainerElm;
 };
 
 const showdatesMobile = () => {
   const parent = document.querySelector('#mobile');
-  const showContainerElm = makeElement('div', 'mobile__container');
-  const containerTitleElm = makeElement('div', 'mobile__title');
+  const showContainerElm = makeElement('div', 'shows__container');
+  const containerTitleElm = makeElement('div', 'shows__title');
   const containerTitleElmH2 = document.createElement('h2');
 
   parent.appendChild(showContainerElm);

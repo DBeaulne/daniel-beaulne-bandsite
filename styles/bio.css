@@ -379,6 +379,11 @@ nav {
   width: 100%;
   border-bottom: 1px solid #e1e1e1;
 }
+@media screen and (min-width: 1280px) {
+  .divider {
+    width: 68vw;
+  }
+}
 
 /* Footer */
 .footer {
