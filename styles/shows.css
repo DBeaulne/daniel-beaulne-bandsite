@@ -42,8 +42,7 @@ address {
 
 /* Extensions */
 .section-initial-styling, .shows,
-#mobile,
-#tablet, .hero__shows-content {
+#mobile, #tablet, .hero__shows-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,16 +53,14 @@ address {
 }
 @media screen and (min-width: 768px) {
   .section-initial-styling, .shows,
-  #mobile,
-  #tablet, .hero__shows-content {
+  #mobile, #tablet, .hero__shows-content {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .section-initial-styling, .shows,
-  #mobile,
-  #tablet, .hero__shows-content {
+  #mobile, #tablet, .hero__shows-content {
     padding-left: 5rem;
     padding-right: 5rem;
   }
@@ -623,9 +620,13 @@ nav {
   }
 }
 
+p {
+  color: #323232;
+  font-weight: 400;
+}
+
 /* Extensions */
-.section-initial-styling,
-#tablet, .shows,
+.section-initial-styling, #tablet, .shows,
 #mobile {
   display: flex;
   flex-direction: column;
@@ -636,16 +637,14 @@ nav {
   padding-right: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .section-initial-styling,
-  #tablet, .shows,
+  .section-initial-styling, #tablet, .shows,
   #mobile {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .section-initial-styling,
-  #tablet, .shows,
+  .section-initial-styling, #tablet, .shows,
   #mobile {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -663,8 +662,7 @@ nav {
   }
 }
 
-.section-h2,
-#tablet h2, .shows h2,
+.section-h2, .shows h2,
 #mobile h2 {
   font-family: "Avenir-Next";
   font-size: 1.5rem;
@@ -693,12 +691,23 @@ nav {
   display: flex;
   flex-direction: column;
 }
+@media screen and (min-width: 1280px) {
+  .shows__container,
+  #mobile__container {
+    padding-top: 1.125rem;
+  }
+}
 .shows__title,
 #mobile__title {
   display: flex;
   width: 100%;
   position: relative;
-  padding-left: 1.25rem;
+}
+@media screen and (min-width: 768px) {
+  .shows__title,
+  #mobile__title {
+    padding-left: 1.25rem;
+  }
 }
 @media screen and (min-width: 1280px) {
   .shows__title,
@@ -706,6 +715,15 @@ nav {
     justify-content: flex-start;
     width: 30%;
     padding-left: 6.25rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .shows h2,
+  #mobile h2 {
+    font-family: "Avenir-Next";
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    padding-bottom: 2.25rem;
   }
 }
 .shows__showdates,
@@ -741,6 +759,14 @@ nav {
 #mobile__showdates__showdate-info#activeShowdateTablet {
   background-color: #e1e1e1;
 }
+.shows__label-container,
+#mobile__label-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
 .shows__showdate-label,
 #mobile__showdate-label {
   color: #afafaf;
@@ -749,7 +775,6 @@ nav {
   font-size: 0.625rem;
   line-height: 1.25rem;
   font-weight: 400;
-  margin-right: 0.5rem;
 }
 @media screen and (min-width: 768px) {
   .shows__showdate-label,
@@ -776,19 +801,28 @@ nav {
 @media screen and (min-width: 768px) {
   .shows__showdate-info,
   #mobile__showdate-info {
+    font-family: "Avenir-Next";
+    font-size: 0.875rem;
+    line-height: 1.375rem;
     padding-top: 1rem;
+    width: 25%;
   }
 }
 .shows__showdate-info--date,
 #mobile__showdate-info--date {
   font-weight: 600;
 }
+.shows__cta-container,
+#mobile__cta-container {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
 .shows__showdates#activeShowdateMobile,
 #mobile__showdates#activeShowdateMobile {
   background-color: #e1e1e1;
 }
 
-.shows,
 #tablet {
   display: flex;
   padding-left: 1rem;
@@ -796,52 +830,14 @@ nav {
   background-color: #fff;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  flex-direction: column;
 }
 @media screen and (min-width: 1280px) {
-  .shows,
   #tablet {
     flex-direction: row;
     align-items: flex-start;
   }
 }
-.shows__label-container,
-#tablet__label-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-.shows__info,
-#tablet__info {
-  font-family: "Avenir-Next";
-  font-size: 0.875rem;
-  line-height: 1.375rem;
-  font-weight: 400;
-  text-transform: capitalize;
-  color: #323232;
-  width: 25%;
-}
-.shows__info--date,
-#tablet__info--date {
-  font-weight: 600;
-}
-.shows__cta,
-#tablet__cta {
-  display: flex;
-  justify-content: flex-end;
-  width: 25%;
-}
-.shows h2,
-#tablet h2 {
-  font-family: "Avenir-Next";
-  font-size: 2.25rem;
-  line-height: 2.75rem;
-  padding-bottom: 2.25rem;
-}
 @media screen and (max-width: 767px) {
-  .shows,
   #tablet {
     display: none;
   }
