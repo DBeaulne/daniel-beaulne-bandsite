@@ -91,7 +91,7 @@ const createTabletShowDates = show => {
 };
 
 const showdatesTablet = () => {
-  const parent = document.querySelector('.tablet');
+  const parent = document.querySelector('#tablet');
   const containerTitleElm = makeElement('div', 'tablet__title');
   const containerTitleElmH2 = document.createElement('h2');
 
@@ -123,8 +123,8 @@ const showdatesTablet = () => {
   showLocationLabelElm.appendChild(showLocationLabelPtag);
   showLocationLabelPtag.innerText = 'location';
 
-  for (const showdate of showDates) {
-    parent.append(createTabletShowDates(showdate));
+  for (const d of showDates) {
+    parent.append(createTabletShowDates(d));
   }
 };
 
@@ -187,18 +187,18 @@ const createMobileShowDates = dates => {
 };
 
 const showdatesMobile = () => {
-  const showDatesSection = document.querySelector('#mobile');
+  const parent = document.querySelector('#mobile');
   const showContainerElm = makeElement('div', 'mobile__container');
   const containerTitleElm = makeElement('div', 'mobile__title');
   const containerTitleElmH2 = document.createElement('h2');
 
-  showDatesSection.appendChild(showContainerElm);
+  parent.appendChild(showContainerElm);
   showContainerElm.appendChild(containerTitleElm);
   containerTitleElm.appendChild(containerTitleElmH2);
   containerTitleElmH2.innerText = 'Shows';
 
   for (const d of showDates) {
-    showDatesSection.append(createMobileShowDates(d));
+    parent.append(createMobileShowDates(d));
   }
 };
 

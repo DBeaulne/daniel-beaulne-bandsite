@@ -41,7 +41,9 @@ address {
 }
 
 /* Extensions */
-.section-initial-styling, .mobile, .tablet, .hero__shows-content {
+.section-initial-styling, .mobile,
+.shows#mobile, .tablet,
+.shows#tablet, .hero__shows-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,13 +53,17 @@ address {
   padding-right: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .section-initial-styling, .mobile, .tablet, .hero__shows-content {
+  .section-initial-styling, .mobile,
+  .shows#mobile, .tablet,
+  .shows#tablet, .hero__shows-content {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .section-initial-styling, .mobile, .tablet, .hero__shows-content {
+  .section-initial-styling, .mobile,
+  .shows#mobile, .tablet,
+  .shows#tablet, .hero__shows-content {
     padding-left: 5rem;
     padding-right: 5rem;
   }
@@ -613,7 +619,9 @@ nav {
 }
 
 /* Extensions */
-.section-initial-styling, .tablet, .mobile {
+.section-initial-styling, .tablet,
+.shows#tablet, .mobile,
+.shows#mobile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -623,13 +631,17 @@ nav {
   padding-right: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .section-initial-styling, .tablet, .mobile {
+  .section-initial-styling, .tablet,
+  .shows#tablet, .mobile,
+  .shows#mobile {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .section-initial-styling, .tablet, .mobile {
+  .section-initial-styling, .tablet,
+  .shows#tablet, .mobile,
+  .shows#mobile {
     padding-left: 5rem;
     padding-right: 5rem;
   }
@@ -646,7 +658,9 @@ nav {
   }
 }
 
-.section-h2, .tablet h2, .mobile h2 {
+.section-h2, .tablet h2,
+.shows#tablet h2, .mobile h2,
+.shows#mobile h2 {
   font-family: "Avenir-Next";
   font-size: 1.5rem;
   line-height: 2rem;
@@ -655,30 +669,35 @@ nav {
   color: #323232;
 }
 
-.mobile {
+.mobile,
+.shows#mobile {
   background-color: #fff;
   display: flex;
   align-items: flex-start;
   padding-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .mobile {
+  .mobile,
+  .shows#mobile {
     display: none;
   }
 }
-.mobile__container {
+.mobile__container,
+.shows#mobile__container {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.mobile__showdates {
+.mobile__showdates,
+.shows#mobile__showdates {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.mobile__showdates-label {
+.mobile__showdates-label,
+.shows#mobile__showdates-label {
   color: #afafaf;
   text-transform: uppercase;
   font-family: "Avenir-Next";
@@ -686,7 +705,8 @@ nav {
   line-height: 1.25rem;
   font-weight: 400;
 }
-.mobile__showdates-info {
+.mobile__showdates-info,
+.shows#mobile__showdates-info {
   font-family: "Avenir-Next";
   font-size: 0.875rem;
   line-height: 1.375rem;
@@ -695,14 +715,17 @@ nav {
   text-transform: capitalize;
   color: #323232;
 }
-.mobile__showdates-info--date {
+.mobile__showdates-info--date,
+.shows#mobile__showdates-info--date {
   font-weight: 600;
 }
-.mobile__showdates#activeShowdateMobile {
+.mobile__showdates#activeShowdateMobile,
+.shows#mobile__showdates#activeShowdateMobile {
   background-color: #e1e1e1;
 }
 
-.tablet {
+.tablet,
+.shows#tablet {
   display: flex;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -712,37 +735,43 @@ nav {
   flex-direction: column;
 }
 @media screen and (min-width: 1280px) {
-  .tablet {
+  .tablet,
+  .shows#tablet {
     flex-direction: row;
     align-items: flex-start;
   }
 }
-.tablet__title {
+.tablet__title,
+.shows#tablet__title {
   display: flex;
   width: 100%;
   position: relative;
   padding-left: 1.25rem;
 }
 @media screen and (min-width: 1280px) {
-  .tablet__title {
+  .tablet__title,
+  .shows#tablet__title {
     justify-content: flex-start;
     width: 30%;
     padding-left: 6.25rem;
   }
 }
-.tablet__showdates {
+.tablet__showdates,
+.shows#tablet__showdates {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 @media screen and (min-width: 1280px) {
-  .tablet__showdates {
+  .tablet__showdates,
+  .shows#tablet__showdates {
     padding-left: 2rem;
     padding-right: 6.25rem;
   }
 }
-.tablet__showdates-info {
+.tablet__showdates-info,
+.shows#tablet__showdates-info {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -752,13 +781,16 @@ nav {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
-.tablet__showdates-info:hover {
+.tablet__showdates-info:hover,
+.shows#tablet__showdates-info:hover {
   background-color: #fafafa;
 }
-.tablet__showdates-info#activeShowdateTablet {
+.tablet__showdates-info#activeShowdateTablet,
+.shows#tablet__showdates-info#activeShowdateTablet {
   background-color: #e1e1e1;
 }
-.tablet__label {
+.tablet__label,
+.shows#tablet__label {
   color: #afafaf;
   text-transform: uppercase;
   font-family: "Avenir-Next";
@@ -767,7 +799,8 @@ nav {
   font-weight: 400;
   width: 25%;
 }
-.tablet__showdates-labels {
+.tablet__showdates-labels,
+.shows#tablet__showdates-labels {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -776,7 +809,8 @@ nav {
   padding-bottom: 2rem;
   padding-top: 1.25rem;
 }
-.tablet__info {
+.tablet__info,
+.shows#tablet__info {
   font-family: "Avenir-Next";
   font-size: 0.875rem;
   line-height: 1.375rem;
@@ -785,22 +819,26 @@ nav {
   color: #323232;
   width: 25%;
 }
-.tablet__info--date {
+.tablet__info--date,
+.shows#tablet__info--date {
   font-weight: 600;
 }
-.tablet__cta {
+.tablet__cta,
+.shows#tablet__cta {
   display: flex;
   justify-content: flex-end;
   width: 25%;
 }
-.tablet h2 {
+.tablet h2,
+.shows#tablet h2 {
   font-family: "Avenir-Next";
   font-size: 2.25rem;
   line-height: 2.75rem;
   padding-bottom: 2.25rem;
 }
 @media screen and (max-width: 767px) {
-  .tablet {
+  .tablet,
+  .shows#tablet {
     display: none;
   }
 }

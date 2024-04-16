@@ -32,7 +32,8 @@
   color: variables.$BandSite-Black;
 }
 
-.mobile {
+.mobile,
+.shows#mobile {
   @extend .section-initial-styling;
   background-color: variables.$White;
   display: flex;
@@ -85,7 +86,8 @@
   }
 }
 
-.tablet {
+.tablet,
+.shows#tablet {
   // this class is hidden on mobile devices
   display: flex;
   @extend .section-initial-styling;
