@@ -41,8 +41,7 @@ address {
 }
 
 /* Extensions */
-.section-initial-styling, .shows,
-#mobile, #tablet, .hero__shows-content {
+.section-initial-styling, .shows, .hero__shows-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,15 +51,13 @@ address {
   padding-right: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .section-initial-styling, .shows,
-  #mobile, #tablet, .hero__shows-content {
+  .section-initial-styling, .shows, .hero__shows-content {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .section-initial-styling, .shows,
-  #mobile, #tablet, .hero__shows-content {
+  .section-initial-styling, .shows, .hero__shows-content {
     padding-left: 5rem;
     padding-right: 5rem;
   }
@@ -626,8 +623,7 @@ p {
 }
 
 /* Extensions */
-.section-initial-styling, #tablet, .shows,
-#mobile {
+.section-initial-styling, .shows {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -637,15 +633,13 @@ p {
   padding-right: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .section-initial-styling, #tablet, .shows,
-  #mobile {
+  .section-initial-styling, .shows {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .section-initial-styling, #tablet, .shows,
-  #mobile {
+  .section-initial-styling, .shows {
     padding-left: 5rem;
     padding-right: 5rem;
   }
@@ -662,8 +656,7 @@ p {
   }
 }
 
-.section-h2, .shows h2,
-#mobile h2 {
+.section-h2, .shows h2 {
   font-family: "Avenir-Next";
   font-size: 1.5rem;
   line-height: 2rem;
@@ -672,71 +665,69 @@ p {
   color: #323232;
 }
 
-.shows,
-#mobile {
+.shows {
   background-color: #fff;
   display: flex;
   align-items: flex-start;
   padding-bottom: 1rem;
 }
-@media screen and (min-width: 768px) {
-  .shows,
-  #mobile {
-    display: none;
-  }
-}
-.shows__container,
-#mobile__container {
+.shows__container {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 @media screen and (min-width: 1280px) {
-  .shows__container,
-  #mobile__container {
+  .shows__container {
     padding-top: 1.125rem;
   }
 }
-.shows__title,
-#mobile__title {
+.shows__title {
   display: flex;
   width: 100%;
   position: relative;
 }
 @media screen and (min-width: 768px) {
-  .shows__title,
-  #mobile__title {
+  .shows__title {
     padding-left: 1.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .shows__title,
-  #mobile__title {
+  .shows__title {
     justify-content: flex-start;
     width: 30%;
     padding-left: 6.25rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .shows h2,
-  #mobile h2 {
+  .shows h2 {
     font-family: "Avenir-Next";
     font-size: 2.25rem;
     line-height: 2.75rem;
     padding-bottom: 2.25rem;
   }
 }
-.shows__showdates,
-#mobile__showdates {
+.shows__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid green;
+}
+.shows__label-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+}
+.shows__showdates {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  border: 1px solid blue;
 }
 @media screen and (min-width: 768px) {
-  .shows__showdates,
-  #mobile__showdates {
+  .shows__showdates {
     flex-direction: row;
     padding-top: 1rem;
     padding-left: 1.25rem;
@@ -746,47 +737,48 @@ p {
   }
 }
 @media screen and (min-width: 1280px) {
-  .shows__showdates,
-  #mobile__showdates {
+  .shows__showdates {
     padding-right: 6.25rem;
   }
 }
-.shows__showdates:hover,
-#mobile__showdates:hover {
+.shows__showdates:hover {
   background-color: #fafafa;
 }
-.shows__showdates__showdate-info#activeShowdateTablet,
-#mobile__showdates__showdate-info#activeShowdateTablet {
+.shows__showdates#activeShowdate {
   background-color: #e1e1e1;
 }
-.shows__label-container,
-#mobile__label-container {
+.shows__label-container {
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  display: none;
 }
-.shows__showdate-label,
-#mobile__showdate-label {
+@media screen and (min-width: 768px) {
+  .shows__label-container {
+    display: flex;
+    flex-direction: row;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+.shows__showdate-label {
   color: #afafaf;
   text-transform: uppercase;
   font-family: "Avenir-Next";
   font-size: 0.625rem;
   line-height: 1.25rem;
   font-weight: 400;
+  border: 1px solid purple;
+  width: 25%;
 }
 @media screen and (min-width: 768px) {
-  .shows__showdate-label,
-  #mobile__showdate-label {
+  .shows__showdate-label {
     font-family: "Avenir-Next";
     font-size: 0.75rem;
     line-height: 1.25rem;
-    width: 25%;
   }
 }
-.shows__showdate-info,
-#mobile__showdate-info {
+.shows__showdate-info {
   display: flex;
   align-items: center;
   font-family: "Avenir-Next";
@@ -797,10 +789,10 @@ p {
   color: #323232;
   width: 100%;
   padding-bottom: 1rem;
+  border: 1px solid rgb(255, 174, 0);
 }
 @media screen and (min-width: 768px) {
-  .shows__showdate-info,
-  #mobile__showdate-info {
+  .shows__showdate-info {
     font-family: "Avenir-Next";
     font-size: 0.875rem;
     line-height: 1.375rem;
@@ -808,39 +800,16 @@ p {
     width: 25%;
   }
 }
-.shows__showdate-info--date,
-#mobile__showdate-info--date {
+.shows__showdate-info--date {
   font-weight: 600;
 }
-.shows__cta-container,
-#mobile__cta-container {
+.shows__cta-container {
   display: flex;
   justify-content: center;
   width: 25%;
 }
-.shows__showdates#activeShowdateMobile,
-#mobile__showdates#activeShowdateMobile {
+.shows__showdates#activeShowdateMobile {
   background-color: #e1e1e1;
-}
-
-#tablet {
-  display: flex;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #fff;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-@media screen and (min-width: 1280px) {
-  #tablet {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-}
-@media screen and (max-width: 767px) {
-  #tablet {
-    display: none;
-  }
 }
 
 .cta-btn {

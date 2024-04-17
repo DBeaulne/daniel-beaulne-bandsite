@@ -52,100 +52,26 @@ const makeElement = (elem, className) => {
   return element;
 };
 
-const createTabletShowDates = show => {
-  // create the ShowDates table for tablet breakpoint
-  // create elements
-  const showdatesContainerElm = document.querySelector('.shows__container');
-  const showdateInfoEle = makeElement('div', 'shows__showdates');
-  const showDateInfo = makeElement('div', 'shows__showdate-info');
-  const showVenueData = makeElement('div', 'shows__showdate-info');
-  const showLocationData = makeElement('div', 'shows__showdate-info');
-
-  const showDate = makeElement('p', 'shows__showdate-info--date');
-  const showVenue = makeElement('p', 'shows__showdate-info--venue');
-  const showLocation = makeElement('p', 'shows__showdate-info--location');
-  const buttonContainer = makeElement('div', 'shows__cta-container');
-  const buyTicketsBtn = makeElement('button', 'cta-btn');
-
-  // Build component
-  showdatesContainerElm.append(showdateInfoEle);
-  showdateInfoEle.appendChild(showDateInfo);
-  showDateInfo.appendChild(showDate);
-  showDate.innerText = show.date;
-
-  showdateInfoEle.appendChild(showVenueData);
-  showVenueData.appendChild(showVenue);
-  showVenue.innerText = show.venue;
-
-  showdateInfoEle.appendChild(showLocationData);
-  showLocationData.appendChild(showLocation);
-  showLocation.innerText = show.location;
-
-  showdateInfoEle.appendChild(buttonContainer);
-  buttonContainer.appendChild(buyTicketsBtn);
-  buyTicketsBtn.innerText = 'buy tickets';
-
-  showdatesContainerElm.append(makeElement('div', 'divider'));
-
-  return showdatesContainerElm;
-};
-
-const showdatesTablet = () => {
-  const parent = document.querySelector('#tablet');
-  const containerTitleElm = makeElement('div', 'shows__title');
-  const containerTitleElmH2 = document.createElement('h2');
-
-  const containerShowdatesELm = makeElement('div', 'shows__container');
-  const showsLabelsElm = makeElement('div', 'shows__label-container');
-  const showDateLabelElm = makeElement('div', 'shows__showdate-label');
-  const showVenueLabelElm = makeElement('div', 'shows__showdate-label');
-  const showLocationLabelElm = makeElement('div', 'shows__showdate-label');
-  const showDateLabelPtag = document.createElement('p');
-  const showVenueLabelPtag = document.createElement('p');
-  const showLocationLabelPtag = document.createElement('p');
-
-  parent.appendChild(containerTitleElm);
-  containerTitleElm.appendChild(containerTitleElmH2);
-  containerTitleElmH2.innerText = 'Shows';
-  parent.appendChild(containerShowdatesELm);
-
-  containerShowdatesELm.appendChild(showsLabelsElm);
-
-  showsLabelsElm.appendChild(showDateLabelElm);
-  showDateLabelElm.appendChild(showDateLabelPtag);
-  showDateLabelPtag.innerText = 'date';
-
-  showsLabelsElm.appendChild(showVenueLabelElm);
-  showVenueLabelElm.appendChild(showVenueLabelPtag);
-  showVenueLabelPtag.innerText = 'venue';
-
-  showsLabelsElm.appendChild(showLocationLabelElm);
-  showLocationLabelElm.appendChild(showLocationLabelPtag);
-  showLocationLabelPtag.innerText = 'location';
-
-  for (const d of showDates) {
-    parent.append(createTabletShowDates(d));
-  }
-};
-
-const createMobileShowDates = dates => {
+const createhowDates = dates => {
   // create the ShowDates table for mobile breakpoint
   // create elements
 
-  const showsContainerElm = document.querySelector('.shows__container');
-  const showdateContainerElm = makeElement('div', 'shows__showdates');
+  const parent = document.querySelector('.shows__wrapper');
+  const showdatesContainerElm = makeElement('div', 'shows__showdates');
 
   const showDateLabelElm = makeElement('div', 'shows__showdate-label');
   const showVenueLabelElm = makeElement('div', 'shows__showdate-label');
   const showLocationLabelElm = makeElement('div', 'shows__showdate-label');
+
+  const showdateWrapperElm = makeElement('div', 'shows__showdate-wrapper');
 
   const showDateLabelPtag = document.createElement('p');
   const showVenueLabelPtag = document.createElement('p');
   const showLocationLabelPtag = document.createElement('p');
 
   const showDateInfo = makeElement('div', 'shows__showdate-info');
-  const showVenueData = makeElement('div', 'shows__showdate-info');
-  const showLocationData = makeElement('div', 'shows__showdate-info');
+  const showVenueInfo = makeElement('div', 'shows__showdate-info');
+  const showLocationInfo = makeElement('div', 'shows__showdate-info');
 
   const showDate = makeElement('p', 'shows__showdate-info--date');
   const showVenue = makeElement('p', 'shows__showdate-info--venue');
@@ -154,52 +80,76 @@ const createMobileShowDates = dates => {
   const buyTicketsBtn = makeElement('button', 'cta-btn');
 
   // Build component
-  showsContainerElm.appendChild(showdateContainerElm);
-  showdateContainerElm.appendChild(showDateLabelElm);
+  parent.appendChild(showdatesContainerElm);
+  showdatesContainerElm.appendChild(showDateLabelElm);
   showDateLabelElm.appendChild(showDateLabelPtag);
   showDateLabelPtag.innerText = 'date';
 
-  showdateContainerElm.appendChild(showDateInfo);
+  showdatesContainerElm.appendChild(showDateInfo);
   showDateInfo.appendChild(showDate);
   showDate.innerText = dates.date;
 
-  showdateContainerElm.appendChild(showVenueLabelElm);
+  showdatesContainerElm.appendChild(showVenueLabelElm);
   showVenueLabelElm.appendChild(showVenueLabelPtag);
   showVenueLabelPtag.innerText = 'venue';
 
-  showdateContainerElm.appendChild(showVenueData);
-  showVenueData.appendChild(showVenue);
+  showdatesContainerElm.appendChild(showVenueInfo);
+  showVenueInfo.appendChild(showVenue);
   showVenue.innerText = dates.venue;
 
-  showdateContainerElm.appendChild(showLocationLabelElm);
+  showdatesContainerElm.appendChild(showLocationLabelElm);
   showLocationLabelElm.appendChild(showLocationLabelPtag);
   showLocationLabelPtag.innerText = 'location';
 
-  showdateContainerElm.appendChild(showLocationData);
-  showLocationData.appendChild(showLocation);
+  showdatesContainerElm.appendChild(showLocationInfo);
+  showLocationInfo.appendChild(showLocation);
   showLocation.innerText = dates.location;
 
-  showdateContainerElm.appendChild(buyTicketsBtn);
+  showdatesContainerElm.appendChild(buyTicketsBtn);
   buyTicketsBtn.innerText = 'buy tickets';
 
-  showsContainerElm.append(makeElement('div', 'divider'));
+  parent.append(makeElement('div', 'divider'));
 
-  return showsContainerElm;
+  return parent;
 };
 
-const showdatesMobile = () => {
-  const parent = document.querySelector('#mobile');
-  const showContainerElm = makeElement('div', 'shows__container');
+const renderShowdates = () => {
+  const parent = document.querySelector('.shows');
+  const showsContainerElm = makeElement('div', 'shows__container');
   const containerTitleElm = makeElement('div', 'shows__title');
   const containerTitleElmH2 = document.createElement('h2');
 
-  parent.appendChild(showContainerElm);
-  showContainerElm.appendChild(containerTitleElm);
+  const wrapperContainerElm = makeElement('div', 'shows__wrapper');
+  const labelContainerElm = makeElement('div', 'shows__label-container');
+  const showDateLabelElm = makeElement('div', 'shows__showdate-label');
+  const showVenueLabelElm = makeElement('div', 'shows__showdate-label');
+  const showLocationLabelElm = makeElement('div', 'shows__showdate-label');
+  const showDateLabelPtag = document.createElement('p');
+  const showVenueLabelPtag = document.createElement('p');
+  const showLocationLabelPtag = document.createElement('p');
+
+  parent.appendChild(showsContainerElm);
+  showsContainerElm.appendChild(containerTitleElm);
   containerTitleElm.appendChild(containerTitleElmH2);
   containerTitleElmH2.innerText = 'Shows';
 
+  showsContainerElm.appendChild(wrapperContainerElm);
+  wrapperContainerElm.appendChild(labelContainerElm);
+
+  labelContainerElm.appendChild(showDateLabelElm);
+  showDateLabelElm.appendChild(showDateLabelPtag);
+  showDateLabelPtag.innerText = 'date';
+
+  labelContainerElm.appendChild(showVenueLabelElm);
+  showVenueLabelElm.appendChild(showVenueLabelPtag);
+  showVenueLabelPtag.innerText = 'venue';
+
+  labelContainerElm.appendChild(showLocationLabelElm);
+  showLocationLabelElm.appendChild(showLocationLabelPtag);
+  showLocationLabelPtag.innerText = 'location';
+
   for (const d of showDates) {
-    parent.append(createMobileShowDates(d));
+    parent.append(createhowDates(d));
   }
 };
 
@@ -212,45 +162,30 @@ const heroImage = url => {
 
 heroImage('../assets/Images/hero-shows.jpg');
 const heroSection = document.querySelector('.hero');
-// heroSection.style.height = '75vw';
-showdatesTablet();
-showdatesMobile();
+
+renderShowdates();
 
 // Code to handle the requirement that clicking on a show date changes the styling
 // as outlined in requirements
 
-const showdateBoxTablet = document.querySelectorAll('.tablet__showdates-info');
-const showdateBoxMobile = document.querySelectorAll('.mobile__showdates');
+const showdatesContainer = document.querySelectorAll('.shows__showdates');
+const tabletSection = document.querySelector('#tablet');
+const mobileSection = document.querySelector('#mobile');
 
 function clearAttribute() {
-  const showdateRemoveTabID = document.getElementById('activeShowdateTablet');
-  const showdateRemoveMobID = document.getElementById('activeShowdateMobile');
+  const showdateRemoveID = document.getElementById('activeShowdate');
 
-  if (showdateRemoveTabID !== null) {
-    showdateRemoveTabID.removeAttribute('id');
-  }
-  if (showdateRemoveMobID !== null) {
-    showdateRemoveMobID.removeAttribute('id');
+  if (showdateRemoveID !== null) {
+    showdateRemoveID.removeAttribute('id');
   }
   return;
 }
 
-showdateBoxTablet.forEach((value, index) => {
-  showdateBoxTablet[index].addEventListener('click', function (event) {
-    if (this.id !== 'activeShowdateTablet') {
+showdatesContainer.forEach((value, index) => {
+  showdatesContainer[index].addEventListener('click', function (event) {
+    if (this.id !== 'activeShowdate') {
       clearAttribute();
-      showdateBoxTablet[index].setAttribute('id', 'activeShowdateTablet');
-      showdateBoxMobile[index].setAttribute('id', 'activeShowdateMobile');
-    }
-  });
-});
-
-showdateBoxMobile.forEach((value, index) => {
-  showdateBoxMobile[index].addEventListener('click', function (event) {
-    if (this.id !== 'activeShowdateMobile') {
-      clearAttribute();
-      showdateBoxMobile[index].setAttribute('id', 'activeShowdateMobile');
-      showdateBoxTablet[index].setAttribute('id', 'activeShowdateTablet');
+      showdatesContainer[index].setAttribute('id', 'activeShowdate');
     }
   });
 });
