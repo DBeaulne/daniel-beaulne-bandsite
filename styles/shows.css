@@ -666,10 +666,25 @@ p {
 }
 
 .shows {
+  padding-left: 1rem;
+  padding-right: 1rem;
   background-color: #fff;
   display: flex;
   align-items: flex-start;
   padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .shows {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows {
+    flex-direction: row;
+    padding-left: 6.25rem;
+    padding-right: 6.25rem;
+  }
 }
 .shows__container {
   width: 100%;
@@ -678,6 +693,7 @@ p {
 }
 @media screen and (min-width: 1280px) {
   .shows__container {
+    width: 30%;
     padding-top: 1.125rem;
   }
 }
@@ -694,8 +710,7 @@ p {
 @media screen and (min-width: 1280px) {
   .shows__title {
     justify-content: flex-start;
-    width: 30%;
-    padding-left: 6.25rem;
+    width: 100%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -710,7 +725,6 @@ p {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 1px solid green;
 }
 .shows__label-container {
   display: flex;
@@ -724,7 +738,6 @@ p {
   align-items: flex-start;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border: 1px solid blue;
 }
 @media screen and (min-width: 768px) {
   .shows__showdates {
@@ -738,7 +751,8 @@ p {
 }
 @media screen and (min-width: 1280px) {
   .shows__showdates {
-    padding-right: 6.25rem;
+    position: relative;
+    padding-right: 2.25rem;
   }
 }
 .shows__showdates:hover {
@@ -761,26 +775,36 @@ p {
     padding-right: 1.25rem;
   }
 }
-.shows__showdate-label {
+@media screen and (min-width: 1280px) {
+  .shows__label-container {
+    padding-top: 2.125rem;
+  }
+}
+.shows__label-container--date, .shows__label-container--venue, .shows__label-container--location {
   color: #afafaf;
   text-transform: uppercase;
   font-family: "Avenir-Next";
   font-size: 0.625rem;
   line-height: 1.25rem;
   font-weight: 400;
-  border: 1px solid purple;
-  width: 25%;
+  width: 14rem;
 }
 @media screen and (min-width: 768px) {
-  .shows__showdate-label {
+  .shows__label-container--date, .shows__label-container--venue, .shows__label-container--location {
     font-family: "Avenir-Next";
     font-size: 0.75rem;
     line-height: 1.25rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .shows__label-container--venue, .shows__label-container--location {
+    padding-left: 6rem;
+  }
+}
 .shows__showdate-info {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   font-family: "Avenir-Next";
   font-size: 0.875rem;
   line-height: 1.375rem;
@@ -789,7 +813,6 @@ p {
   color: #323232;
   width: 100%;
   padding-bottom: 1rem;
-  border: 1px solid rgb(255, 174, 0);
 }
 @media screen and (min-width: 768px) {
   .shows__showdate-info {
@@ -800,13 +823,55 @@ p {
     width: 25%;
   }
 }
+@media screen and (min-width: 1280px) {
+  .shows__showdate-info {
+    width: 14rem;
+  }
+}
+.shows__showdate-info--label {
+  color: #afafaf;
+  text-transform: uppercase;
+  font-family: "Avenir-Next";
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  width: 25%;
+  padding-bottom: 0.125rem;
+}
+@media screen and (min-width: 768px) {
+  .shows__showdate-info--label {
+    display: none;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__showdate-info--label {
+    width: 14rem;
+  }
+}
 .shows__showdate-info--date {
   font-weight: 600;
+}
+@media screen and (min-width: 1280px) {
+  .shows__showdate-info--venue, .shows__showdate-info--location {
+    padding-left: 6rem;
+  }
 }
 .shows__cta-container {
   display: flex;
   justify-content: center;
-  width: 25%;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .shows__cta-container {
+    width: 25%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__cta-container {
+    position: absolute;
+    justify-content: flex-end;
+    right: 1rem;
+  }
 }
 .shows__showdates#activeShowdateMobile {
   background-color: #e1e1e1;
