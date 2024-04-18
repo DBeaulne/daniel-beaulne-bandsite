@@ -376,12 +376,19 @@ nav {
 }
 
 .divider {
+  display: flex;
   width: 100%;
-  border-bottom: 1px solid #e1e1e1;
+  height: 1rem;
+  border: 1px solid #e1e1e1;
+}
+@media screen and (min-width: 768px) {
+  .divider {
+    width: 80%;
+  }
 }
 @media screen and (min-width: 1280px) {
   .divider {
-    width: 68vw;
+    width: 80%;
   }
 }
 
@@ -726,18 +733,13 @@ p {
   flex-direction: column;
   width: 100%;
 }
-.shows__label-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: flex-start;
-}
 .shows__showdates {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  border-bottom: 1px solid #e1e1e1;
 }
 @media screen and (min-width: 768px) {
   .shows__showdates {
@@ -794,11 +796,22 @@ p {
     font-family: "Avenir-Next";
     font-size: 0.75rem;
     line-height: 1.25rem;
+    width: 25%;
   }
 }
 @media screen and (min-width: 1280px) {
-  .shows__label-container--venue, .shows__label-container--location {
-    padding-left: 6rem;
+  .shows__label-container--date, .shows__label-container--venue, .shows__label-container--location {
+    width: 14rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__label-container--date {
+    padding-left: 0.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__label-container--venue {
+    padding-left: 3rem;
   }
 }
 .shows__showdate-info {
@@ -852,8 +865,13 @@ p {
   font-weight: 600;
 }
 @media screen and (min-width: 1280px) {
-  .shows__showdate-info--venue, .shows__showdate-info--location {
-    padding-left: 6rem;
+  .shows__showdate-info--date {
+    padding-left: 0.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__showdate-info--venue {
+    padding-left: 3rem;
   }
 }
 .shows__cta-container {
@@ -870,7 +888,7 @@ p {
   .shows__cta-container {
     position: absolute;
     justify-content: flex-end;
-    right: 1rem;
+    right: 1.5rem;
   }
 }
 .shows__showdates#activeShowdateMobile {

@@ -376,12 +376,19 @@ nav {
 }
 
 .divider {
+  display: flex;
   width: 100%;
-  border-bottom: 1px solid #e1e1e1;
+  height: 1rem;
+  border: 1px solid #e1e1e1;
+}
+@media screen and (min-width: 768px) {
+  .divider {
+    width: 80%;
+  }
 }
 @media screen and (min-width: 1280px) {
   .divider {
-    width: 68vw;
+    width: 80%;
   }
 }
 
@@ -919,15 +926,18 @@ nav {
   display: flex;
   width: 100%;
   flex-direction: column;
+  margin: auto;
 }
 @media screen and (min-width: 768px) {
   .comments__form-container {
-    width: 80vw;
+    width: 80%;
   }
 }
 @media screen and (min-width: 1280px) {
   .comments__form-container {
-    width: 40vw;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    width: 50vw;
   }
 }
 .comments__form {
@@ -937,16 +947,7 @@ nav {
   justify-content: space-between;
   padding-top: 0.75rem;
   padding-bottom: 1rem;
-}
-@media screen and (min-width: 768px) {
-  .comments__form {
-    width: 80vw;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .comments__form {
-    width: 40vw;
-  }
+  border-bottom: 1px solid #e1e1e1;
 }
 .comments__avatar {
   display: flex;
@@ -1069,14 +1070,9 @@ textarea.form-error {
   width: 100%;
   margin: auto;
 }
-@media screen and (min-width: 768px) {
-  .past-comments {
-    width: 90vw;
-  }
-}
 @media screen and (min-width: 1280px) {
   .past-comments {
-    width: 40vw;
+    width: 60vw;
   }
 }
 .past-comments__container {
@@ -1085,15 +1081,16 @@ textarea.form-error {
   width: 100%;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  border-bottom: 1px solid #e1e1e1;
 }
 @media screen and (min-width: 768px) {
   .past-comments__container {
-    width: 80vw;
+    width: 80%;
   }
 }
 @media screen and (min-width: 1280px) {
   .past-comments__container {
-    width: 40vw;
+    width: 80%;
   }
 }
 .past-comments__avatar {

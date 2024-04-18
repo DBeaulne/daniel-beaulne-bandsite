@@ -42,24 +42,24 @@ const makeElement = (elem, className) => {
 };
 
 // Function to create a comment component
-const createComment = comment => {
+const createComment = c => {
   // props to Hugo Stahelin for setting me on the right path with this code
   // Create elements
-  const commentContainer = makeElement('div', 'past-comments__container');
+  const parent = makeElement('div', 'past-comments__container');
   const commentAvatar = makeElement('div', 'past-comments__avatar');
   const commentAvatarImg = makeElement('span', 'past-comments__avatar--avatar-img');
   const commentUser = makeElement('div', 'past-comments__user');
   const commentUserInfo = makeElement('div', 'past-comments__user-info');
   const commentUsername = makeElement('h3', 'past-comments__user-name');
-  commentUsername.innerText = comment.username;
+  commentUsername.innerText = c.username;
   const commentTimestamp = makeElement('h3', 'past-comments__timestamp');
-  commentTimestamp.innerText = comment.timestamp;
+  commentTimestamp.innerText = c.timestamp;
   const userComment = makeElement('p', 'past-comments__user-comment');
-  userComment.innerText = comment.comment;
+  userComment.innerText = c.comment;
 
   // Build component
-  commentContainer.appendChild(commentAvatar);
-  commentContainer.appendChild(commentUser);
+  parent.appendChild(commentAvatar);
+  parent.appendChild(commentUser);
 
   commentAvatar.appendChild(commentAvatarImg);
 
@@ -69,7 +69,7 @@ const createComment = comment => {
   commentUserInfo.appendChild(commentUsername);
   commentUserInfo.appendChild(commentTimestamp);
 
-  return commentContainer;
+  return parent;
 };
 
 const removeComments = () => {
@@ -90,8 +90,6 @@ const populateComments = () => {
     /** call createCommen() passing in the index of the loop, and
      * append the created comment element to the section */
     commentSection.append(createComment(c));
-    /**create a divider and append that to the comment  */
-    commentSection.append(makeElement('div', 'divider'));
   }
 };
 

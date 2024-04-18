@@ -98,19 +98,13 @@ p {
     width: 100%;
   }
 
-  &__label-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
   &__showdates {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    border-bottom: 1px solid variables.$Mercury;
 
     @include mixin.tablet {
       flex-direction: row;
@@ -163,13 +157,23 @@ p {
 
       @include mixin.tablet {
         @include typography.tablet-label;
+        width: 25%;
+      }
+
+      @include mixin.desktop {
+        width: 14rem;
       }
     }
 
-    &--venue,
-    &--location {
+    &--date {
       @include mixin.desktop {
-        padding-left: 6rem;
+        padding-left: 0.5rem;
+      }
+    }
+
+    &--venue {
+      @include mixin.desktop {
+        padding-left: 3rem;
       }
     }
   }
@@ -214,12 +218,14 @@ p {
 
     &--date {
       font-weight: 600;
+      @include mixin.desktop {
+        padding-left: 0.5rem;
+      }
     }
 
-    &--venue,
-    &--location {
+    &--venue {
       @include mixin.desktop {
-        padding-left: 6rem;
+        padding-left: 3rem;
       }
     }
   }
@@ -236,7 +242,7 @@ p {
     @include mixin.desktop {
       position: absolute;
       justify-content: flex-end;
-      right: 1rem;
+      right: 1.5rem;
     }
   }
 

@@ -99,8 +99,6 @@ const createShowDates = dates => {
   buttonContainer.appendChild(buyTicketsBtn);
   buyTicketsBtn.innerText = 'buy tickets';
 
-  parent.append(makeElement('div', 'divider'));
-
   return parent;
 };
 
@@ -155,8 +153,6 @@ renderShowdates();
 // as outlined in requirements
 
 const showdatesContainer = document.querySelectorAll('.shows__showdates');
-const tabletSection = document.querySelector('#tablet');
-const mobileSection = document.querySelector('#mobile');
 
 function clearAttribute() {
   const showdateRemoveID = document.getElementById('activeShowdate');
