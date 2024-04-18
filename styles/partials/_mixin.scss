@@ -35,14 +35,6 @@
   }
 }
 
-@mixin vwWidthTablet {
-  width: 80vw;
-}
-
-@mixin vwWdithDesktop {
-  width: 40vw;
-}
-
 @mixin button {
   height: 2.5rem;
   width: 100%;

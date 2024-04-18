@@ -317,8 +317,18 @@ nav {
 }
 
 .divider {
+  display: flex;
   width: 100%;
-  border-bottom: 1px solid variables.$Mercury;
+  height: 1rem;
+  border: 1px solid variables.$Mercury;
+
+  @include mixin.tablet {
+    width: 80%;
+  }
+
+  @include mixin.desktop {
+    width: 80%;
+  }
 }
 
 /* Footer */

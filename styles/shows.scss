@@ -5,6 +5,11 @@
 @use './partials/typography';
 @use './partials/mixin';
 
+p {
+  color: variables.$BandSite-Black;
+  font-weight: 400;
+}
+
 /* Extensions */
 .section-initial-styling {
   display: flex;
@@ -32,163 +37,217 @@
   color: variables.$BandSite-Black;
 }
 
-.mobile {
+.shows {
   @extend .section-initial-styling;
+  padding-left: 1rem;
+  padding-right: 1rem;
   background-color: variables.$White;
   display: flex;
   align-items: flex-start;
   padding-bottom: 1rem;
 
   @include mixin.tablet {
-    display: none;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+
+  @include mixin.desktop {
+    flex-direction: row;
+    padding-left: 6.25rem;
+    padding-right: 6.25rem;
   }
 
   &__container {
     width: 100%;
     display: flex;
     flex-direction: column;
-  }
 
-  h2 {
-    @extend .section-h2;
-  }
-
-  &__showdates {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  &__showdates-label {
-    color: variables.$Silver;
-    text-transform: uppercase;
-    @include typography.mobile-label;
-    font-weight: 400;
-  }
-
-  &__showdates-info {
-    @include typography.mobile-subheader;
-    font-weight: 400;
-    padding-bottom: 1rem;
-    text-transform: capitalize;
-    color: variables.$BandSite-Black;
-
-    &--date {
-      font-weight: 600;
+    @include mixin.desktop {
+      width: 30%;
+      padding-top: 1.125rem;
     }
-  }
-
-  &__showdates#activeShowdateMobile {
-    background-color: variables.$Mercury;
-  }
-}
-
-.tablet {
-  // this class is hidden on mobile devices
-  display: flex;
-  @extend .section-initial-styling;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: variables.$White;
-  padding-top: variables.$tablet-before-hdlines;
-  padding-bottom: variables.$tablet-before-hdlines;
-  flex-direction: column;
-
-  @include mixin.desktop {
-    flex-direction: row;
-    align-items: flex-start;
   }
 
   &__title {
     display: flex;
     width: 100%;
     position: relative;
-    padding-left: 1.25rem;
+
+    @include mixin.tablet {
+      padding-left: 1.25rem;
+    }
 
     @include mixin.desktop {
       justify-content: flex-start;
-      width: 30%;
-      padding-left: 6.25rem;
+      width: 100%;
     }
+  }
+
+  h2 {
+    @extend .section-h2;
+
+    @include mixin.tablet {
+      @include typography.tablet-section-header;
+      padding-bottom: variables.$tablet-after-hdlines;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   &__showdates {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-
-    @include mixin.desktop {
-      padding-left: 2rem;
-      padding-right: 6.25rem;
-    }
-  }
-
-  &__showdates-info {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    border-bottom: 1px solid variables.$Mercury;
+
+    @include mixin.tablet {
+      flex-direction: row;
+      padding-top: 1rem;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    @include mixin.desktop {
+      position: relative;
+      padding-right: 2.25rem;
+    }
 
     &:hover {
       background-color: variables.$Alabaster;
     }
+
+    &#activeShowdate {
+      background-color: variables.$Mercury;
+    }
   }
 
-  &__showdates-info#activeShowdateTablet {
-    background-color: variables.$Mercury;
-  }
-
-  &__label {
-    color: variables.$Silver;
-    text-transform: uppercase;
-    @include typography.mobile-label;
-    font-weight: 400;
-    width: 25%;
-  }
-
-  &__showdates-labels {
+  &__label-container {
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    padding-bottom: 2rem;
-    padding-top: 1.25rem;
+    display: none;
+
+    @include mixin.tablet {
+      display: flex;
+      flex-direction: row;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    @include mixin.desktop {
+      padding-top: 2.125rem;
+    }
+
+    &--date,
+    &--venue,
+    &--location {
+      color: variables.$Silver;
+      text-transform: uppercase;
+      @include typography.mobile-label;
+      font-weight: 400;
+      width: 14rem;
+
+      @include mixin.tablet {
+        @include typography.tablet-label;
+        width: 25%;
+      }
+
+      @include mixin.desktop {
+        width: 14rem;
+      }
+    }
+
+    &--date {
+      @include mixin.desktop {
+        padding-left: 0.5rem;
+      }
+    }
+
+    &--venue {
+      @include mixin.desktop {
+        padding-left: 3rem;
+      }
+    }
   }
 
-  &__info {
+  &__showdate-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     @include typography.mobile-subheader;
     font-weight: 400;
     text-transform: capitalize;
     color: variables.$BandSite-Black;
-    width: 25%;
+    width: 100%;
+    padding-bottom: 1rem;
+
+    @include mixin.tablet {
+      @include typography.tablet-body-copy;
+      padding-top: 1rem;
+      width: 25%;
+    }
+
+    @include mixin.desktop {
+      width: 14rem;
+    }
+
+    &--label {
+      color: variables.$Silver;
+      text-transform: uppercase;
+      @include typography.mobile-label;
+      font-weight: 400;
+      width: 25%;
+      padding-bottom: 0.125rem;
+
+      @include mixin.tablet {
+        display: none;
+      }
+
+      @include mixin.desktop {
+        width: 14rem;
+      }
+    }
 
     &--date {
       font-weight: 600;
+      @include mixin.desktop {
+        padding-left: 0.5rem;
+      }
+    }
+
+    &--venue {
+      @include mixin.desktop {
+        padding-left: 3rem;
+      }
     }
   }
 
-  &__cta {
+  &__cta-container {
     display: flex;
-    justify-content: flex-end;
-    width: 25%;
+    justify-content: center;
+    width: 100%;
+
+    @include mixin.tablet {
+      width: 25%;
+    }
+
+    @include mixin.desktop {
+      position: absolute;
+      justify-content: flex-end;
+      right: 1.5rem;
+    }
   }
 
-  h2 {
-    @extend .section-h2;
-    @include typography.tablet-section-header;
-    padding-bottom: variables.$tablet-after-hdlines;
-  }
-
-  @include mixin.mobile {
-    display: none;
+  &__showdates#activeShowdateMobile {
+    background-color: variables.$Mercury;
   }
 }
 
