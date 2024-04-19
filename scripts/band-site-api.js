@@ -25,3 +25,36 @@
  * -- A class method that makes an API request must be marked with the async keyword. When calling the async method,
  *    remember to use await!
  */
+
+const baseUrl = 'https://unit-2-project-api-25c1595833b2.herokuapp.com/';
+
+// to use you must append ?api_key=<your_api_key_here> to each of the API request URLs (except for /register)
+const apiKey = 'e687fdd1-3285-4094-9651-8a690a75b760';
+
+class BandSiteApi {
+  constructor(apiKey) {
+    this.apiKey = apiKey;
+    this.baseUrl = 'https://unit-2-project-api-25c1595833b2.herokuapp.com/';
+  }
+
+  async postComment(comment) {
+    /**This method accepts a comment object as its only parameter. It must send a POST request
+     * to the API with the comment object as the body, using the API key instance property (this.apiKey)
+     * to authenticate the request. */
+  }
+
+  async getComments() {
+    /** This method accepts no parameters. It must send a GET request to the API, using the
+     * API key instance property (this.apiKey) to authenticate the request.
+     * -- The getComments method must sort the array of comments from the API, returning them
+     * n order from newest to oldest. */
+  }
+
+  async getShows() {
+    /**
+     * This method accepts no parameters. It must send a GET request to the provided shows API, using the
+     * API key instance property (e.g. this.apiKey) to authenticate the request.
+     * The getShows method must return the array of show data objects returned from the API.
+     */
+  }
+}
