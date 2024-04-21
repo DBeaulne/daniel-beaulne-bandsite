@@ -58,3 +58,29 @@ class BandSiteApi {
      */
   }
 }
+
+const url = 'https://unit-2-project-api-25c1595833b2.herokuapp.com/comments?api_key=<e687fdd1-3285-4094-9651-8a690a75b760>';
+
+const getComment = async () => {
+  try {
+    const response = await axios.get(url);
+    console.log(response);
+    console.dir(response);
+    console.log(typeof response);
+
+    /*     for (let i = 0; i < response.data.length; i++) {
+      this.name = response.data[i].name;
+      console.log(name);
+    } */
+
+    const comments = new Array(response.data);
+    for (const c of comments) {
+      this.userName = comments.name;
+      console.log(userName);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+getComment();
