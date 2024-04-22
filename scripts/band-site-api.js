@@ -1,35 +1,36 @@
 /** BandSite API code
  *
  * -- create a class called BandSiteApi with the following methods
- * # constructor: - the constructor accepts an API key as its only parameter (e.g. apiKey)
+ */
+/* # constructor: - the constructor accepts an API key as its only parameter (e.g. apiKey)
  *                  This API key will be used when making POST and GET requests to the APPI (such as in the postComment
  *                  and getComments methods).
  *                - The constructor must store the API key parameter in an instance property (e.g. this.apiKey).
  *                - The constructor must store the base API URL in an instance property (e.g. this.baseUrl). This
  *                  property can be set to a hardcoded string, as it is not passed as a parameter.
- *
- * # postComment: - This method accepts a comment object as its only parameters. It must send a POST request to
+ */
+/** # postComment: - This method accepts a comment object as its only parameters. It must send a POST request to
  *                  the API with the comment object as the body, using the API key instance property (this.apiKey)
  *                  to authenticate the request
- *
- * # getComments: - This method accepts no parameters. It must send a GET request to the API, using the API key instance
+ */
+/* # getComments: - This method accepts no parameters. It must send a GET request to the API, using the API key instance
  *                  property (this.apiKey) to authenticate the request.
  *                - The getComments method must sort the array of comments from the API, returning them in order from
  *                  newest to oldest.
- *
- * # getShows:    - This method accepts no parameters. It must send a GET request to the provided shows API,
+ */
+/* # getShows:    - This method accepts no parameters. It must send a GET request to the provided shows API,
  *                  using the API key instance property (e.g. this.apiKey) to authenticate the request.
  *                - The getShows method must return the array of show data objects returned from the API.
- *
+ */
+/*
  * -- You must create an instance of the BandSiteApi class and use this to interact with the API.
  * -- A class method that makes an API request must be marked with the async keyword. When calling the async method,
  *    remember to use await!
  */
 
-const baseUrl = 'https://unit-2-project-api-25c1595833b2.herokuapp.com/';
-
 // to use you must append ?api_key=<your_api_key_here> to each of the API request URLs (except for /register)
 const apiKey = 'e687fdd1-3285-4094-9651-8a690a75b760';
+const baseUrl = 'https://unit-2-project-api-25c1595833b2.herokuapp.com/';
 
 class BandSiteApi {
   constructor(apiKey) {
@@ -48,6 +49,37 @@ class BandSiteApi {
      * API key instance property (this.apiKey) to authenticate the request.
      * -- The getComments method must sort the array of comments from the API, returning them
      * n order from newest to oldest. */
+    try {
+      const response = await axios.get(`${baseUrl}comments?api_key=<${apiKey}>`);
+      let retrievedComments = response.data;
+      retrievedComments.forEach(e => {
+        const userName = e.name;
+        const timestamp = new Date(e.timestamp);
+        console.log(userName);
+        console.log(timestamp.toLocaleDateString());
+      });
+
+      let sortedArray = new Array();
+      const sortArray = com => {
+        sortedArray = com.sort(function (a, b) {
+          return b.timestamp - a.timestamp;
+        });
+        return sortedArray;
+      };
+
+      sortArray(retrievedComments);
+      console.log(sortedArray);
+      sortedArray.forEach(e => {
+        const userName = e.name;
+        const timestamp = new Date(e.timestamp);
+        console.log(userName);
+        console.log(timestamp.toLocaleDateString());
+      });
+
+      return retrievedComments;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async getShows() {
@@ -59,28 +91,5 @@ class BandSiteApi {
   }
 }
 
-const url = 'https://unit-2-project-api-25c1595833b2.herokuapp.com/comments?api_key=<e687fdd1-3285-4094-9651-8a690a75b760>';
-
-const getComment = async () => {
-  try {
-    const response = await axios.get(url);
-    console.log(response);
-    console.dir(response);
-    console.log(typeof response);
-
-    /*     for (let i = 0; i < response.data.length; i++) {
-      this.name = response.data[i].name;
-      console.log(name);
-    } */
-
-    const comments = new Array(response.data);
-    for (const c of comments) {
-      this.userName = comments.name;
-      console.log(userName);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-getComment();
+const bandsite = new BandSiteApi(apiKey);
+bandsite.getComments();
