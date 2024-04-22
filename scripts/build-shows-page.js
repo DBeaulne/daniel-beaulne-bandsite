@@ -2,15 +2,17 @@
 
 /**Object declaration for shows object */
 
-/* 
-let showDates = [
-    {
-        date: '',
-        venus: '',
-        location: '',
-    },
-]
-*/
+/* let showDatesArray = [
+  {
+    date: '',
+    venus: '',
+    location: ''
+  }
+]; */
+
+let newShowDates = bandsite.getShows();
+console.log(newShowDates);
+console.log(typeof newShowDates);
 
 let showDates = [
   {
@@ -53,7 +55,6 @@ const makeElement = (elem, className) => {
 };
 
 const createShowDates = dates => {
-  // create the ShowDates table for mobile breakpoint
   // create elements
 
   const parent = document.querySelector('.shows__wrapper');

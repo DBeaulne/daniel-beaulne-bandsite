@@ -38,20 +38,20 @@ class BandSiteApi {
     this.baseUrl = 'https://unit-2-project-api-25c1595833b2.herokuapp.com/';
   }
 
-  async postComment(comment) {
+  postComment = async comment => {
     /**This method accepts a comment object as its only parameter. It must send a POST request
      * to the API with the comment object as the body, using the API key instance property (this.apiKey)
      * to authenticate the request. */
-  }
+  };
 
-  async getComments() {
+  getComments = async () => {
     /** This method accepts no parameters. It must send a GET request to the API, using the
      * API key instance property (this.apiKey) to authenticate the request.
      * -- The getComments method must sort the array of comments from the API, returning them
      * n order from newest to oldest. */
     try {
       const response = await axios.get(`${baseUrl}comments?api_key=<${apiKey}>`);
-      let retrievedComments = response.data;
+      const retrievedComments = await response.data;
       retrievedComments.forEach(e => {
         const userName = e.name;
         const timestamp = new Date(e.timestamp);
@@ -76,20 +76,43 @@ class BandSiteApi {
         console.log(timestamp.toLocaleDateString());
       });
 
-      return retrievedComments;
+      // return retrievedComments;
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-  async getShows() {
+  getShows = async () => {
     /**
-     * This method accepts no parameters. It must send a GET request to the provided shows API, using the
-     * API key instance property (e.g. this.apiKey) to authenticate the request.
-     * The getShows method must return the array of show data objects returned from the API.
+     * This method accepts no parameters. It must send a GET request to the provided
+     * shows API, using the API key instance property (e.g. this.apiKey) to authenticate
+     * the request.
+     * The getShows method must return the array of show data objects
+     * returned from the API.
      */
-  }
+    try {
+      const response = await axios.get(`${baseUrl}showdates?api_key=<${apiKey}>`);
+      let retrievedShowdates = await response.data;
+      // console.log(retrievedShowdates);
+      const showdatesArray = [];
+      retrievedShowdates.forEach(e => {
+        const arr = {};
+        arr.date = new Date(e.date);
+        arr.venue = e.place;
+        arr.location = e.location;
+        arr.id = e.id;
+        showdatesArray.push(arr);
+      });
+
+      console.log(showdatesArray);
+
+      return showdatesArray;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 const bandsite = new BandSiteApi(apiKey);
-bandsite.getComments();
+// bandsite.getComments();
+// bandsite.getShows();
