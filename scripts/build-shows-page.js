@@ -10,9 +10,30 @@
   }
 ]; */
 
-let newShowDates = bandsite.getShows();
-console.log(newShowDates);
-console.log(typeof newShowDates);
+let showdatesArray = [];
+
+async function wrapper() {
+  let newShowDates = [];
+  newShowDates = await bandsite
+    .getShows()
+    .then(response => {
+      return response;
+    })
+    .then(data => {
+      return data;
+    });
+  console.log(newShowDates);
+
+  return newShowDates;
+}
+
+showdatesArray = wrapper()
+  .then(data => {
+    console.log(data);
+    console.log(typeof data);
+    return data;
+  })
+  .catch(err => console.error(`${err.message}`));
 
 let showDates = [
   {

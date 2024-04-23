@@ -30,7 +30,6 @@
 
 // to use you must append ?api_key=<your_api_key_here> to each of the API request URLs (except for /register)
 const apiKey = 'e687fdd1-3285-4094-9651-8a690a75b760';
-const baseUrl = 'https://unit-2-project-api-25c1595833b2.herokuapp.com/';
 
 class BandSiteApi {
   constructor(apiKey) {
@@ -91,22 +90,12 @@ class BandSiteApi {
      * returned from the API.
      */
     try {
-      const response = await axios.get(`${baseUrl}showdates?api_key=<${apiKey}>`);
-      let retrievedShowdates = await response.data;
-      // console.log(retrievedShowdates);
-      const showdatesArray = [];
-      retrievedShowdates.forEach(e => {
-        const arr = {};
-        arr.date = new Date(e.date);
-        arr.venue = e.place;
-        arr.location = e.location;
-        arr.id = e.id;
-        showdatesArray.push(arr);
-      });
-
-      console.log(showdatesArray);
-
-      return showdatesArray;
+      const response = await axios.get(`${this.baseUrl}showdates?api_key=<${this.apiKey}>`);
+      if (response.status != '200') {
+        console.log('Waiting for a successful response');
+      } else {
+        return response.data;
+      }
     } catch (error) {
       console.log(error);
     }
