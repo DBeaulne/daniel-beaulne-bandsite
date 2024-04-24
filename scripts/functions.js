@@ -10,6 +10,8 @@ const heroImage = url => {
 
 // Function to create any element and attach a class to it
 // ver 1.0
+// Current limitations -- Passing in an elem without a class results in a class="null" being added
+// TO DO for future versions -- make second and third parameter optional (if that is even possible)
 const makeElement = (elem, className) => {
   const element = document.createElement(elem);
   element.classList.add(className);
