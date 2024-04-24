@@ -405,6 +405,9 @@ nav {
     padding-right: 7.25rem;
   }
 }
+.footer p {
+  color: #fff;
+}
 .footer__container {
   display: flex;
   flex-direction: column;
@@ -588,7 +591,6 @@ nav {
   font-weight: 400;
   padding-top: 1rem;
   width: 100%;
-  color: #fff;
 }
 @media screen and (min-width: 768px) {
   .footer__copywrite {

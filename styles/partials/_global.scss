@@ -344,6 +344,10 @@ nav {
     padding-right: 7.25rem;
   }
 
+  p {
+    color: variables.$White;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -507,7 +511,6 @@ nav {
     font-weight: 400;
     padding-top: variables.$mobile-btw-component;
     width: 100%;
-    color: variables.$White;
 
     @include mixin.tablet {
       @include typography.tablet-footer-copy;
