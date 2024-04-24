@@ -96,7 +96,7 @@ const showdatesHeader = () => {
 heroImage('../assets/Images/hero-shows.jpg');
 
 async function getShowsData() {
-  const api = new BandSiteApi(apiKey);
+  const api = new BandSiteApi(API_KEY);
   const newShowDates = await api.getShows();
   return newShowDates;
 }

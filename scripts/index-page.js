@@ -44,9 +44,10 @@ const createComment = c => {
   const commentUser = makeElement('div', 'past-comments__user');
   const commentUserInfo = makeElement('div', 'past-comments__user-info');
   const commentUsername = makeElement('h3', 'past-comments__user-name');
-  commentUsername.innerText = c.username;
+  commentUsername.innerText = c.name;
   const commentTimestamp = makeElement('h3', 'past-comments__timestamp');
-  commentTimestamp.innerText = c.timestamp;
+  commentTimestamp.innerText = new Date(c.timestamp).toLocaleDateString();
+
   const userComment = makeElement('p', 'past-comments__user-comment');
   userComment.innerText = c.comment;
 
@@ -80,12 +81,12 @@ const removeComments = () => {
 // first get the section ID as the section is empty save for <section id="previous-comments"
 // then call createComment(), passing in the index of the loop, and then append
 // the created element to the section
-const populateComments = () => {
+/* const populateComments = () => {
   for (const c of comments) {
     const commentSection = document.querySelector('#previous-comments');
     commentSection.append(createComment(c));
   }
-};
+}; */
 
 const commentForm = document.getElementById('commentForm');
 const nameField = document.getElementById('full-name');
@@ -115,12 +116,29 @@ commentForm.addEventListener('submit', e => {
     const newComment = new Comment(e.target.username.value, e.timeStamp, e.target.comment.value); // comment Object
     comments.splice(0, 0, newComment);
     removeComments();
-    populateComments();
+    newPopulateComments();
   }
 });
 
 // call hero image function and display the image at the path passed into the function
 heroImage('./assets/Images/hero-bio.jpg');
 
+async function getCommentData() {
+  const api = new BandSiteApi(API_KEY);
+  const newComments = await api.getComments();
+  return newComments;
+}
+
+async function newPopulateComments() {
+  const newComments = await getCommentData();
+  console.log(newComments);
+
+  newComments.forEach(c => {
+    const commentSection = document.querySelector('#previous-comments');
+    commentSection.append(createComment(c));
+  });
+}
+
 // populate comments on page load
-populateComments();
+// populateComments();
+newPopulateComments();

@@ -29,11 +29,11 @@
  */
 
 // to use you must append ?api_key=<your_api_key_here> to each of the API request URLs (except for /register)
-const apiKey = 'e687fdd1-3285-4094-9651-8a690a75b760';
+const API_KEY = 'e687fdd1-3285-4094-9651-8a690a75b760';
 
 class BandSiteApi {
-  constructor(apiKey) {
-    this.apiKey = apiKey;
+  constructor(API_KEY) {
+    this.API_KEY = API_KEY;
     this.baseUrl = 'https://unit-2-project-api-25c1595833b2.herokuapp.com/';
   }
 
@@ -49,33 +49,8 @@ class BandSiteApi {
      * -- The getComments method must sort the array of comments from the API, returning them
      * n order from newest to oldest. */
     try {
-      const response = await axios.get(`${baseUrl}comments?api_key=<${apiKey}>`);
-      const retrievedComments = await response.data;
-      retrievedComments.forEach(e => {
-        const userName = e.name;
-        const timestamp = new Date(e.timestamp);
-        console.log(userName);
-        console.log(timestamp.toLocaleDateString());
-      });
-
-      let sortedArray = new Array();
-      const sortArray = com => {
-        sortedArray = com.sort(function (a, b) {
-          return b.timestamp - a.timestamp;
-        });
-        return sortedArray;
-      };
-
-      sortArray(retrievedComments);
-      console.log(sortedArray);
-      sortedArray.forEach(e => {
-        const userName = e.name;
-        const timestamp = new Date(e.timestamp);
-        console.log(userName);
-        console.log(timestamp.toLocaleDateString());
-      });
-
-      // return retrievedComments;
+      const response = await axios.get(`${this.baseUrl}comments?api_key=<${API_KEY}>`);
+      return response.data;
     } catch (error) {
       console.log(error);
     }
@@ -90,18 +65,14 @@ class BandSiteApi {
      * returned from the API.
      */
     try {
-      const response = await axios.get(`${this.baseUrl}showdates?api_key=<${this.apiKey}>`);
-      if (response.status != '200') {
-        console.log('Waiting for a successful response');
-      } else {
-        return response.data;
-      }
+      const response = await axios.get(`${this.baseUrl}showdates?api_key=<${this.API_KEY}>`);
+      return response.data;
     } catch (error) {
       console.log(error);
     }
   };
 }
 
-// const bandsite = new BandSiteApi(apiKey);
+// const bandsite = new BandSiteApi(API_KEY);
 // bandsite.getComments();
 // bandsite.getShows();
