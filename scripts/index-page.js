@@ -120,19 +120,33 @@ commentForm.addEventListener('submit', e => {
   }
 });
 
+// test data
+let testComment = {
+  name: 'Daniel Beaulne',
+  comment: 'this is an amazing band!'
+};
+
+async function postCommentData(testComment) {
+  const api = new BandSiteApi(API_KEY);
+  console.log(api);
+  console.log(testComment);
+}
+
+postCommentData(testComment);
+
 // call hero image function and display the image at the path passed into the function
 heroImage('./assets/Images/hero-bio.jpg');
 
+// async function to get the comments through the API
 async function getCommentData() {
   const api = new BandSiteApi(API_KEY);
   const newComments = await api.getComments();
   return newComments;
 }
 
+// async function to populate the comments retrieved from the getCommentData async function
 async function newPopulateComments() {
   const newComments = await getCommentData();
-  console.log(newComments);
-
   newComments.forEach(c => {
     const commentSection = document.querySelector('#previous-comments');
     commentSection.append(createComment(c));

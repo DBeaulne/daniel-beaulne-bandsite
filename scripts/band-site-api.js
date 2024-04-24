@@ -41,6 +41,9 @@ class BandSiteApi {
     /**This method accepts a comment object as its only parameter. It must send a POST request
      * to the API with the comment object as the body, using the API key instance property (this.apiKey)
      * to authenticate the request. */
+
+    try {
+    } catch (error) {}
   };
 
   getComments = async () => {
