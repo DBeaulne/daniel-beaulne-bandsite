@@ -138,9 +138,16 @@ postCommentData(testComment);
 heroImage('./assets/Images/hero-bio.jpg');
 
 // async function to get the comments through the API
+// sort the fetched comments by most recent
+// return the comments
 async function getCommentData() {
   const api = new BandSiteApi(API_KEY);
-  const newComments = await api.getComments();
+  let newComments = await api.getComments();
+
+  newComments.sort(function (a, b) {
+    return b.timestamp - a.timestamp;
+  });
+
   return newComments;
 }
 
