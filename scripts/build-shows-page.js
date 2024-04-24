@@ -1,24 +1,9 @@
 /* Shows Page Javascript */
 
-/**Object declaration for shows object */
-
-/* let showDatesArray = [
-  {
-    date: '',
-    venus: '',
-    location: ''
-  }
-]; */
-
-// Function to create any element and attach a class to it
-const makeElement = (elem, className) => {
-  const element = document.createElement(elem);
-  element.classList.add(className);
-  return element;
-};
-
+// Function to create the primary showdate container that will display the date, venue, & location
+// of the show, as well as include the labels for each piece of information
 const createShowDates = dates => {
-  // create elements
+  // create all the elements that we'll need as well as the class required for that element
 
   const parent = document.querySelector('.shows__wrapper');
   const showdatesContainerElm = makeElement('div', 'shows__showdates');
@@ -38,7 +23,8 @@ const createShowDates = dates => {
   const buttonContainer = makeElement('div', 'shows__cta-container');
   const buyTicketsBtn = makeElement('button', 'cta-btn');
 
-  // Build component
+  // Build the component showdate container element including all child elements and the info that
+  // goes into the necessary elements
   parent.appendChild(showdatesContainerElm);
 
   showdatesContainerElm.appendChild(showDateInfo);
@@ -66,7 +52,13 @@ const createShowDates = dates => {
   return parent;
 };
 
-const renderShowdates = () => {
+// function to render the showdates header which contains the title element as well as an
+// element that contains the Date, Venue, & Location labels that is displayed only on
+// tablet or desktop view and hidden in mobile view, as set by the media query breakpoints
+
+const showdatesHeader = () => {
+  // create all the elements that we'll need as well as the class required for that element
+
   const parent = document.querySelector('.shows');
   const showsContainerElm = makeElement('div', 'shows__container');
   const containerTitleElm = makeElement('div', 'shows__title');
@@ -78,6 +70,9 @@ const renderShowdates = () => {
   const showDateLabelPtag = makeElement('p', 'shows__label-container--date');
   const showVenueLabelPtag = makeElement('p', 'shows__label-container--venue');
   const showLocationLabelPtag = makeElement('p', 'shows__label-container--location');
+
+  // Build the component showdate container element including all child elements and the info that
+  // goes into the necessary elements
 
   parent.appendChild(showsContainerElm);
   showsContainerElm.appendChild(containerTitleElm);
@@ -97,15 +92,8 @@ const renderShowdates = () => {
   showLocationLabelPtag.innerText = 'location';
 };
 
-const heroImage = url => {
-  // a function to display the desired image for the hero section of the page
-  const heroSection = document.querySelector('.hero');
-  const showsHeroSectionImgUrl = url;
-  heroSection.style.backgroundImage = 'url(' + showsHeroSectionImgUrl + ')';
-};
-
+// call hero image function and display the image at the path passed into the function
 heroImage('../assets/Images/hero-shows.jpg');
-const heroSection = document.querySelector('.hero');
 
 async function getShowsData() {
   const api = new BandSiteApi(apiKey);
@@ -115,13 +103,12 @@ async function getShowsData() {
 
 async function newRenderShows() {
   const newShowDates = await getShowsData();
-  renderShowdates();
-  console.log(newShowDates);
+  showdatesHeader();
   newShowDates.forEach(show => {
-    console.log(show);
     const parent = document.querySelector('.shows');
     parent.append(createShowDates(show));
   });
+  watchForClick();
 }
 
 newRenderShows();
@@ -129,22 +116,24 @@ newRenderShows();
 // Code to handle the requirement that clicking on a show date changes the styling
 // as outlined in requirements
 
-const showdatesContainer = document.querySelectorAll('.shows__showdates');
+const watchForClick = () => {
+  const showdatesContainer = document.querySelectorAll('.shows__showdates');
 
-function clearAttribute() {
+  showdatesContainer.forEach((value, index) => {
+    showdatesContainer[index].addEventListener('click', function (event) {
+      if (this.id !== 'activeShowdate') {
+        clearAttributes();
+        showdatesContainer[index].setAttribute('id', 'activeShowdate');
+      }
+    });
+  });
+};
+
+const clearAttributes = () => {
   const showdateRemoveID = document.getElementById('activeShowdate');
 
   if (showdateRemoveID !== null) {
     showdateRemoveID.removeAttribute('id');
   }
   return;
-}
-
-showdatesContainer.forEach((value, index) => {
-  showdatesContainer[index].addEventListener('click', function (event) {
-    if (this.id !== 'activeShowdate') {
-      clearAttribute();
-      showdatesContainer[index].setAttribute('id', 'activeShowdate');
-    }
-  });
-});
+};

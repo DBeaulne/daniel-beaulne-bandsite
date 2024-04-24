@@ -34,13 +34,6 @@ let comments = [
   }
 ];
 
-// Function to create any element and attach a class to it
-const makeElement = (elem, className) => {
-  const element = document.createElement(elem);
-  element.classList.add(className);
-  return element;
-};
-
 // Function to create a comment component
 const createComment = c => {
   // props to Hugo Stahelin for setting me on the right path with this code
@@ -72,9 +65,9 @@ const createComment = c => {
   return parent;
 };
 
+// A function to clear all the comments from the page before we re-render
+// the comments to include the new comment
 const removeComments = () => {
-  /** A function to clear all the comments from the page before we re-render
-the comments to include the new comment */
   const parent = document.getElementById('previous-comments');
   parent.innerHTML = '';
   const inputFullName = document.getElementsByTagName('input');
@@ -83,36 +76,35 @@ the comments to include the new comment */
   inputTextArea.comment.value = '';
 };
 
+// Function to popluate the comments section
+// first get the section ID as the section is empty save for <section id="previous-comments"
+// then call createComment(), passing in the index of the loop, and then append
+// the created element to the section
 const populateComments = () => {
-  /** Functional loop to popluate the comments section */
   for (const c of comments) {
-    const commentSection = document.querySelector('#previous-comments'); // get the section ID
-    /** call createCommen() passing in the index of the loop, and
-     * append the created comment element to the section */
+    const commentSection = document.querySelector('#previous-comments');
     commentSection.append(createComment(c));
   }
 };
 
-// Function to submit the comment
 const commentForm = document.getElementById('commentForm');
 const nameField = document.getElementById('full-name');
 const commentField = document.getElementById('comment-area');
 
+// Function to submit the comment
 commentForm.addEventListener('submit', e => {
   e.preventDefault(); // prevent page reload
 
   if (nameField.classList.contains('form-error')) {
-    // check name input to see if it has 'form-error' class
-    nameField.classList.remove('form-error'); // attached. if present, remove it.
+    nameField.classList.remove('form-error'); // check name input for 'form-error' class, if present, remove it.
   }
   if (commentField.classList.contains('form-error')) {
-    // check textares to see if it has 'form-error' class
-    commentField.classList.remove('form-error'); // attached. if present, remove it.
+    commentField.classList.remove('form-error'); // check textarea for 'form-error' class, if present, remove it.
   }
 
   /*** Form validation
    * if the name input field or comment textarea is empty, attach 'form-error' class to the field or textarea
-   * otherwiser, if the validation passes, post the new comment
+   * if the validation passes, post the new comment
    */
 
   if (e.target.username.value === '') {
@@ -126,13 +118,6 @@ commentForm.addEventListener('submit', e => {
     populateComments();
   }
 });
-
-const heroImage = url => {
-  // a function to display the desired image for the hero section of the page
-  const heroSection = document.querySelector('.hero');
-  const showsHeroSectionImgUrl = url;
-  heroSection.style.backgroundImage = 'url(' + showsHeroSectionImgUrl + ')';
-};
 
 // call hero image function and display the image at the path passed into the function
 heroImage('./assets/Images/hero-bio.jpg');
