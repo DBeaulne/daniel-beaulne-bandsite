@@ -10,64 +10,6 @@
   }
 ]; */
 
-let showdatesArray = [];
-
-async function wrapper() {
-  let newShowDates = [];
-  newShowDates = await bandsite
-    .getShows()
-    .then(response => {
-      return response;
-    })
-    .then(data => {
-      return data;
-    });
-  console.log(newShowDates);
-
-  return newShowDates;
-}
-
-showdatesArray = wrapper()
-  .then(data => {
-    console.log(data);
-    console.log(typeof data);
-    return data;
-  })
-  .catch(err => console.error(`${err.message}`));
-
-let showDates = [
-  {
-    date: 'Mon Sept 09 2024',
-    venue: 'Ronald Lane',
-    location: 'San Francisco, CA'
-  },
-  {
-    date: 'Tue Sept 17 2024',
-    venue: 'Pier 3 East',
-    location: 'San Francisco, CA '
-  },
-  {
-    date: 'Sat Oct 12 2024',
-    venue: 'View Lounge ',
-    location: 'San Francisco, CA '
-  },
-  {
-    date: 'Sat Nov 16 2024',
-    venue: 'Hyatt Agency',
-    location: 'San Francisco, CA'
-  },
-  {
-    date: 'Fri Nov 29 2024',
-    venue: 'Moscow Center',
-    location: 'San Francisco, CA'
-  },
-  {
-    date: 'Wed Dec 18 2024',
-    venue: 'Press Club',
-    location: 'San Francisco, CA'
-  }
-];
-
 // Function to create any element and attach a class to it
 const makeElement = (elem, className) => {
   const element = document.createElement(elem);
@@ -103,13 +45,13 @@ const createShowDates = dates => {
   showDateInfo.appendChild(showDateLabelPElm);
   showDateLabelPElm.innerText = 'date';
   showDateInfo.appendChild(showDate);
-  showDate.innerText = dates.date;
+  showDate.innerText = new Date(dates.date).toDateString();
 
   showdatesContainerElm.appendChild(showVenueInfo);
   showVenueInfo.appendChild(showVenueLabelPElm);
   showVenueLabelPElm.innerText = 'venue';
   showVenueInfo.appendChild(showVenue);
-  showVenue.innerText = dates.venue;
+  showVenue.innerText = dates.place;
 
   showdatesContainerElm.appendChild(showLocationInfo);
   showLocationInfo.appendChild(showLocationLabelPElm);
@@ -153,10 +95,6 @@ const renderShowdates = () => {
 
   labelContainerElm.appendChild(showLocationLabelPtag);
   showLocationLabelPtag.innerText = 'location';
-
-  for (const d of showDates) {
-    parent.append(createShowDates(d));
-  }
 };
 
 const heroImage = url => {
@@ -169,7 +107,24 @@ const heroImage = url => {
 heroImage('../assets/Images/hero-shows.jpg');
 const heroSection = document.querySelector('.hero');
 
-renderShowdates();
+async function getShowsData() {
+  const api = new BandSiteApi(apiKey);
+  const newShowDates = await api.getShows();
+  return newShowDates;
+}
+
+async function newRenderShows() {
+  const newShowDates = await getShowsData();
+  renderShowdates();
+  console.log(newShowDates);
+  newShowDates.forEach(show => {
+    console.log(show);
+    const parent = document.querySelector('.shows');
+    parent.append(createShowDates(show));
+  });
+}
+
+newRenderShows();
 
 // Code to handle the requirement that clicking on a show date changes the styling
 // as outlined in requirements

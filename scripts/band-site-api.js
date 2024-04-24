@@ -102,6 +102,6 @@ class BandSiteApi {
   };
 }
 
-const bandsite = new BandSiteApi(apiKey);
+// const bandsite = new BandSiteApi(apiKey);
 // bandsite.getComments();
 // bandsite.getShows();
