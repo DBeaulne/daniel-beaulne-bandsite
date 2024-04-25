@@ -43,6 +43,8 @@ class BandSiteApi {
      * to authenticate the request. */
 
     try {
+      const response = await axios.post(`${this.baseUrl}comments?api_key=<${API_KEY}>`, comment);
+      console.log(response.data);
     } catch (error) {}
   };
 
@@ -55,7 +57,7 @@ class BandSiteApi {
       const response = await axios.get(`${this.baseUrl}comments?api_key=<${API_KEY}>`);
       return response.data;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -71,7 +73,7 @@ class BandSiteApi {
       const response = await axios.get(`${this.baseUrl}showdates?api_key=<${this.API_KEY}>`);
       return response.data;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 }

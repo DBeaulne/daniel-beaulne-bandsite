@@ -6,9 +6,8 @@
   comment: 'comment-text', // comment text
 }; */
 
-const Comment = function (username, timestamp, comment) {
-  this.username = username;
-  this.timestamp = new Date().toLocaleDateString();
+const Comment = function (username, comment) {
+  this.name = username;
   this.comment = comment;
 };
 
@@ -72,7 +71,7 @@ const removeComments = () => {
   const parent = document.getElementById('previous-comments');
   parent.innerHTML = '';
   const inputFullName = document.getElementsByTagName('input');
-  inputFullName.username.value = '';
+  inputFullName.name.value = '';
   const inputTextArea = document.getElementsByTagName('textarea');
   inputTextArea.comment.value = '';
 };
@@ -92,47 +91,39 @@ const commentForm = document.getElementById('commentForm');
 const nameField = document.getElementById('full-name');
 const commentField = document.getElementById('comment-area');
 
-// Function to submit the comment
-commentForm.addEventListener('submit', e => {
+// submit eventhandler function
+function submitHandler(e) {
   e.preventDefault(); // prevent page reload
 
+  // check all input fields for 'form-error' class, remove if present
   if (nameField.classList.contains('form-error')) {
-    nameField.classList.remove('form-error'); // check name input for 'form-error' class, if present, remove it.
+    nameField.classList.remove('form-error');
   }
   if (commentField.classList.contains('form-error')) {
-    commentField.classList.remove('form-error'); // check textarea for 'form-error' class, if present, remove it.
+    commentField.classList.remove('form-error');
   }
 
-  /*** Form validation
-   * if the name input field or comment textarea is empty, attach 'form-error' class to the field or textarea
-   * if the validation passes, post the new comment
-   */
-
-  if (e.target.username.value === '') {
+  // Form validation
+  if (e.target.name.value === '') {
     nameField.classList.add('form-error');
   } else if (e.target.comment.value === '') {
     commentField.classList.add('form-error');
   } else {
-    const newComment = new Comment(e.target.username.value, e.timeStamp, e.target.comment.value); // comment Object
-    comments.splice(0, 0, newComment);
+    const newComment = new Comment(e.target.name.value, e.target.comment.value); // new comment to send through API
     removeComments();
-    newPopulateComments();
+    postCommentData(newComment).then(result => newPopulateComments());
+    // newPopulateComments();
   }
-});
-
-// test data
-let testComment = {
-  name: 'Daniel Beaulne',
-  comment: 'this is an amazing band!'
-};
-
-async function postCommentData(testComment) {
-  const api = new BandSiteApi(API_KEY);
-  console.log(api);
-  console.log(testComment);
 }
 
-postCommentData(testComment);
+commentForm.addEventListener('submit', submitHandler);
+
+async function postCommentData(comment) {
+  const api = new BandSiteApi(API_KEY);
+  const response = await api.postComment(comment);
+  console.log(api);
+  console.log(comment);
+}
 
 // call hero image function and display the image at the path passed into the function
 heroImage('./assets/Images/hero-bio.jpg');
