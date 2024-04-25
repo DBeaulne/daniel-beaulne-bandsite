@@ -116,7 +116,7 @@ nav {
 
       a {
         @include typography.mobile-subheader;
-        color: variables.$Silver;
+        color: variables.$Mercury;
         font-weight: 400;
 
         @include mixin.tablet {

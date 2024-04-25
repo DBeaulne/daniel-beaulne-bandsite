@@ -29,6 +29,7 @@
  */
 
 // to use you must append ?api_key=<your_api_key_here> to each of the API request URLs (except for /register)
+
 const API_KEY = 'e687fdd1-3285-4094-9651-8a690a75b760';
 
 class BandSiteApi {
@@ -38,21 +39,12 @@ class BandSiteApi {
   }
 
   postComment = async comment => {
-    /**This method accepts a comment object as its only parameter. It must send a POST request
-     * to the API with the comment object as the body, using the API key instance property (this.apiKey)
-     * to authenticate the request. */
-
     try {
       const response = await axios.post(`${this.baseUrl}comments?api_key=<${API_KEY}>`, comment);
-      console.log(response.data);
     } catch (error) {}
   };
 
   getComments = async () => {
-    /** This method accepts no parameters. It must send a GET request to the API, using the
-     * API key instance property (this.apiKey) to authenticate the request.
-     * -- The getComments method must sort the array of comments from the API, returning them
-     * n order from newest to oldest. */
     try {
       const response = await axios.get(`${this.baseUrl}comments?api_key=<${API_KEY}>`);
       return response.data;
@@ -62,13 +54,6 @@ class BandSiteApi {
   };
 
   getShows = async () => {
-    /**
-     * This method accepts no parameters. It must send a GET request to the provided
-     * shows API, using the API key instance property (e.g. this.apiKey) to authenticate
-     * the request.
-     * The getShows method must return the array of show data objects
-     * returned from the API.
-     */
     try {
       const response = await axios.get(`${this.baseUrl}showdates?api_key=<${this.API_KEY}>`);
       return response.data;
@@ -77,7 +62,3 @@ class BandSiteApi {
     }
   };
 }
-
-// const bandsite = new BandSiteApi(API_KEY);
-// bandsite.getComments();
-// bandsite.getShows();

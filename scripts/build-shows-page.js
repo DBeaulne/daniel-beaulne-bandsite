@@ -1,10 +1,13 @@
 /* Shows Page Javascript */
 
+// call hero image function and display the image at the path passed into the function
+heroImage('../assets/Images/hero-shows.jpg');
+
 // Function to create the primary showdate container that will display the date, venue, & location
 // of the show, as well as include the labels for each piece of information
+
 const createShowDates = dates => {
   // create all the elements that we'll need as well as the class required for that element
-
   const parent = document.querySelector('.shows__wrapper');
   const showdatesContainerElm = makeElement('div', 'shows__showdates');
 
@@ -58,7 +61,6 @@ const createShowDates = dates => {
 
 const showdatesHeader = () => {
   // create all the elements that we'll need as well as the class required for that element
-
   const parent = document.querySelector('.shows');
   const showsContainerElm = makeElement('div', 'shows__container');
   const containerTitleElm = makeElement('div', 'shows__title');
@@ -73,7 +75,6 @@ const showdatesHeader = () => {
 
   // Build the component showdate container element including all child elements and the info that
   // goes into the necessary elements
-
   parent.appendChild(showsContainerElm);
   showsContainerElm.appendChild(containerTitleElm);
   containerTitleElm.appendChild(containerTitleElmH2);
@@ -92,16 +93,13 @@ const showdatesHeader = () => {
   showLocationLabelPtag.innerText = 'location';
 };
 
-// call hero image function and display the image at the path passed into the function
-heroImage('../assets/Images/hero-shows.jpg');
-
 async function getShowsData() {
   const api = new BandSiteApi(API_KEY);
   const newShowDates = await api.getShows();
   return newShowDates;
 }
 
-async function newRenderShows() {
+async function renderShows() {
   const newShowDates = await getShowsData();
   showdatesHeader();
   newShowDates.forEach(show => {
@@ -111,7 +109,7 @@ async function newRenderShows() {
   watchForClick();
 }
 
-newRenderShows();
+renderShows();
 
 // Code to handle the requirement that clicking on a show date changes the styling
 // as outlined in requirements
