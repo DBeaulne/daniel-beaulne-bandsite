@@ -4,3 +4,5 @@
 
 #ignore test files
 *API-test
+
+.idea
