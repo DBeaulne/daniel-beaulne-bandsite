@@ -1,5 +1,4 @@
 /* Index Page Javascript */
-// Object declaration
 
 // call hero image function and display the image at the path passed into the function
 heroImage('./assets/Images/hero-bio.jpg');
