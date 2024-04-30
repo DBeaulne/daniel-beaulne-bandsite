@@ -30,18 +30,20 @@
 
 // to use you must append ?api_key=<your_api_key_here> to each of the API request URLs (except for /register)
 
-const API_KEY = 'e687fdd1-3285-4094-9651-8a690a75b760';
+export const API_KEY = 'e687fdd1-3285-4094-9651-8a690a75b760';
 
-class BandSiteApi {
+export class BandSiteApi {
   constructor(API_KEY) {
     this.API_KEY = API_KEY;
     this.baseUrl = 'https://unit-2-project-api-25c1595833b2.herokuapp.com/';
   }
 
-  postComment = async comment => {
+  postComment = async (comment) => {
     try {
       const response = await axios.post(`${this.baseUrl}comments?api_key=<${API_KEY}>`, comment);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   getComments = async () => {

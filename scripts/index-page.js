@@ -1,4 +1,8 @@
 /* Index Page Javascript */
+// Module imports
+import { heroImage } from './functions.js';
+import { makeElement } from './functions.js';
+import { API_KEY, BandSiteApi } from './band-site-api.js';
 
 // call hero image function and display the image at the path passed into the function
 heroImage('./assets/Images/hero-bio.jpg');
