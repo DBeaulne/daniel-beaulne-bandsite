@@ -30,6 +30,14 @@ const createComment = c => {
   const userComment = makeElement('p', 'past-comments__user-comment');
   userComment.innerText = c.comment;
 
+  const commentButtonWrapper = makeElement('div', 'past-comments__btn-container');
+  const commentLikeBtn = makeElement('button', 'past-comments__btn');
+  commentLikeBtn.classList.add('like');
+  commentLikeBtn.innerText = 'Like';
+  const commentDeleteBtn = makeElement('button', 'past-comments__btn');
+  commentDeleteBtn.classList.add('delete');
+  commentDeleteBtn.innerText = 'Delete';
+
   // Build component
   parent.appendChild(commentAvatar);
   parent.appendChild(commentUser);
@@ -38,9 +46,13 @@ const createComment = c => {
 
   commentUser.appendChild(commentUserInfo);
   commentUser.appendChild(userComment);
+  commentUser.appendChild(commentButtonWrapper);
 
   commentUserInfo.appendChild(commentUsername);
   commentUserInfo.appendChild(commentTimestamp);
+
+  commentButtonWrapper.appendChild(commentLikeBtn);
+  commentButtonWrapper.appendChild(commentDeleteBtn);
 
   return parent;
 };

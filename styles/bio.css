@@ -1147,4 +1147,42 @@ textarea.form-error {
 .past-comments__user-comment p {
   line-height: 1rem;
   font-weight: 400;
+}
+.past-comments__btn-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+}
+.past-comments__btn {
+  font-family: "Avenir-Next";
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  height: 2.5rem;
+  width: 100%;
+  background-color: #323232;
+  color: #fff;
+  border-radius: 4px;
+  border-width: 0;
+  text-transform: uppercase;
+  border-style: none;
+  width: 4.5rem;
+}
+@media screen and (min-width: 768px) {
+  .past-comments__btn {
+    width: unset;
+  }
+}
+@media screen and (min-width: 768px) {
+  .past-comments__btn {
+    font-family: "Avenir-Next";
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    width: 6.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+.past-comments .like {
+  margin-right: 1rem;
 }/*# sourceMappingURL=bio.css.map */
