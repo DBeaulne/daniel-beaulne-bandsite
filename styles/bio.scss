@@ -506,7 +506,7 @@ textarea.form-error {
     }
   }
 
-  &__btn-container {
+  &__icon-container {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -514,21 +514,9 @@ textarea.form-error {
     padding-top: 1rem;
   }
 
-  &__btn {
-    @include typography.mobile-button;
-    @include mixin.button;
-    width: 4.5rem;
-    // height: 2rem;
-
-    @include mixin.tablet {
-      @include typography.tablet-button;
-      width: 6.5rem;
-      padding-left: 2rem;
-      padding-right: 2rem;
+  &__icon {
+    &--heart {
+      margin-right: 1rem;
     }
-  }
-
-  .like {
-    margin-right: 1rem;
   }
 }

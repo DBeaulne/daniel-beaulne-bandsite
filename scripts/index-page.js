@@ -31,22 +31,16 @@ const createComment = c => {
   const userComment = makeElement('p', 'past-comments__user-comment');
   userComment.innerText = c.comment;
 
-  const commentButtonWrapper = makeElement('div', 'past-comments__btn-container');
-  const commentLikeBtn = makeElement('button', 'past-comments__btn');
-  commentLikeBtn.classList.add('like');
-  commentLikeBtn.innerText = 'Like';
-  const commentDeleteBtn = makeElement('button', 'past-comments__btn');
-  commentDeleteBtn.classList.add('delete');
-  commentDeleteBtn.innerText = 'Delete';
+  const commentButtonWrapper = makeElement('div', 'past-comments__icon-container');
 
   const commentLikeIconAnchor = makeElement('a', 'past-comments__icon');
-  const commentLikeSVG = makeElement('svg', 'past-comments__icon--heart');
-  // commentLikeSVG.src = './assets/Icons/SVG/heart.svg';
+  const commentLikeSVG = makeElement('img', 'past-comments__icon--heart');
+  commentLikeSVG.src = './assets/Icons/SVG/heart.svg';
 
 
   const commentDeleteIconAnchor = makeElement('a', 'past-comments__icon');
-  const commentDeleteSVG = makeElement('svg', 'past-comments__icon--trash-can');
-  commentDeleteSVG.path = './assets/Icons/SVG/icon-delete.svg';
+  const commentDeleteSVG = makeElement('img', 'past-comments__icon--trash-can');
+  commentDeleteSVG.src = './assets/Icons/SVG/icon-delete.svg';
 
 
   // Build component
