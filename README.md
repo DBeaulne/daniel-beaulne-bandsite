@@ -13,3 +13,4 @@
 - debugging of api get/push code
 - implemented comment and shows rendering with api data
 - implement like / delete button code and styling, event listeners are a work in progress
+- integrate comment id into comment rendering to allow for 'like' & 'delete' functionality

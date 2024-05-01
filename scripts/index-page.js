@@ -18,6 +18,7 @@ const createComment = c => {
   // props to Hugo Stahelin for setting me on the right path with this code
   // Create elements
   const parent = makeElement('div', 'past-comments__container');
+  parent.id = c.id;
   const commentAvatar = makeElement('div', 'past-comments__avatar');
   const commentAvatarImg = makeElement('span', 'past-comments__avatar--avatar-img');
   const commentUser = makeElement('div', 'past-comments__user');

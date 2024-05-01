@@ -17,3 +17,4 @@ export const makeElement = (elem, className) => {
   element.classList.add(className);
   return element;
 };
+

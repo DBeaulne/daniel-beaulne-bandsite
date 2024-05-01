@@ -1153,6 +1153,7 @@ textarea.form-error {
   flex-direction: row;
   width: 100%;
   justify-content: flex-end;
+  padding-top: 1rem;
 }
 .past-comments__btn {
   font-family: "Avenir-Next";
