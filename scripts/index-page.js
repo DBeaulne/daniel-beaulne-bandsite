@@ -39,6 +39,16 @@ const createComment = c => {
   commentDeleteBtn.classList.add('delete');
   commentDeleteBtn.innerText = 'Delete';
 
+  const commentLikeIconAnchor = makeElement('a', 'past-comments__icon');
+  const commentLikeSVG = makeElement('svg', 'past-comments__icon--heart');
+  // commentLikeSVG.src = './assets/Icons/SVG/heart.svg';
+
+
+  const commentDeleteIconAnchor = makeElement('a', 'past-comments__icon');
+  const commentDeleteSVG = makeElement('svg', 'past-comments__icon--trash-can');
+  commentDeleteSVG.path = './assets/Icons/SVG/icon-delete.svg';
+
+
   // Build component
   parent.appendChild(commentAvatar);
   parent.appendChild(commentUser);
@@ -52,8 +62,10 @@ const createComment = c => {
   commentUserInfo.appendChild(commentUsername);
   commentUserInfo.appendChild(commentTimestamp);
 
-  commentButtonWrapper.appendChild(commentLikeBtn);
-  commentButtonWrapper.appendChild(commentDeleteBtn);
+  commentButtonWrapper.appendChild(commentLikeIconAnchor);
+  commentLikeIconAnchor.appendChild(commentLikeSVG);
+  commentButtonWrapper.appendChild(commentDeleteIconAnchor);
+  commentDeleteIconAnchor.appendChild(commentDeleteSVG);
 
   return parent;
 };
