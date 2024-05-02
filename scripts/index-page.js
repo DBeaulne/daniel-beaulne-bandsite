@@ -135,22 +135,19 @@ const watchFormSubmit = () => {
 let classStr = '';
 // Function to handle the like button click event
 const likeButtonHandler = (event) => {
-  let classStr = event.target.className;
-  console.log(classStr);
   
   let tempStr = event.target.className.split(' ');
   let idExtraction = tempStr[1];
 
   // paas the extracted id to the likeComment API function, wait for the promise
   // then pass the result and id to the update likes function
-  likeComment(idExtraction).then(result => updateLikes(result, idExtraction, classStr));
+  likeComment(idExtraction).then(result => updateLikes(result, idExtraction));
 }
 
 // function to update the span element that contains the likes count
-const updateLikes = (result, id, classStr) => {
+const updateLikes = (result, id) => {
   const likeContainerEle = document.getElementById(id);
   likeContainerEle.innerText = result.likes;
-  
   return;
 }
 
