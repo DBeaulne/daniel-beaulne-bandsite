@@ -18,7 +18,6 @@ const createComment = c => {
   // props to Hugo Stahelin for setting me on the right path with this code
   // Create elements
   const parent = makeElement('div', 'past-comments__container');
-  parent.id = c.id;
   const commentAvatar = makeElement('div', 'past-comments__avatar');
   const commentAvatarImg = makeElement('span', 'past-comments__avatar--avatar-img');
   const commentUser = makeElement('div', 'past-comments__user');
@@ -31,15 +30,19 @@ const createComment = c => {
   const userComment = makeElement('p', 'past-comments__user-comment');
   userComment.innerText = c.comment;
 
-  const commentButtonWrapper = makeElement('div', 'past-comments__icon-container');
+  const commentIconWrapper = makeElement('div', 'past-comments__icon-container');
 
+  const commentLikeDisplayEle = makeElement('span', 'past-comments__likes');
+  commentLikeDisplayEle.id = c.id;
   const commentLikeIconAnchor = makeElement('a', 'past-comments__icon');
   const commentLikeSVG = makeElement('img', 'past-comments__icon--heart');
+  commentLikeSVG.classList.add(c.id);
   commentLikeSVG.src = './assets/Icons/SVG/heart.svg';
 
 
   const commentDeleteIconAnchor = makeElement('a', 'past-comments__icon');
   const commentDeleteSVG = makeElement('img', 'past-comments__icon--trash-can');
+  commentDeleteSVG.classList.add(c.id);
   commentDeleteSVG.src = './assets/Icons/SVG/icon-delete.svg';
 
 
@@ -51,14 +54,15 @@ const createComment = c => {
 
   commentUser.appendChild(commentUserInfo);
   commentUser.appendChild(userComment);
-  commentUser.appendChild(commentButtonWrapper);
+  commentUser.appendChild(commentIconWrapper);
 
   commentUserInfo.appendChild(commentUsername);
   commentUserInfo.appendChild(commentTimestamp);
 
-  commentButtonWrapper.appendChild(commentLikeIconAnchor);
+  commentIconWrapper.appendChild(commentLikeDisplayEle);
+  commentIconWrapper.appendChild(commentLikeIconAnchor);
   commentLikeIconAnchor.appendChild(commentLikeSVG);
-  commentButtonWrapper.appendChild(commentDeleteIconAnchor);
+  commentIconWrapper.appendChild(commentDeleteIconAnchor);
   commentDeleteIconAnchor.appendChild(commentDeleteSVG);
 
   return parent;
@@ -104,6 +108,27 @@ function submitHandler(event) {
 const commentForm = document.getElementById('commentForm');
 commentForm.addEventListener('submit', submitHandler);
 
+const likeButtonHandler = (event) => {
+  let stringExtraction = event.target.className;
+  let newString = stringExtraction.slice(27);
+  likeComment(newString).then(result => updateLikes(result, newString));
+}
+
+const updateLikes = (result, id) => {
+  const likeContainerEle = document.getElementById(id);
+  likeContainerEle.innerText = result.likes;
+}
+
+const watchForLikes = () => {
+  const pastCommentsContainer = document.querySelectorAll('.past-comments__container');
+
+  pastCommentsContainer.forEach((value, index) => {
+    pastCommentsContainer[index].addEventListener('click', likeButtonHandler)}
+)};
+
+
+
+
 /**Async Functions */
 
 // function to call the postComment API, pass in the new comment
@@ -128,6 +153,14 @@ async function getCommentData() {
   return newComments;
 }
 
+// function to like a comment, pass the comment id to the api
+// and wait for the response back from the server.
+async function likeComment(id) {
+  const api = new BandSiteApi(API_KEY);
+  const response = await api.likeComment(id);
+  return response
+}
+
 // async function to populate the comments retrieved from the getCommentData async function
 async function populateComments() {
   const newComments = await getCommentData();
@@ -135,6 +168,7 @@ async function populateComments() {
     const commentSection = document.querySelector('#previous-comments');
     commentSection.append(createComment(c));
   });
+  watchForLikes();
 }
 
 // populate comments on page load

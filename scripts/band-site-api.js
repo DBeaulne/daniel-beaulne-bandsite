@@ -49,7 +49,6 @@ export class BandSiteApi {
   getComments = async () => {
     try {
       const response = await axios.get(`${this.baseUrl}comments?api_key=<${API_KEY}>`);
-      console.log(response.data);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -64,4 +63,13 @@ export class BandSiteApi {
       console.error(error);
     }
   };
+
+  likeComment = async (id) => {
+    try {
+      const response = await axios.put(`${this.baseUrl}comments/${id}/like?api_key=<${this.API_KEY}>`);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
