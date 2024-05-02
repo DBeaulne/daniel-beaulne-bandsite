@@ -92,35 +92,38 @@ const containsNumbers = (event) => {
   return /\d/.test(str);
 }
 
-// form validation function
-function formValidation(event) {
-  const nameField = document.getElementById('full-name');
-  const commentField = document.getElementById('comment-area');
-
-  // check all input fields for 'form-error' class, remove if present
-  nameField.classList.contains('form-error') ? nameField.classList.remove('form-error') : false;
-  commentField.classList.contains('form-error') ? commentField.classList.remove('form-error') : false;
-
-  event.target.name.value === ''
-    ? nameField.classList.add('form-error')
-    : event.target.comment.value === ''
-    ? commentField.classList.add('form-error')
-    : true;
-
-  return;
-}
-
+const nameField = document.getElementById('full-name');
+const commentField = document.getElementById('comment-area');
 // submit eventhandler function
 function submitHandler(event) {
+  
   event.preventDefault(); // prevent page reload
+  
+  if (nameField.classList.contains('form-error')) {
+    nameField.classList.remove('form-error'); // check name input for 'form-error' class, if present, remove it.
+  }
+  if (commentField.classList.contains('form-error')) {
+    commentField.classList.remove('form-error'); // check textarea for 'form-error' class, if present, remove it.
+  }
+  /*** Form validation
+   * if the name input field or comment textarea is empty, attach 'form-error' class to the field or textarea
+   * if the validation passes, post the new comment
+   */
 
-  formValidation(event);
-
+  
+  if (event.target.name.value === '') {
+    nameField.classList.add('form-error');
+  } else if (containsNumbers(event) === true) {
+    nameField.classList.add('form-error');
+  } else if (event.target.comment.value === '') {
+    commentField.classList.add('form-error');
+  } else {
   const newComment = new Comment(event.target.name.value, event.target.comment.value); // new comment to send through API
   removeComments();
   removeInputValues();
   postCommentData(newComment)
   .then(result => populateComments()); // post the new comments, when the promise resolves, populate the updated comments.
+  }
 }
 
 // function to watch for form submit event
