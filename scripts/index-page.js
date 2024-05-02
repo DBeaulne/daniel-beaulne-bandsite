@@ -34,6 +34,7 @@ const createComment = c => {
 
   const commentLikeDisplayEle = makeElement('span', 'past-comments__likes');
   commentLikeDisplayEle.id = c.id;
+  (c.likes >= 1) ? commentLikeDisplayEle.innerText = c.likes : commentLikeDisplayEle.innerText = '';
   const commentLikeIconAnchor = makeElement('a', 'past-comments__icon');
   const commentLikeSVG = makeElement('img', 'past-comments__icon--heart');
   commentLikeSVG.classList.add(c.id);
@@ -69,16 +70,29 @@ const createComment = c => {
 };
 
 // A function to clear all the comments from the page before we re-render
-// the comments to include the new comment
+// the section to include the new comment
 const removeComments = () => {
   const parent = document.getElementById('previous-comments');
   parent.innerHTML = '';
+  return;
+};
+
+// function to clear all the of the values from the form input fields
+const removeInputValues = () => {
   const inputFullName = document.getElementsByTagName('input');
   inputFullName.name.value = '';
   const inputTextArea = document.getElementsByTagName('textarea');
   inputTextArea.comment.value = '';
+  return;
 };
 
+// check if name input field contains numbers
+const containsNumbers = (event) => {
+  let str = event.target.name.value;
+  return /\d/.test(str);
+}
+
+// form validation function
 function formValidation(event) {
   const nameField = document.getElementById('full-name');
   const commentField = document.getElementById('comment-area');
@@ -92,6 +106,8 @@ function formValidation(event) {
     : event.target.comment.value === ''
     ? commentField.classList.add('form-error')
     : true;
+
+  return;
 }
 
 // submit eventhandler function
@@ -102,32 +118,71 @@ function submitHandler(event) {
 
   const newComment = new Comment(event.target.name.value, event.target.comment.value); // new comment to send through API
   removeComments();
-  postCommentData(newComment).then(result => populateComments()); // post the new comments, when the promise resolves, populate the updated comments.
+  removeInputValues();
+  postCommentData(newComment)
+  .then(result => populateComments()); // post the new comments, when the promise resolves, populate the updated comments.
 }
 
-const commentForm = document.getElementById('commentForm');
-commentForm.addEventListener('submit', submitHandler);
+// function to watch for form submit event
+const watchFormSubmit = () => {
+  const commentForm = document.getElementById('commentForm');
+  commentForm.addEventListener('submit', submitHandler);
+}
 
+let classStr = '';
+// Function to handle the like button click event
 const likeButtonHandler = (event) => {
-  let stringExtraction = event.target.className;
-  let newString = stringExtraction.slice(27);
-  likeComment(newString).then(result => updateLikes(result, newString));
+  let classStr = event.target.className;
+  console.log(classStr);
+  
+  let tempStr = event.target.className.split(' ');
+  let idExtraction = tempStr[1];
+
+  // paas the extracted id to the likeComment API function, wait for the promise
+  // then pass the result and id to the update likes function
+  likeComment(idExtraction).then(result => updateLikes(result, idExtraction, classStr));
 }
 
-const updateLikes = (result, id) => {
+// function to update the span element that contains the likes count
+const updateLikes = (result, id, classStr) => {
   const likeContainerEle = document.getElementById(id);
   likeContainerEle.innerText = result.likes;
+  
+  return;
 }
 
-const watchForLikes = () => {
-  const pastCommentsContainer = document.querySelectorAll('.past-comments__container');
+// function to watch for click event on heart icon
+const watchForLikes = (classNameStr) => {
+  const parent = document.querySelectorAll(classNameStr);
 
-  pastCommentsContainer.forEach((value, index) => {
-    pastCommentsContainer[index].addEventListener('click', likeButtonHandler)}
+  parent.forEach((value, index) => {
+    parent[index].addEventListener('click', likeButtonHandler)}
 )};
 
 
+// Function to handle the delete button click event
+const deleteButtonHandler = (event) => {
 
+  // put event className in a temp string so we can extract the id with .split string method looking for the 
+  // first empty space and then extracting the id
+  // instead of using .slice, where we would have to make sure that we remembered to count the number of char before the id
+  const tempStr = event.target.className.split(' ');
+  let idExtraction = tempStr[1];
+  
+  // paas the extracted id to the likeComment API function, wait for the promise
+  // then pass the result and id to the update likes function
+  deleteComment(idExtraction)
+  .then(result => removeComments())
+  .then(result => populateComments());
+}
+
+// function to watch for click event on trash icon
+const watchForTrash = (classNameStr) => {
+  const parent = document.querySelectorAll(classNameStr);
+
+  parent.forEach((value, index) => {
+    parent[index].addEventListener('click', deleteButtonHandler)}
+)};
 
 /**Async Functions */
 
@@ -158,7 +213,15 @@ async function getCommentData() {
 async function likeComment(id) {
   const api = new BandSiteApi(API_KEY);
   const response = await api.likeComment(id);
-  return response
+  return response;
+}
+
+// function to delete a comment, pass the comment id to the api
+// and wait for the response back from the server.
+async function deleteComment(id) {
+  const api = new BandSiteApi(API_KEY);
+  const response = await api.deleteComment(id);
+  return response;
 }
 
 // async function to populate the comments retrieved from the getCommentData async function
@@ -168,8 +231,10 @@ async function populateComments() {
     const commentSection = document.querySelector('#previous-comments');
     commentSection.append(createComment(c));
   });
-  watchForLikes();
+  watchForLikes('.past-comments__icon--heart');
+  watchForTrash('.past-comments__icon--trash-can');
 }
 
-// populate comments on page load
+// initiate on page load
+watchFormSubmit();
 populateComments();

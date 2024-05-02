@@ -1157,4 +1157,7 @@ textarea.form-error {
 }
 .past-comments__icon--heart {
   margin-right: 1rem;
+}
+.past-comments__likes {
+  padding-right: 0.25rem;
 }/*# sourceMappingURL=bio.css.map */
