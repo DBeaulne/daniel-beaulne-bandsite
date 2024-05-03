@@ -132,7 +132,6 @@ const watchFormSubmit = () => {
   commentForm.addEventListener('submit', submitHandler);
 }
 
-let classStr = '';
 // Function to handle the like button click event
 const likeButtonHandler = (event) => {
   
