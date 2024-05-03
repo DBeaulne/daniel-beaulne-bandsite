@@ -10,6 +10,11 @@ p {
   font-weight: 400;
 }
 
+iframe {
+  border: 0px;
+  border-radius: 0.25rem;
+}
+
 /* Extensions */
 .section-initial-styling {
   display: flex;
@@ -236,12 +241,12 @@ p {
     width: 100%;
 
     @include mixin.tablet {
+      justify-content: flex-end;
       width: 25%;
     }
 
     @include mixin.desktop {
       position: absolute;
-      justify-content: flex-end;
       right: 1.5rem;
     }
   }

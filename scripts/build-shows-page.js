@@ -9,7 +9,6 @@ heroImage('../assets/Images/hero-shows.jpg');
 
 // Function to create the primary showdate container that will display the date, venue, & location
 // of the show, as well as include the labels for each piece of information
-
 const createShowDates = dates => {
   // create all the elements that we'll need as well as the class required for that element
   const parent = document.querySelector('.shows__wrapper');
@@ -59,10 +58,9 @@ const createShowDates = dates => {
   return parent;
 };
 
-// function to render the showdates header which contains the title element as well as an
+// function to build the showdates header which contains the title element as well as an
 // element that contains the Date, Venue, & Location labels that is displayed only on
 // tablet or desktop view and hidden in mobile view, as set by the media query breakpoints
-
 const showdatesHeader = () => {
   // create all the elements that we'll need as well as the class required for that element
   const parent = document.querySelector('.shows');
@@ -97,12 +95,16 @@ const showdatesHeader = () => {
   showLocationLabelPtag.innerText = 'location';
 };
 
+
+// function to get the show date date from the server by
+// calling the api getShows function
 async function getShowsData() {
   const api = new BandSiteApi(API_KEY);
   const newShowDates = await api.getShows();
   return newShowDates;
 }
 
+// function to render the show dates when called
 async function renderShows() {
   const newShowDates = await getShowsData();
   showdatesHeader();
@@ -113,14 +115,12 @@ async function renderShows() {
   watchForClick();
 }
 
-renderShows();
-
 // Code to handle the requirement that clicking on a show date changes the styling
 // as outlined in requirements
 
 const watchForClick = () => {
   const showdatesContainer = document.querySelectorAll('.shows__showdates');
-
+  
   showdatesContainer.forEach((value, index) => {
     showdatesContainer[index].addEventListener('click', function (event) {
       if (this.id !== 'activeShowdate') {
@@ -133,9 +133,12 @@ const watchForClick = () => {
 
 const clearAttributes = () => {
   const showdateRemoveID = document.getElementById('activeShowdate');
-
+  
   if (showdateRemoveID !== null) {
     showdateRemoveID.removeAttribute('id');
   }
   return;
 };
+
+// called on page load
+renderShows();
