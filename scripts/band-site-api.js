@@ -12,7 +12,7 @@ export class BandSiteApi {
 
   postComment = async (comment) => {
     try {
-      const response = await axios.post(`${this.baseUrl}comments?api_key=<${API_KEY}>`, comment);
+      const response = await axios.post(`${this.baseUrl}comments?api_key=<${this.API_KEY}>`, comment);
     } catch (error) {
       console.log(error);
     }
@@ -20,7 +20,7 @@ export class BandSiteApi {
 
   getComments = async () => {
     try {
-      const response = await axios.get(`${this.baseUrl}comments?api_key=<${API_KEY}>`);
+      const response = await axios.get(`${this.baseUrl}comments?api_key=<${this.API_KEY}>`);
       return response.data;
     } catch (error) {
       console.error(error);
