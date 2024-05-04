@@ -1,4 +1,5 @@
 # BandSite
+
 - site folder structure initialization
 - merge of Sprint-1 into main branch
 
@@ -14,3 +15,4 @@
 - implemented comment and shows rendering with api data
 - implement like / delete button code and styling, event listeners are a work in progress
 - integrate comment id into comment rendering to allow for 'like' & 'delete' functionality
+- final clean up of code and styling, including implementation of feedback from sprint-1 & sprint-2
